@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: ed8f3c24a1f930c4b8a7c8ca4890a5e1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6031975512361141924
+    second: Title rocksheet_0
+  - first:
+      213: 8782906951865397107
+    second: Title rocksheet_1
+  - first:
+      213: -8211360726253765316
+    second: Title rocksheet_2
+  - first:
+      213: 8367600391023655890
+    second: Title rocksheet_3
+  - first:
+      213: -9006281533157937380
+    second: Title rocksheet_4
+  - first:
+      213: -990796643541358519
+    second: Title rocksheet_5
+  - first:
+      213: -2302630074458210517
+    second: Title rocksheet_6
+  - first:
+      213: -5483378364571567995
+    second: Title rocksheet_7
+  - first:
+      213: -8058435151074983878
+    second: Title rocksheet_8
+  - first:
+      213: -4286502693335379124
+    second: Title rocksheet_9
+  - first:
+      213: -4909467413495966216
+    second: Title rocksheet_10
+  - first:
+      213: -8715794045874746690
+    second: Title rocksheet_11
+  - first:
+      213: -7806906389067534287
+    second: Title rocksheet_12
+  - first:
+      213: -5961534393967785867
+    second: Title rocksheet_13
+  - first:
+      213: 6024357176296179966
+    second: Title rocksheet_14
+  - first:
+      213: 3364632411568617890
+    second: Title rocksheet_15
+  - first:
+      213: -5771603688673819194
+    second: Title rocksheet_16
+  - first:
+      213: -2823864237123421548
+    second: Title rocksheet_17
+  - first:
+      213: 4622782826149560558
+    second: Title rocksheet_18
+  - first:
+      213: 6974402038217671660
+    second: Title rocksheet_19
+  - first:
+      213: 7668672591552867412
+    second: Title rocksheet_20
+  - first:
+      213: 3730526920472087564
+    second: Title rocksheet_21
+  - first:
+      213: 457965389179447295
+    second: Title rocksheet_22
+  - first:
+      213: -5775406760617248970
+    second: Title rocksheet_23
+  - first:
+      213: -478107951492073086
+    second: Title rocksheet_24
+  - first:
+      213: 4545760123376772936
+    second: Title rocksheet_25
+  - first:
+      213: 2688420509580035834
+    second: Title rocksheet_26
+  - first:
+      213: 3650258805481359921
+    second: Title rocksheet_27
+  - first:
+      213: 5348313134148971150
+    second: Title rocksheet_28
+  - first:
+      213: 1518303902550950627
+    second: Title rocksheet_29
+  - first:
+      213: 5547691823736726631
+    second: Title rocksheet_30
+  - first:
+      213: -4001069420862059864
+    second: Title rocksheet_31
+  - first:
+      213: -1835701328518579433
+    second: Title rocksheet_32
+  - first:
+      213: 24910972442829495
+    second: Title rocksheet_33
+  - first:
+      213: 3281459314766504877
+    second: Title rocksheet_34
+  - first:
+      213: -911449005027234278
+    second: Title rocksheet_35
+  - first:
+      213: 3483811873730629877
+    second: Title rocksheet_36
+  - first:
+      213: 9141701686002778200
+    second: Title rocksheet_37
+  - first:
+      213: -5426606007614749289
+    second: Title rocksheet_38
+  - first:
+      213: 4883433015029051985
+    second: Title rocksheet_39
+  - first:
+      213: -7370761988603898249
+    second: Title rocksheet_40
+  - first:
+      213: -4825399457396201630
+    second: Title rocksheet_41
+  - first:
+      213: -2848281830526165139
+    second: Title rocksheet_42
+  - first:
+      213: 3592600931085913525
+    second: Title rocksheet_43
+  - first:
+      213: 3111492548879067615
+    second: Title rocksheet_44
+  - first:
+      213: -2606446771991200171
+    second: Title rocksheet_45
+  - first:
+      213: -1785253976163889907
+    second: Title rocksheet_46
+  - first:
+      213: 3233614936832937569
+    second: Title rocksheet_47
+  - first:
+      213: -6111578859055567233
+    second: Title rocksheet_48
+  - first:
+      213: -3301217015602431438
+    second: Title rocksheet_49
+  - first:
+      213: 5216724060891146774
+    second: Title rocksheet_50
+  - first:
+      213: -3418595304717864238
+    second: Title rocksheet_51
+  - first:
+      213: -8894095713420507497
+    second: Title rocksheet_52
+  - first:
+      213: 4521519256464956669
+    second: Title rocksheet_53
+  - first:
+      213: -6894024714960791898
+    second: Title rocksheet_54
+  - first:
+      213: 4353158972659039861
+    second: Title rocksheet_55
+  - first:
+      213: -4730866973536224624
+    second: Title rocksheet_56
+  - first:
+      213: 4785272061871722375
+    second: Title rocksheet_57
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Title rocksheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 3000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a6042c05c1e5b350800000000000000
+      internalID: 6031975512361141924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title rocksheet_1
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 3000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37fee31c65723e970800000000000000
+      internalID: 8782906951865397107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title rocksheet_2
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 3000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3dfc05dce26b0e80800000000000000
+      internalID: -8211360726253765316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title rocksheet_3
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 3000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db7261e830bf1470800000000000000
+      internalID: 8367600391023655890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title rocksheet_4
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 0
+        width: 3000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1fe5f4b9a2430380800000000000000
+      internalID: -9006281533157937380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title rocksheet_5
+      rect:
+        serializedVersion: 2
+        x: 15000
+        y: 0
+        width: 3000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9486111c3bbff32f0800000000000000
+      internalID: -990796643541358519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 85cd3b0a4b53ce2418d33df1fb4162f8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Title rocksheet_0: 6031975512361141924
+      Title rocksheet_1: 8782906951865397107
+      Title rocksheet_10: -4909467413495966216
+      Title rocksheet_11: -8715794045874746690
+      Title rocksheet_12: -7806906389067534287
+      Title rocksheet_13: -5961534393967785867
+      Title rocksheet_14: 6024357176296179966
+      Title rocksheet_15: 3364632411568617890
+      Title rocksheet_16: -5771603688673819194
+      Title rocksheet_17: -2823864237123421548
+      Title rocksheet_18: 4622782826149560558
+      Title rocksheet_19: 6974402038217671660
+      Title rocksheet_2: -8211360726253765316
+      Title rocksheet_20: 7668672591552867412
+      Title rocksheet_21: 3730526920472087564
+      Title rocksheet_22: 457965389179447295
+      Title rocksheet_23: -5775406760617248970
+      Title rocksheet_24: -478107951492073086
+      Title rocksheet_25: 4545760123376772936
+      Title rocksheet_26: 2688420509580035834
+      Title rocksheet_27: 3650258805481359921
+      Title rocksheet_28: 5348313134148971150
+      Title rocksheet_29: 1518303902550950627
+      Title rocksheet_3: 8367600391023655890
+      Title rocksheet_30: 5547691823736726631
+      Title rocksheet_31: -4001069420862059864
+      Title rocksheet_32: -1835701328518579433
+      Title rocksheet_33: 24910972442829495
+      Title rocksheet_34: 3281459314766504877
+      Title rocksheet_35: -911449005027234278
+      Title rocksheet_36: 3483811873730629877
+      Title rocksheet_37: 9141701686002778200
+      Title rocksheet_38: -5426606007614749289
+      Title rocksheet_39: 4883433015029051985
+      Title rocksheet_4: -9006281533157937380
+      Title rocksheet_40: -7370761988603898249
+      Title rocksheet_41: -4825399457396201630
+      Title rocksheet_42: -2848281830526165139
+      Title rocksheet_43: 3592600931085913525
+      Title rocksheet_44: 3111492548879067615
+      Title rocksheet_45: -2606446771991200171
+      Title rocksheet_46: -1785253976163889907
+      Title rocksheet_47: 3233614936832937569
+      Title rocksheet_48: -6111578859055567233
+      Title rocksheet_49: -3301217015602431438
+      Title rocksheet_5: -990796643541358519
+      Title rocksheet_50: 5216724060891146774
+      Title rocksheet_51: -3418595304717864238
+      Title rocksheet_52: -8894095713420507497
+      Title rocksheet_53: 4521519256464956669
+      Title rocksheet_54: -6894024714960791898
+      Title rocksheet_55: 4353158972659039861
+      Title rocksheet_56: -4730866973536224624
+      Title rocksheet_57: 4785272061871722375
+      Title rocksheet_6: -2302630074458210517
+      Title rocksheet_7: -5483378364571567995
+      Title rocksheet_8: -8058435151074983878
+      Title rocksheet_9: -4286502693335379124
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
