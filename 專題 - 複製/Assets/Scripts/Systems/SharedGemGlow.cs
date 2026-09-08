@@ -1,35 +1,35 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
 /// <summary>
-/// ¤@²Õ«ö¶s¦@¥ÎªºÄ_¥Ûµo¥ú±±¨î¡C
-/// ¥ô¦ó¤@­Óµù¥Uªº«ö¶s³QÄa°±¡AÄ_¥Û´N¥­·ÆÅÜ«G¡F¥ş³¡²¾¶}¤~¥­·ÆÅÜ·t¡C
-/// ¥Î³æ¤@±±¨î¾¹ + hoverCount ­p¼Æ¡AÁ×§K¦h­Ó¸}¥»·m±±¨î¦P¤@ÁûÄ_¥Û³y¦¨°{Ã{¡C
-/// ±¾¦b¤@­ÓºŞ²z¥ÎªºªÅª«¥ó¤W¡A§â«ö¶s©MÄ_¥Û³£«ü©w¶i¨Ó¡C
+/// ä¸€çµ„æŒ‰éˆ•å…±ç”¨çš„å¯¶çŸ³ç™¼å…‰æ§åˆ¶ã€‚
+/// ä»»ä½•ä¸€å€‹è¨»å†Šçš„æŒ‰éˆ•è¢«æ‡¸åœï¼Œå¯¶çŸ³å°±å¹³æ»‘è®Šäº®ï¼›å…¨éƒ¨ç§»é–‹æ‰å¹³æ»‘è®Šæš—ã€‚
+/// ç”¨å–®ä¸€æ§åˆ¶å™¨ + hoverCount è¨ˆæ•¸ï¼Œé¿å…å¤šå€‹è…³æœ¬æ¶æ§åˆ¶åŒä¸€é¡†å¯¶çŸ³é€ æˆé–ƒçˆã€‚
+/// æ›åœ¨ä¸€å€‹ç®¡ç†ç”¨çš„ç©ºç‰©ä»¶ä¸Šï¼ŒæŠŠæŒ‰éˆ•å’Œå¯¶çŸ³éƒ½æŒ‡å®šé€²ä¾†ã€‚
 /// </summary>
 public class SharedGemGlow : MonoBehaviour
 {
-    [Header("Ä²µo¨Ó·½")]
-    [Tooltip("·|Ä²µoÄ_¥Ûµo¥úªº©Ò¦³«ö¶s")]
+    [Header("è§¸ç™¼ä¾†æº")]
+    [Tooltip("æœƒè§¸ç™¼å¯¶çŸ³ç™¼å…‰çš„æ‰€æœ‰æŒ‰éˆ•")]
     [SerializeField] List<RectTransform> buttons = new();
 
-    [Header("µo¥ú¥Ø¼Ğ")]
-    [Tooltip("­n¤@°_µo¥úªºÄ_¥Û Animator¡]¥i¦hÁû¡^")]
+    [Header("ç™¼å…‰ç›®æ¨™")]
+    [Tooltip("è¦ä¸€èµ·ç™¼å…‰çš„å¯¶çŸ³ Animatorï¼ˆå¯å¤šé¡†ï¼‰")]
     [SerializeField] Animator[] gems;
 
-    [Header("³]©w")]
-    [Tooltip("ÅÜ«G/ÅÜ·t³t«×¡A¶V¤j¶V§Ö")]
+    [Header("è¨­å®š")]
+    [Tooltip("è®Šäº®/è®Šæš—é€Ÿåº¦ï¼Œè¶Šå¤§è¶Šå¿«")]
     [SerializeField] float speed = 3f;
-    [Tooltip("Ä_¥Û°Êµeªºª¬ºA¦WºÙ¡A»İ»P Animator ¸Ìªºª¬ºA¤@­P")]
+    [Tooltip("å¯¶çŸ³å‹•ç•«çš„ç‹€æ…‹åç¨±ï¼Œéœ€èˆ‡ Animator è£¡çš„ç‹€æ…‹ä¸€è‡´")]
     [SerializeField] string stateName = "Glow";
 
-    int hoverCount = 0;   // ¥Ø«e¦³´X­Ó«ö¶s¥¿³QÄa°±
-    float blend;          // 0 = ·t¡A1 = ³Ì«G
+    int hoverCount = 0;   // ç›®å‰æœ‰å¹¾å€‹æŒ‰éˆ•æ­£è¢«æ‡¸åœ
+    float blend;          // 0 = æš—ï¼Œ1 = æœ€äº®
 
     void Start()
     {
-        // ¬°¨C­Ó«ö¶s¦Û°Ê±¾¤WÄa°±°»´ú¡]¶i¤J/Â÷¶}¡^
+        // ç‚ºæ¯å€‹æŒ‰éˆ•è‡ªå‹•æ›ä¸Šæ‡¸åœåµæ¸¬ï¼ˆé€²å…¥/é›¢é–‹ï¼‰
         foreach (var btn in buttons)
         {
             if (btn == null) continue;
@@ -55,14 +55,14 @@ public class SharedGemGlow : MonoBehaviour
 
     void Update()
     {
-        // ¥u­n¦³¥ô¦ó«ö¶s³QÄa°±´N©¹«G¡A§_«h©¹·t
+        // åªè¦æœ‰ä»»ä½•æŒ‰éˆ•è¢«æ‡¸åœå°±å¾€äº®ï¼Œå¦å‰‡å¾€æš—
         float target = hoverCount > 0 ? 1f : 0f;
         blend = Mathf.MoveTowards(blend, target, speed * Time.unscaledDeltaTime);
 
         foreach (var g in gems)
         {
             if (g == null) continue;
-            // §â°Êµe­áµ²¦b blend ¹ïÀ³ªº®É¶¡ÂI¡]0=·t¡A1=«G¡^
+            // æŠŠå‹•ç•«å‡çµåœ¨ blend å°æ‡‰çš„æ™‚é–“é»ï¼ˆ0=æš—ï¼Œ1=äº®ï¼‰
             g.Play(stateName, 0, blend);
             g.speed = 0;
         }

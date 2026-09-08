@@ -1,44 +1,44 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ©Çª« AI ª¬ºA¾÷¡G¨µÅŞ ¡÷ µo²{ª±®a°lÂÜ ¡÷ ±µªñ§ğÀ» ¡÷ ¥¢¥h¥Ø¼Ğ¦^¨µÅŞ¡C
-/// ±¾¦b¼Ä¤H¨­¤W¡A»İ­n Rigidbody2D¡C
+/// æ€ªç‰© AI ç‹€æ…‹æ©Ÿï¼šå·¡é‚ â†’ ç™¼ç¾ç©å®¶è¿½è¹¤ â†’ æ¥è¿‘æ”»æ“Š â†’ å¤±å»ç›®æ¨™å›å·¡é‚ã€‚
+/// æ›åœ¨æ•µäººèº«ä¸Šï¼Œéœ€è¦ Rigidbody2Dã€‚
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyAI : MonoBehaviour
 {
     enum State { Patrol, Chase, Attack }
 
-    [Header("°»´ú")]
-    [Tooltip("µo²{ª±®aªº½d³ò")]
+    [Header("åµæ¸¬")]
+    [Tooltip("ç™¼ç¾ç©å®¶çš„ç¯„åœ")]
     [SerializeField] float detectRange = 6f;
-    [Tooltip("¶i¤J§ğÀ»ªº½d³ò")]
+    [Tooltip("é€²å…¥æ”»æ“Šçš„ç¯„åœ")]
     [SerializeField] float attackRange = 1.5f;
-    [Tooltip("¥¢¥hª±®aªº½d³ò¡]¤ñ°»´ú¤j¡AÁ×§KÃä½t§İ°Ê¡^")]
+    [Tooltip("å¤±å»ç©å®¶çš„ç¯„åœï¼ˆæ¯”åµæ¸¬å¤§ï¼Œé¿å…é‚Šç·£æŠ–å‹•ï¼‰")]
     [SerializeField] float loseRange = 8f;
 
-    [Header("²¾°Ê")]
+    [Header("ç§»å‹•")]
     [SerializeField] float patrolSpeed = 2f;
     [SerializeField] float chaseSpeed = 4f;
 
-    [Header("¨µÅŞ")]
-    [Tooltip("¨µÅŞ½d³ò¡]±q°_ÂI©¹¨âÃä¦U³o»ò»·¡^")]
+    [Header("å·¡é‚")]
+    [Tooltip("å·¡é‚ç¯„åœï¼ˆå¾èµ·é»å¾€å…©é‚Šå„é€™éº¼é ï¼‰")]
     [SerializeField] float patrolDistance = 3f;
-    [Tooltip("¨µÅŞ¨ìÃä½tªºµ¥«İ®É¶¡")]
+    [Tooltip("å·¡é‚åˆ°é‚Šç·£çš„ç­‰å¾…æ™‚é–“")]
     [SerializeField] float patrolWaitTime = 1f;
 
-    [Header("§ğÀ»")]
-    [Tooltip("§ğÀ»¶¡¹j")]
+    [Header("æ”»æ“Š")]
+    [Tooltip("æ”»æ“Šé–“éš”")]
     [SerializeField] float attackCooldown = 1.5f;
 
-    [Header("¦a­±/Àğ°»´ú")]
-    [Tooltip("«e¤è°»´úÂI¡]Á×§K¨«¥X¥­¥x©Î¼²Àğ¡^")]
+    [Header("åœ°é¢/ç‰†åµæ¸¬")]
+    [Tooltip("å‰æ–¹åµæ¸¬é»ï¼ˆé¿å…èµ°å‡ºå¹³å°æˆ–æ’ç‰†ï¼‰")]
     [SerializeField] Transform edgeCheck;
     [SerializeField] float edgeCheckDist = 1f;
     [SerializeField] LayerMask groundLayer;
 
-    [Header("´Â¦V")]
-    [Tooltip("¨¤¦â¹Ï¹w³]´Â¥ª«h¤Ä")]
+    [Header("æœå‘")]
+    [Tooltip("è§’è‰²åœ–é è¨­æœå·¦å‰‡å‹¾")]
     [SerializeField] bool spriteFacesLeft = false;
 
     State state = State.Patrol;
@@ -69,7 +69,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        // ¦º¤F¤£°Ê§@
+        // æ­»äº†ä¸å‹•ä½œ
         if (health != null && health.IsDead) return;
 
         if (attackTimer > 0) attackTimer -= Time.deltaTime;
@@ -79,7 +79,7 @@ public class EnemyAI : MonoBehaviour
         UpdateAnimator();
     }
 
-    // ---- ª¬ºAÂà´«§PÂ_ ----
+    // ---- ç‹€æ…‹è½‰æ›åˆ¤æ–· ----
     void UpdateStateTransitions()
     {
         if (player == null) { state = State.Patrol; return; }
@@ -89,21 +89,21 @@ public class EnemyAI : MonoBehaviour
         switch (state)
         {
             case State.Patrol:
-                if (dist <= detectRange) state = State.Chase;   // µo²{ª±®a
+                if (dist <= detectRange) state = State.Chase;   // ç™¼ç¾ç©å®¶
                 break;
 
             case State.Chase:
-                if (dist > loseRange) state = State.Patrol;      // ¥¢¥hª±®a
-                else if (dist <= attackRange) state = State.Attack;  // °÷ªñ¡A§ğÀ»
+                if (dist > loseRange) state = State.Patrol;      // å¤±å»ç©å®¶
+                else if (dist <= attackRange) state = State.Attack;  // å¤ è¿‘ï¼Œæ”»æ“Š
                 break;
 
             case State.Attack:
-                if (dist > attackRange) state = State.Chase;     // ª±®a¶]»·¡A°l
+                if (dist > attackRange) state = State.Chase;     // ç©å®¶è·‘é ï¼Œè¿½
                 break;
         }
     }
 
-    // ---- °õ¦æ·í«eª¬ºA ----
+    // ---- åŸ·è¡Œç•¶å‰ç‹€æ…‹ ----
     void RunState()
     {
         switch (state)
@@ -114,10 +114,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // ---- ¨µÅŞ ----
+    // ---- å·¡é‚ ----
     void Patrol()
     {
-        // ¨µÅŞµ¥«İ¤¤
+        // å·¡é‚ç­‰å¾…ä¸­
         if (patrolWaitTimer > 0)
         {
             patrolWaitTimer -= Time.deltaTime;
@@ -125,7 +125,7 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        // ¨ì¹F¨µÅŞÃä½t¡A©Î«e¤è¨S¦a­±/¦³Àğ ¡÷ Âà¦V + µ¥«İ
+        // åˆ°é”å·¡é‚é‚Šç·£ï¼Œæˆ–å‰æ–¹æ²’åœ°é¢/æœ‰ç‰† â†’ è½‰å‘ + ç­‰å¾…
         float distFromOrigin = transform.position.x - patrolOrigin.x;
         bool reachedEdge = (patrolDir > 0 && distFromOrigin >= patrolDistance)
                         || (patrolDir < 0 && distFromOrigin <= -patrolDistance);
@@ -141,7 +141,7 @@ public class EnemyAI : MonoBehaviour
         rb.linearVelocity = new Vector2(patrolDir * patrolSpeed, rb.linearVelocity.y);
     }
 
-    // ---- °lÂÜ ----
+    // ---- è¿½è¹¤ ----
     void Chase()
     {
         if (player == null) return;
@@ -149,74 +149,74 @@ public class EnemyAI : MonoBehaviour
         float dir = Mathf.Sign(player.position.x - transform.position.x);
         facingDir = (int)dir;
 
-        // «e¤è¨S¦a­±´N¤£°l¹L¥h¡]Á×§K±¼¤U¥­¥x¡^
+        // å‰æ–¹æ²’åœ°é¢å°±ä¸è¿½éå»ï¼ˆé¿å…æ‰ä¸‹å¹³å°ï¼‰
         if (HasGroundAhead())
             rb.linearVelocity = new Vector2(dir * chaseSpeed, rb.linearVelocity.y);
         else
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
     }
 
-    // ---- §ğÀ» ----
+    // ---- æ”»æ“Š ----
     void Attack()
     {
-        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);   // §ğÀ»®É¯¸©w
+        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);   // æ”»æ“Šæ™‚ç«™å®š
 
-        // ­±¦Vª±®a
+        // é¢å‘ç©å®¶
         if (player != null)
             facingDir = (int)Mathf.Sign(player.position.x - transform.position.x);
 
-        // §N«o¦n¤F´N§ğÀ»
+        // å†·å»å¥½äº†å°±æ”»æ“Š
         if (attackTimer <= 0)
         {
             attackTimer = attackCooldown;
             if (animator != null) animator.SetTrigger("Attack");
-            // ¹ê»Ú¶Ë®`¥Ñ§ğÀ»°Êµeªº Animation Event Ä²µo¡]¨£ EnemyAttackHitbox¡^
+            // å¯¦éš›å‚·å®³ç”±æ”»æ“Šå‹•ç•«çš„ Animation Event è§¸ç™¼ï¼ˆè¦‹ EnemyAttackHitboxï¼‰
         }
     }
 
-    // ---- «e¤è¦³¨S¦³¦a­± ----
+    // ---- å‰æ–¹æœ‰æ²’æœ‰åœ°é¢ ----
     bool HasGroundAhead()
     {
-        if (edgeCheck == null) return true;   // ¨S³]´N·í¦³¦a­±
+        if (edgeCheck == null) return true;   // æ²’è¨­å°±ç•¶æœ‰åœ°é¢
 
         Vector2 origin = edgeCheck.position;
         RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, edgeCheckDist, groundLayer);
         return hit.collider != null;
     }
 
-    // ---- §ó·s°Êµe»P´Â¦V ----
+    // ---- æ›´æ–°å‹•ç•«èˆ‡æœå‘ ----
     void UpdateAnimator()
     {
-        // ´Â¦V¡]Â½Âà¹Ï¤ù¡^
+        // æœå‘ï¼ˆç¿»è½‰åœ–ç‰‡ï¼‰
         float scaleX = Mathf.Abs(transform.localScale.x);
         int visualDir = spriteFacesLeft ? -facingDir : facingDir;
         transform.localScale = new Vector3(scaleX * visualDir, transform.localScale.y, transform.localScale.z);
 
-        // ²¾°Ê°Êµe¡]Speed °Ñ¼Æ¡^
+        // ç§»å‹•å‹•ç•«ï¼ˆSpeed åƒæ•¸ï¼‰
         if (animator != null)
             animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
     }
 
-    // ---- Gizmos¡]½d³òµøÄ±¤Æ¡^----
+    // ---- Gizmosï¼ˆç¯„åœè¦–è¦ºåŒ–ï¼‰----
     void OnDrawGizmosSelected()
     {
-        // °»´ú½d³ò¡]¶À¡^
+        // åµæ¸¬ç¯„åœï¼ˆé»ƒï¼‰
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectRange);
-        // §ğÀ»½d³ò¡]¬õ¡^
+        // æ”»æ“Šç¯„åœï¼ˆç´…ï¼‰
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
-        // ¥¢¥h½d³ò¡]¦Ç¡^
+        // å¤±å»ç¯„åœï¼ˆç°ï¼‰
         Gizmos.color = Color.gray;
         Gizmos.DrawWireSphere(transform.position, loseRange);
 
-        // ¨µÅŞ½d³ò¡]ÂÅ¡^
+        // å·¡é‚ç¯„åœï¼ˆè—ï¼‰
         Vector2 origin = Application.isPlaying ? patrolOrigin : (Vector2)transform.position;
         Gizmos.color = Color.cyan;
         Gizmos.DrawLine(origin + Vector2.left * patrolDistance,
                         origin + Vector2.right * patrolDistance);
 
-        // «e¤è¦a­±°»´ú¡]ºñ¡^
+        // å‰æ–¹åœ°é¢åµæ¸¬ï¼ˆç¶ ï¼‰
         if (edgeCheck != null)
         {
             Gizmos.color = Color.green;

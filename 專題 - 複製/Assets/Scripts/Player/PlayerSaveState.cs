@@ -1,7 +1,7 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ª±®a¦ì¸m¦sÀÉ¡C¹ê§@ ISaveable¡A¦sÅªª±®aªº¦ì¸m¡C
+/// ç©å®¶ä½ç½®å­˜æª”ã€‚å¯¦ä½œ ISaveableï¼Œå­˜è®€ç©å®¶çš„ä½ç½®ã€‚
 /// </summary>
 public class PlayerSaveState : MonoBehaviour, ISaveable
 {
@@ -18,7 +18,7 @@ public class PlayerSaveState : MonoBehaviour, ISaveable
         pos.y = data.playerPosY;
         transform.position = pos;
 
-        // Âk¹s³t«×¡AÁ×§KÅªÀÉ«á±aµÛºD©Ê
+        // æ­¸é›¶é€Ÿåº¦ï¼Œé¿å…è®€æª”å¾Œå¸¶è‘—æ…£æ€§
         if (TryGetComponent<Rigidbody2D>(out var rb))
             rb.linearVelocity = Vector2.zero;
     }

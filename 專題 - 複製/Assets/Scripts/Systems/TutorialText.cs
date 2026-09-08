@@ -1,22 +1,22 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 using System.Text.RegularExpressions;
 
 /// <summary>
-/// ¯BªÅ±Ğ¾Ç¤å¦r¡Cª±®a¶i¤J½d³ò²H¤JÅã¥Ü¡AÂ÷¶}²H¥X¡C
-/// ¤å¦r¤ä´©«öÁä¦û¦ì²Å {Jump} {Attack} µ¥¡A¦Û°Ê´À´«¦¨ª±®a·í«e¸j©wªº«öÁä¡C
+/// æµ®ç©ºæ•™å­¸æ–‡å­—ã€‚ç©å®¶é€²å…¥ç¯„åœæ·¡å…¥é¡¯ç¤ºï¼Œé›¢é–‹æ·¡å‡ºã€‚
+/// æ–‡å­—æ”¯æ´æŒ‰éµä½”ä½ç¬¦ {Jump} {Attack} ç­‰ï¼Œè‡ªå‹•æ›¿æ›æˆç©å®¶ç•¶å‰ç¶å®šçš„æŒ‰éµã€‚
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class TutorialText : MonoBehaviour
 {
-    [Header("±Ğ¾Ç¤å¦r")]
-    [Tooltip("¥Î {ActionName} ·í¦û¦ì²Å¡A¦p¡u«ö {Jump} ¸õÅD¡v")]
+    [Header("æ•™å­¸æ–‡å­—")]
+    [Tooltip("ç”¨ {ActionName} ç•¶ä½”ä½ç¬¦ï¼Œå¦‚ã€ŒæŒ‰ {Jump} è·³èºã€")]
     [TextArea(2, 4)]
-    [SerializeField] string template = "«ö {Jump} ¸õÅD";
+    [SerializeField] string template = "æŒ‰ {Jump} è·³èº";
 
-    [Header("Åã¥Ü")]
+    [Header("é¡¯ç¤º")]
     [SerializeField] CanvasGroup textGroup;
-    [SerializeField] TMP_Text textLabel;   // Åã¥Ü¤å¦rªº TMP
+    [SerializeField] TMP_Text textLabel;   // é¡¯ç¤ºæ–‡å­—çš„ TMP
     [SerializeField] float fadeSpeed = 3f;
     [SerializeField] bool showOnce = false;
 
@@ -31,14 +31,14 @@ public class TutorialText : MonoBehaviour
 
     void Start()
     {
-        RefreshText();   // ¶}³õ¥ı®M¥Î·í«e«öÁä
+        RefreshText();   // é–‹å ´å…ˆå¥—ç”¨ç•¶å‰æŒ‰éµ
     }
 
     void RefreshText()
     {
         if (textLabel == null) return;
 
-        // §â {ActionName} ´À´«¦¨·í«e¸j©wªº«öÁä
+        // æŠŠ {ActionName} æ›¿æ›æˆç•¶å‰ç¶å®šçš„æŒ‰éµ
         string result = Regex.Replace(template, @"\{(\w+)\}", match =>
         {
             string actionName = match.Groups[1].Value;
@@ -62,7 +62,7 @@ public class TutorialText : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         playerInRange = true;
-        RefreshText();   // ¶i¤J®É¨ê·s¡]½T«O¬O³Ì·s¸j©w¡^
+        RefreshText();   // é€²å…¥æ™‚åˆ·æ–°ï¼ˆç¢ºä¿æ˜¯æœ€æ–°ç¶å®šï¼‰
     }
 
     void OnTriggerExit2D(Collider2D other)

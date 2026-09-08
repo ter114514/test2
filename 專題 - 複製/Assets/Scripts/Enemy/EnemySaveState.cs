@@ -1,13 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ¼Ä¤H¦sÀÉª¬ºA¡C¥Î°ß¤@ ID °O¿ı¬O§_¤w³QÀ»±Ñ¡A
-/// ÅªÀÉ®É¤wÀ»±Ñªº¼Ä¤H¤£¦A¥X²{¡C
+/// æ•µäººå­˜æª”ç‹€æ…‹ã€‚ç”¨å”¯ä¸€ ID è¨˜éŒ„æ˜¯å¦å·²è¢«æ“Šæ•—ï¼Œ
+/// è®€æª”æ™‚å·²æ“Šæ•—çš„æ•µäººä¸å†å‡ºç¾ã€‚
 /// </summary>
 [RequireComponent(typeof(EnemyHealth))]
 public class EnemySaveState : MonoBehaviour, ISaveable
 {
-    [Tooltip("¦¹¼Ä¤Hªº°ß¤@ÃÑ§O½X¡A³õ´º¤¤¤£¥i­«½Æ")]
+    [Tooltip("æ­¤æ•µäººçš„å”¯ä¸€è­˜åˆ¥ç¢¼ï¼Œå ´æ™¯ä¸­ä¸å¯é‡è¤‡")]
     [SerializeField] string enemyId;
 
     EnemyHealth health;
@@ -25,13 +25,13 @@ public class EnemySaveState : MonoBehaviour, ISaveable
 
     void OnEnemyDeath()
     {
-        // ¦º¤`®É°O¿ı¨ì¥ş°ìÀ»±Ñ²M³æ¡]¼È¦s©ó DefeatedEnemyTracker¡^
+        // æ­»äº¡æ™‚è¨˜éŒ„åˆ°å…¨åŸŸæ“Šæ•—æ¸…å–®ï¼ˆæš«å­˜æ–¼ DefeatedEnemyTrackerï¼‰
         DefeatedEnemyTracker.MarkDefeated(enemyId);
     }
 
     public void SaveState(SaveData data)
     {
-        // ¥Ñ Tracker ²Î¤@¼g¤J¡AÁ×§K¨C­Ó¼Ä¤H¦U¼g¤@¦¸³y¦¨­«½Æ
+        // ç”± Tracker çµ±ä¸€å¯«å…¥ï¼Œé¿å…æ¯å€‹æ•µäººå„å¯«ä¸€æ¬¡é€ æˆé‡è¤‡
         if (DefeatedEnemyTracker.IsDefeated(enemyId)
             && !data.defeatedEnemies.Contains(enemyId))
         {
@@ -41,7 +41,7 @@ public class EnemySaveState : MonoBehaviour, ISaveable
 
     public void LoadState(SaveData data)
     {
-        // ÅªÀÉ®É¡A­Y¦¹¼Ä¤H¤w³QÀ»±Ñ¹L¡Aª½±µ²¾°£
+        // è®€æª”æ™‚ï¼Œè‹¥æ­¤æ•µäººå·²è¢«æ“Šæ•—éï¼Œç›´æ¥ç§»é™¤
         if (data.defeatedEnemies.Contains(enemyId))
         {
             DefeatedEnemyTracker.MarkDefeated(enemyId);
@@ -49,7 +49,7 @@ public class EnemySaveState : MonoBehaviour, ISaveable
         }
     }
 
-    // ¤è«K¦b½s¿è¾¹¦Û°Ê²£¥Í ID
+    // æ–¹ä¾¿åœ¨ç·¨è¼¯å™¨è‡ªå‹•ç”¢ç”Ÿ ID
     void OnValidate()
     {
         if (string.IsNullOrEmpty(enemyId))

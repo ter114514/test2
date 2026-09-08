@@ -1,24 +1,24 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 
 /// <summary>
-/// ³]©w­±ªO UI¡C­µ¶q¥Î·Æ±ì¡Aµe­±³]©w¥Î©T©w¿ï¶µªº¤U©Ô¿ï³æ¡C
+/// è¨­å®šé¢æ¿ UIã€‚éŸ³é‡ç”¨æ»‘æ¡¿ï¼Œç•«é¢è¨­å®šç”¨å›ºå®šé¸é …çš„ä¸‹æ‹‰é¸å–®ã€‚
 /// </summary>
 public class SettingsPanel : MonoBehaviour
 {
-    [Header("­µ¶q·Æ±ì")]
+    [Header("éŸ³é‡æ»‘æ¡¿")]
     [SerializeField] Slider masterSlider;
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider sfxSlider;
 
-    [Header("µe­±¤U©Ô¿ï³æ")]
+    [Header("ç•«é¢ä¸‹æ‹‰é¸å–®")]
     [SerializeField] TMP_Dropdown windowModeDropdown;
     [SerializeField] TMP_Dropdown resolutionDropdown;
     [SerializeField] TMP_Dropdown frameRateDropdown;
 
-    [Header("±±¨î")]
+    [Header("æ§åˆ¶")]
     [SerializeField] Button closeButton;
 
     void Start()
@@ -30,22 +30,22 @@ public class SettingsPanel : MonoBehaviour
 
     void SetupDropdowns()
     {
-        // µøµ¡¼Ò¦¡¡G¥ş¿Ã¹õ / µøµ¡
+        // è¦–çª—æ¨¡å¼ï¼šå…¨è¢å¹• / è¦–çª—
         windowModeDropdown.ClearOptions();
         windowModeDropdown.AddOptions(new List<string>(GameSettings.WindowModeNames));
 
-        // ¸ÑªR«×¡G¨Ì©T©w²M³æ
+        // è§£æåº¦ï¼šä¾å›ºå®šæ¸…å–®
         resolutionDropdown.ClearOptions();
         var resOptions = new List<string>();
         foreach (var (w, h) in GameSettings.Resolutions)
             resOptions.Add($"{w} x {h}");
         resolutionDropdown.AddOptions(resOptions);
 
-        // ´V¼Æ¡G¨Ì©T©w²M³æ¡A-1 Åã¥Ü¡uµL¤W­­¡v
+        // å¹€æ•¸ï¼šä¾å›ºå®šæ¸…å–®ï¼Œ-1 é¡¯ç¤ºã€Œç„¡ä¸Šé™ã€
         frameRateDropdown.ClearOptions();
         var fpsOptions = new List<string>();
         foreach (var fps in GameSettings.FrameRates)
-            fpsOptions.Add(fps < 0 ? "µL¤W­­" : fps.ToString());
+            fpsOptions.Add(fps < 0 ? "ç„¡ä¸Šé™" : fps.ToString());
         frameRateDropdown.AddOptions(fpsOptions);
     }
 
@@ -55,7 +55,7 @@ public class SettingsPanel : MonoBehaviour
         musicSlider.value = GameSettings.MusicVolume;
         sfxSlider.value = GameSettings.SFXVolume;
 
-        // ¤U©Ô¿ï³æ³]¦¨·í«e­È¡]¤£Ä²µo¨Æ¥ó¡^
+        // ä¸‹æ‹‰é¸å–®è¨­æˆç•¶å‰å€¼ï¼ˆä¸è§¸ç™¼äº‹ä»¶ï¼‰
         windowModeDropdown.SetValueWithoutNotify(GameSettings.WindowModeIndex);
         resolutionDropdown.SetValueWithoutNotify(GameSettings.ResolutionIndex);
         frameRateDropdown.SetValueWithoutNotify(GameSettings.FrameRateIndex);

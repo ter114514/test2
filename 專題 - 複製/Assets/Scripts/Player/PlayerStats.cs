@@ -1,28 +1,28 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 /// <summary>
-/// °òÂ¦Äİ©Ê¼Æ­È®w¡C¥u¦s¸ê®Æ¡A¤£§t¹CÀ¸ÅŞ¿è¡C
-/// ¦å¶q¬°®æ¤l¨î¡]ªÅ¬}ÃM¤h­·¡^¡C¹ê§@ ISaveable¡A¦sÅª³Ì¤j¦å®æ¡C
+/// åŸºç¤å±¬æ€§æ•¸å€¼åº«ã€‚åªå­˜è³‡æ–™ï¼Œä¸å«éŠæˆ²é‚è¼¯ã€‚
+/// è¡€é‡ç‚ºæ ¼å­åˆ¶ï¼ˆç©ºæ´é¨å£«é¢¨ï¼‰ã€‚å¯¦ä½œ ISaveableï¼Œå­˜è®€æœ€å¤§è¡€æ ¼ã€‚
 /// </summary>
 public class PlayerStats : MonoBehaviour, ISaveable
 {
-    [Header("¥Í©R¡]®æ¤l¨î¡^")]
-    [Tooltip("³Ì¤j¦å®æ¼Æ")]
+    [Header("ç”Ÿå‘½ï¼ˆæ ¼å­åˆ¶ï¼‰")]
+    [Tooltip("æœ€å¤§è¡€æ ¼æ•¸")]
     [SerializeField] int maxMasks = 5;
 
-    [Header("§ğÀ»")]
+    [Header("æ”»æ“Š")]
     [SerializeField] float attackPower = 20f;
     [SerializeField] float knockbackForce = 10f;
 
-    [Header("¨¾¿m")]
+    [Header("é˜²ç¦¦")]
     [SerializeField] float defense = 0f;
 
-    [Header("²¾°Ê")]
+    [Header("ç§»å‹•")]
     [SerializeField] float moveSpeed = 8f;
 
     public event Action OnStatsChanged;
-    /// <summary>¦å®æ¤W­­´£¤É®É¡]HealthSystem¡BHUD ­q¾\¡^</summary>
+    /// <summary>è¡€æ ¼ä¸Šé™æå‡æ™‚ï¼ˆHealthSystemã€HUD è¨‚é–±ï¼‰</summary>
     public event Action OnMaxMasksChanged;
 
     public int MaxMasks => maxMasks;
@@ -31,7 +31,7 @@ public class PlayerStats : MonoBehaviour, ISaveable
     public float Defense => defense;
     public float MoveSpeed => moveSpeed;
 
-    // ---- ¦å®æ¤W­­ ----
+    // ---- è¡€æ ¼ä¸Šé™ ----
     public void SetMaxMasks(int value)
     {
         maxMasks = Mathf.Max(1, value);
@@ -39,7 +39,7 @@ public class PlayerStats : MonoBehaviour, ISaveable
         OnMaxMasksChanged?.Invoke();
     }
 
-    /// <summary>´£¤É³Ì¤j¦å®æ¡]¸H¤ù¶°º¡©I¥s¡^</summary>
+    /// <summary>æå‡æœ€å¤§è¡€æ ¼ï¼ˆç¢ç‰‡é›†æ»¿å‘¼å«ï¼‰</summary>
     public void IncreaseMaxMasks(int amount = 1)
     {
         maxMasks += amount;
@@ -47,7 +47,7 @@ public class PlayerStats : MonoBehaviour, ISaveable
         OnMaxMasksChanged?.Invoke();
     }
 
-    // ---- ¨ä¥LÄİ©Ê ----
+    // ---- å…¶ä»–å±¬æ€§ ----
     public void SetAttackPower(float value)
     {
         attackPower = Mathf.Max(0, value);
@@ -86,10 +86,10 @@ public class PlayerStats : MonoBehaviour, ISaveable
 
     public void LoadState(SaveData data)
     {
-        if (data.playerMaxMasks > 0)   // ¦³¦s¹L¤~®M¥Î¡]ÂÂ¦sÀÉ¥Î Inspector ¹w³]¡^
+        if (data.playerMaxMasks > 0)   // æœ‰å­˜éæ‰å¥—ç”¨ï¼ˆèˆŠå­˜æª”ç”¨ Inspector é è¨­ï¼‰
         {
             maxMasks = data.playerMaxMasks;
-            OnMaxMasksChanged?.Invoke();   // ³qª¾ HealthSystem/HUD §ó·s­±¨ã¼Æ
+            OnMaxMasksChanged?.Invoke();   // é€šçŸ¥ HealthSystem/HUD æ›´æ–°é¢å…·æ•¸
         }
     }
 }

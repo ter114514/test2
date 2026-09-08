@@ -1,31 +1,31 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// °O¿ıª±®a³Ì«áªº¦w¥ş¦ì¸m¡]¦b¦a­±¡B«D³´¨À¤W¡^¡C
-/// ª±®a¸I³´¨À®É¶Ç°e¦^³o­Ó¦ì¸m¡C±¾¦bª±®a¨­¤W¡C
+/// è¨˜éŒ„ç©å®¶æœ€å¾Œçš„å®‰å…¨ä½ç½®ï¼ˆåœ¨åœ°é¢ã€éé™·é˜±ä¸Šï¼‰ã€‚
+/// ç©å®¶ç¢°é™·é˜±æ™‚å‚³é€å›é€™å€‹ä½ç½®ã€‚æ›åœ¨ç©å®¶èº«ä¸Šã€‚
 /// </summary>
 public class SafePositionTracker : MonoBehaviour
 {
-    [Header("¦a­±°»´ú")]
-    [Tooltip("¸}©³¦ì¸m")]
+    [Header("åœ°é¢åµæ¸¬")]
+    [Tooltip("è…³åº•ä½ç½®")]
     [SerializeField] Transform groundCheck;
-    [Tooltip("°»´ú¥b®|")]
+    [Tooltip("åµæ¸¬åŠå¾‘")]
     [SerializeField] float checkRadius = 0.2f;
-    [Tooltip("¦a­±¹Ï¼h")]
+    [Tooltip("åœ°é¢åœ–å±¤")]
     [SerializeField] LayerMask groundLayer;
-    [Tooltip("³´¨À¹Ï¼h¡]¯¸¦b³o¤W­±¤£ºâ¦w¥ş¡^")]
+    [Tooltip("é™·é˜±åœ–å±¤ï¼ˆç«™åœ¨é€™ä¸Šé¢ä¸ç®—å®‰å…¨ï¼‰")]
     [SerializeField] LayerMask trapLayer;
 
-    [Header("°O¿ı³]©w")]
-    [Tooltip("¦h¤[°O¿ı¤@¦¸¦w¥şÂI¡]¬í¡^")]
+    [Header("è¨˜éŒ„è¨­å®š")]
+    [Tooltip("å¤šä¹…è¨˜éŒ„ä¸€æ¬¡å®‰å…¨é»ï¼ˆç§’ï¼‰")]
     [SerializeField] float recordInterval = 0.3f;
-    [Tooltip("»İ­n¦b¦w¥ş¦a­±«ùÄò¦h¤[¤~°O¿ı")]
+    [Tooltip("éœ€è¦åœ¨å®‰å…¨åœ°é¢æŒçºŒå¤šä¹…æ‰è¨˜éŒ„")]
     [SerializeField] float stableTime = 0.2f;
-    [Tooltip("««ª½³t«×§C©ó¦¹­È¤~ºâ¯¸Ã­¡]©ñ¼e¥iÁ×§K§İ°Ê¾É­P§P©w¥¢±Ñ¡^")]
+    [Tooltip("å‚ç›´é€Ÿåº¦ä½æ–¼æ­¤å€¼æ‰ç®—ç«™ç©©ï¼ˆæ”¾å¯¬å¯é¿å…æŠ–å‹•å°è‡´åˆ¤å®šå¤±æ•—ï¼‰")]
     [SerializeField] float verticalSpeedThreshold = 0.5f;
 
-    [Header("°£¿ù")]
-    [Tooltip("¤Ä¿ï·|¦L¥X°»´úª¬ºA¡A±Æ¬d§¹¥i¨ú®ø")]
+    [Header("é™¤éŒ¯")]
+    [Tooltip("å‹¾é¸æœƒå°å‡ºåµæ¸¬ç‹€æ…‹ï¼Œæ’æŸ¥å®Œå¯å–æ¶ˆ")]
     [SerializeField] bool debugLog = true;
 
     Vector2 lastSafePosition;
@@ -52,7 +52,7 @@ public class SafePositionTracker : MonoBehaviour
                 {
                     recordTimer = 0f;
                     lastSafePosition = transform.position;
-                    if (debugLog) Debug.Log($"°O¿ı¦w¥şÂI¡G{lastSafePosition}");
+                    if (debugLog) Debug.Log($"è¨˜éŒ„å®‰å…¨é»ï¼š{lastSafePosition}");
                 }
             }
         }
@@ -67,7 +67,7 @@ public class SafePositionTracker : MonoBehaviour
     {
         if (groundCheck == null)
         {
-            if (debugLog) Debug.LogError("¡iSafePositionTracker¡jgroundCheck ¨S³]¡I");
+            if (debugLog) Debug.LogError("ã€SafePositionTrackerã€‘groundCheck æ²’è¨­ï¼");
             return false;
         }
 
@@ -84,17 +84,17 @@ public class SafePositionTracker : MonoBehaviour
         return onGround && !onTrap && stable;
     }
 
-    /// <summary>¨ú±o³Ì«áªº¦w¥ş¦ì¸m</summary>
+    /// <summary>å–å¾—æœ€å¾Œçš„å®‰å…¨ä½ç½®</summary>
     public Vector2 GetSafePosition() => lastSafePosition;
 
-    /// <summary>§âª±®a¶Ç°e¦^¦w¥ş¦ì¸m</summary>
+    /// <summary>æŠŠç©å®¶å‚³é€å›å®‰å…¨ä½ç½®</summary>
     public void RespawnToSafe()
     {
         transform.position = lastSafePosition;
         if (rb != null) rb.linearVelocity = Vector2.zero;
     }
 
-    // §ï¥Î OnDrawGizmos¡]¤£¥Î¿ï¤¤´N¤@ª½Åã¥ÜºñÂI¡^
+    // æ”¹ç”¨ OnDrawGizmosï¼ˆä¸ç”¨é¸ä¸­å°±ä¸€ç›´é¡¯ç¤ºç¶ é»ï¼‰
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

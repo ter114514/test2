@@ -1,39 +1,39 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 /// <summary>
-/// §l¦å­È¸ê·½¨t²Î¡C
-/// ³z¹L¾Ô°«©Î³õ´º¤¬°ÊÀò¨ú¡A¬I©ñ§Ş¯à®É®ø¯Ó¡C
-/// ¥uºŞ²z¼Æ­È¼W´î»P¡u¬O§_¨¬°÷¬I©ñ¡vªº§PÂ_¡A¤£§t§Ş¯àÅŞ¿è¥»¨­¡C
+/// å¸è¡€å€¼è³‡æºç³»çµ±ã€‚
+/// é€éæˆ°é¬¥æˆ–å ´æ™¯äº’å‹•ç²å–ï¼Œæ–½æ”¾æŠ€èƒ½æ™‚æ¶ˆè€—ã€‚
+/// åªç®¡ç†æ•¸å€¼å¢æ¸›èˆ‡ã€Œæ˜¯å¦è¶³å¤ æ–½æ”¾ã€çš„åˆ¤æ–·ï¼Œä¸å«æŠ€èƒ½é‚è¼¯æœ¬èº«ã€‚
 /// </summary>
 public class BloodResource : MonoBehaviour
 {
-    [Header("§l¦å­È")]
+    [Header("å¸è¡€å€¼")]
     [SerializeField] float maxBlood = 100f;
-    [Tooltip("ªì©l§l¦å­È")]
+    [Tooltip("åˆå§‹å¸è¡€å€¼")]
     [SerializeField] float startBlood = 0f;
 
-    [Header("§Ş¯àªùÂe")]
-    [Tooltip("¬I©ñ§Ş¯à©Ò»İªº³Ì§C§l¦å­È")]
+    [Header("æŠ€èƒ½é–€æª»")]
+    [Tooltip("æ–½æ”¾æŠ€èƒ½æ‰€éœ€çš„æœ€ä½å¸è¡€å€¼")]
     [SerializeField] float skillCost = 50f;
 
-    // ---- ¹ï¥~¨Æ¥ó ----
+    // ---- å°å¤–äº‹ä»¶ ----
 
-    /// <summary>§l¦å­ÈÅÜ¤Æ¡G(·í«e­È, ³Ì¤j­È)</summary>
+    /// <summary>å¸è¡€å€¼è®ŠåŒ–ï¼š(ç•¶å‰å€¼, æœ€å¤§å€¼)</summary>
     public event Action<float, float> OnBloodChanged;
-    /// <summary>¬O§_¨¬°÷¬I©ñ§Ş¯àªºª¬ºA¤Á´«¡Gtrue=¨¬°÷</summary>
+    /// <summary>æ˜¯å¦è¶³å¤ æ–½æ”¾æŠ€èƒ½çš„ç‹€æ…‹åˆ‡æ›ï¼štrue=è¶³å¤ </summary>
     public event Action<bool> OnCanCastChanged;
-    /// <summary>Àò¨ú§l¦å­È®É¡GÀò±o¶q</summary>
+    /// <summary>ç²å–å¸è¡€å€¼æ™‚ï¼šç²å¾—é‡</summary>
     public event Action<float> OnBloodGained;
-    /// <summary>¬I©ñ®ø¯Ó®É</summary>
+    /// <summary>æ–½æ”¾æ¶ˆè€—æ™‚</summary>
     public event Action OnBloodConsumed;
 
-    // ---- ¹ï¥~°ßÅª ----
+    // ---- å°å¤–å”¯è®€ ----
     public float CurrentBlood { get; private set; }
     public float MaxBlood => maxBlood;
     public float SkillCost => skillCost;
     public float BloodPercent => maxBlood > 0 ? CurrentBlood / maxBlood : 0;
-    /// <summary>¬O§_¨¬°÷¬I©ñ§Ş¯à</summary>
+    /// <summary>æ˜¯å¦è¶³å¤ æ–½æ”¾æŠ€èƒ½</summary>
     public bool CanCast => CurrentBlood >= skillCost;
 
     bool lastCanCast;
@@ -50,7 +50,7 @@ public class BloodResource : MonoBehaviour
         OnCanCastChanged?.Invoke(CanCast);
     }
 
-    // ---- Àò¨ú¡]¾Ô°«À»¤¤¡BÀ»±ş¡B³õ´º¤¬°Ê©I¥s¡^----
+    // ---- ç²å–ï¼ˆæˆ°é¬¥æ“Šä¸­ã€æ“Šæ®ºã€å ´æ™¯äº’å‹•å‘¼å«ï¼‰----
 
     public void Gain(float amount)
     {
@@ -62,9 +62,9 @@ public class BloodResource : MonoBehaviour
         CheckCanCastChanged();
     }
 
-    // ---- ®ø¯Ó ----
+    // ---- æ¶ˆè€— ----
 
-    /// <summary>¹Á¸Õ®ø¯Ó«ü©w¶q¡C¨¬°÷«h¦©°£¦^¶Ç true¡A¤£¨¬¦^¶Ç false¡C</summary>
+    /// <summary>å˜—è©¦æ¶ˆè€—æŒ‡å®šé‡ã€‚è¶³å¤ å‰‡æ‰£é™¤å›å‚³ trueï¼Œä¸è¶³å›å‚³ falseã€‚</summary>
     public bool TryConsume(float amount)
     {
         if (CurrentBlood < amount) return false;
@@ -76,13 +76,13 @@ public class BloodResource : MonoBehaviour
         return true;
     }
 
-    /// <summary>¹Á¸Õ¬I©ñ§Ş¯à¡]®ø¯Ó skillCost¡^¡C¨¬°÷¦^¶Ç true¡C</summary>
+    /// <summary>å˜—è©¦æ–½æ”¾æŠ€èƒ½ï¼ˆæ¶ˆè€— skillCostï¼‰ã€‚è¶³å¤ å›å‚³ trueã€‚</summary>
     public bool TryCastSkill()
     {
         return TryConsume(skillCost);
     }
 
-    // ---- ¤º³¡¡G°»´ú¡u¯à§_¬I©ñ¡vª¬ºA¤Á´« ----
+    // ---- å…§éƒ¨ï¼šåµæ¸¬ã€Œèƒ½å¦æ–½æ”¾ã€ç‹€æ…‹åˆ‡æ› ----
 
     void CheckCanCastChanged()
     {
@@ -90,11 +90,11 @@ public class BloodResource : MonoBehaviour
         if (now != lastCanCast)
         {
             lastCanCast = now;
-            OnCanCastChanged?.Invoke(now);   // ª¬ºAÅÜ¤F¤~³qª¾¡]ÀY¹³®ØÅÜ¤Æ¡^
+            OnCanCastChanged?.Invoke(now);   // ç‹€æ…‹è®Šäº†æ‰é€šçŸ¥ï¼ˆé ­åƒæ¡†è®ŠåŒ–ï¼‰
         }
     }
 
-    // ---- ³]©w/­«¸m¡]¸óÃö¥d©µÄò¡BÅªÀÉ¥Î¡^----
+    // ---- è¨­å®š/é‡ç½®ï¼ˆè·¨é—œå¡å»¶çºŒã€è®€æª”ç”¨ï¼‰----
 
     public void ResetBlood(float value = 0)
     {

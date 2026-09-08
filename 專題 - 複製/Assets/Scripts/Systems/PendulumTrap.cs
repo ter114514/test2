@@ -1,25 +1,25 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ÄÁÂ\³´¨À¡CÂ¶µÛ³»³¡¤äÂI¥ª¥k¨Ó¦^Â\°Ê¡C
-/// ±¾¦b¤äÂIª«¥ó¤W¡]¤äÂI¦b¤ÑªáªO¡AÂ\Áè¬O¤lª«¥ó©¹¤U««¡^¡C
+/// é˜æ“ºé™·é˜±ã€‚ç¹è‘—é ‚éƒ¨æ”¯é»å·¦å³ä¾†å›æ“ºå‹•ã€‚
+/// æ›åœ¨æ”¯é»ç‰©ä»¶ä¸Šï¼ˆæ”¯é»åœ¨å¤©èŠ±æ¿ï¼Œæ“ºéŒ˜æ˜¯å­ç‰©ä»¶å¾€ä¸‹å‚ï¼‰ã€‚
 /// </summary>
 public class PendulumTrap : MonoBehaviour
 {
-    [Header("Â\°Ê³]©w")]
-    [Tooltip("³Ì¤jÂ\°Ê¨¤«×¡]±q¤¤¶¡©¹¨âÃä¦UÂ\³o»ò¦h«×¡^")]
+    [Header("æ“ºå‹•è¨­å®š")]
+    [Tooltip("æœ€å¤§æ“ºå‹•è§’åº¦ï¼ˆå¾ä¸­é–“å¾€å…©é‚Šå„æ“ºé€™éº¼å¤šåº¦ï¼‰")]
     [SerializeField] float swingAngle = 60f;
-    [Tooltip("Â\°Ê³t«×")]
+    [Tooltip("æ“ºå‹•é€Ÿåº¦")]
     [SerializeField] float swingSpeed = 2f;
-    [Tooltip("°_©l¬Û¦ì¡]Åı¦h­ÓÂ\Áè¤£¦P¨B¡A¥i³]¤£¦P­È¡^")]
+    [Tooltip("èµ·å§‹ç›¸ä½ï¼ˆè®“å¤šå€‹æ“ºéŒ˜ä¸åŒæ­¥ï¼Œå¯è¨­ä¸åŒå€¼ï¼‰")]
     [SerializeField] float startPhase = 0f;
 
     void Update()
     {
-        // ¥Î sin ªi°µ¨Ó¦^Â\°Ê
+        // ç”¨ sin æ³¢åšä¾†å›æ“ºå‹•
         float angle = swingAngle * Mathf.Sin(Time.time * swingSpeed + startPhase);
 
-        // Â¶ Z ¶b±ÛÂà¡]2D ªº±ÛÂà¡^
+        // ç¹ Z è»¸æ—‹è½‰ï¼ˆ2D çš„æ—‹è½‰ï¼‰
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 }

@@ -1,28 +1,28 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections;
 
 /// <summary>
-/// êº¤õ¦sÀÉÂI¡Cª±®a¶i¤J½d³ò«á«ö E ¦sÀÉ¡B¦^º¡¦å¡B¸Éº¡¦å²~¡C
-/// «ö E «á´£¥Ü¤å¦rÅÜ¦¨¡u¤w¦sÀÉ¡vµ¹¤©¦^õX¡C
+/// ç¯ç«å­˜æª”é»ã€‚ç©å®¶é€²å…¥ç¯„åœå¾ŒæŒ‰ E å­˜æª”ã€å›æ»¿è¡€ã€è£œæ»¿è¡€ç“¶ã€‚
+/// æŒ‰ E å¾Œæç¤ºæ–‡å­—è®Šæˆã€Œå·²å­˜æª”ã€çµ¦äºˆå›é¥‹ã€‚
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class SaveCampfire : MonoBehaviour
 {
-    [Header("¤¬°Ê")]
-    [Tooltip("´£¥Ü UI ª«¥ó¡]¶i½d³òÅã¥Ü¡^")]
+    [Header("äº’å‹•")]
+    [Tooltip("æç¤º UI ç‰©ä»¶ï¼ˆé€²ç¯„åœé¡¯ç¤ºï¼‰")]
     [SerializeField] GameObject promptUI;
-    [Tooltip("´£¥Üªº¤å¦r¤¸¥ó¡]¥Î¨Ó¤Á´«¤å¦r¡^")]
+    [Tooltip("æç¤ºçš„æ–‡å­—å…ƒä»¶ï¼ˆç”¨ä¾†åˆ‡æ›æ–‡å­—ï¼‰")]
     [SerializeField] TMP_Text promptText;
-    [Tooltip("¶i½d³ò®ÉÅã¥Üªº´£¥Ü")]
-    [SerializeField] string restPrompt = "«ö E ¥ğ®§";
-    [Tooltip("«ö E ¦sÀÉ«áÅã¥Üªº¤å¦r")]
-    [SerializeField] string savedText = "¤w¦sÀÉ";
-    [Tooltip("¡u¤w¦sÀÉ¡vÅã¥Ü´X¬í«á«ì´_´£¥Ü")]
+    [Tooltip("é€²ç¯„åœæ™‚é¡¯ç¤ºçš„æç¤º")]
+    [SerializeField] string restPrompt = "æŒ‰ E ä¼‘æ¯";
+    [Tooltip("æŒ‰ E å­˜æª”å¾Œé¡¯ç¤ºçš„æ–‡å­—")]
+    [SerializeField] string savedText = "å·²å­˜æª”";
+    [Tooltip("ã€Œå·²å­˜æª”ã€é¡¯ç¤ºå¹¾ç§’å¾Œæ¢å¾©æç¤º")]
     [SerializeField] float savedTextDuration = 1.5f;
 
-    [Header("êº¤õ°Êµe¡]¥i¿ï¡^")]
+    [Header("ç¯ç«å‹•ç•«ï¼ˆå¯é¸ï¼‰")]
     [SerializeField] Animator campfireAnimator;
 
     bool playerInRange;
@@ -52,7 +52,7 @@ public class SaveCampfire : MonoBehaviour
         playerInRange = true;
         player = other.gameObject;
 
-        // Åã¥Ü´£¥Ü¡A¤å¦r³]¬°¡u«ö E ¥ğ®§¡v
+        // é¡¯ç¤ºæç¤ºï¼Œæ–‡å­—è¨­ç‚ºã€ŒæŒ‰ E ä¼‘æ¯ã€
         if (promptUI != null) promptUI.SetActive(true);
         if (promptText != null) promptText.text = restPrompt;
     }
@@ -65,7 +65,7 @@ public class SaveCampfire : MonoBehaviour
         player = null;
         if (promptUI != null) promptUI.SetActive(false);
 
-        // Â÷¶}®É°±±¼¡u¤w¦sÀÉ¡vªº­p®É¡]Á×§K´İ¯d¡^
+        // é›¢é–‹æ™‚åœæ‰ã€Œå·²å­˜æª”ã€çš„è¨ˆæ™‚ï¼ˆé¿å…æ®˜ç•™ï¼‰
         if (savedTextRoutine != null)
         {
             StopCoroutine(savedTextRoutine);
@@ -75,26 +75,26 @@ public class SaveCampfire : MonoBehaviour
 
     void DoRest()
     {
-        // ÂI¿Uêº¤õ¡]¥i¿ï¡^
+        // é»ç‡ƒç¯ç«ï¼ˆå¯é¸ï¼‰
         if (campfireAnimator != null)
             campfireAnimator.SetBool("IsLit", true);
 
-        // ¦^º¡¦å
+        // å›æ»¿è¡€
         if (player != null && player.TryGetComponent<PlayerHealthSystem>(out var health))
             health.FullHeal();
 
-        // ¸Éº¡¦å²~
+        // è£œæ»¿è¡€ç“¶
         if (player != null && player.TryGetComponent<PotionSystem>(out var potion))
             potion.RefillPotions();
 
-        // ¦sÀÉ
+        // å­˜æª”
         if (SaveManager.Instance != null)
             SaveManager.Instance.SaveToCurrentSlot();
 
-        // ´£¥Ü¤å¦rÅÜ¦¨¡u¤w¦sÀÉ¡v¡Aµu¼È«á«ì´_
+        // æç¤ºæ–‡å­—è®Šæˆã€Œå·²å­˜æª”ã€ï¼ŒçŸ­æš«å¾Œæ¢å¾©
         ShowSavedText();
 
-        Debug.Log("¤w¦bêº¤õ¥ğ®§¡G¦^º¡¦å¡B¸Éº¡¦å²~¡B¦sÀÉ");
+        Debug.Log("å·²åœ¨ç¯ç«ä¼‘æ¯ï¼šå›æ»¿è¡€ã€è£œæ»¿è¡€ç“¶ã€å­˜æª”");
     }
 
     void ShowSavedText()
@@ -108,10 +108,10 @@ public class SaveCampfire : MonoBehaviour
 
     IEnumerator SavedTextRoutine()
     {
-        promptText.text = savedText;                     // Åã¥Ü¡u¤w¦sÀÉ¡v
+        promptText.text = savedText;                     // é¡¯ç¤ºã€Œå·²å­˜æª”ã€
         yield return new WaitForSeconds(savedTextDuration);
 
-        // ®É¶¡¨ì¡A­Yª±®aÁÙ¦b½d³ò¤º¡A«ì´_¦¨¡u«ö E ¥ğ®§¡v
+        // æ™‚é–“åˆ°ï¼Œè‹¥ç©å®¶é‚„åœ¨ç¯„åœå…§ï¼Œæ¢å¾©æˆã€ŒæŒ‰ E ä¼‘æ¯ã€
         if (playerInRange && promptText != null)
             promptText.text = restPrompt;
 

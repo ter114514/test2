@@ -1,8 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.EventSystems;
 
 /// <summary>
-/// Äa°±®ÉÄ_¥Û¥­·ÆÅÜ«G¨ì³Ì«G¨Ãºû«ù¡F¨ì³Ì«G«á¥i¿ï¥[¤J»´·L©I§l©ú·À¡C
+/// æ‡¸åœæ™‚å¯¶çŸ³å¹³æ»‘è®Šäº®åˆ°æœ€äº®ä¸¦ç¶­æŒï¼›åˆ°æœ€äº®å¾Œå¯é¸åŠ å…¥è¼•å¾®å‘¼å¸æ˜æ»…ã€‚
 /// </summary>
 public class HoverAnimBlend : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -10,12 +10,12 @@ public class HoverAnimBlend : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField] float speed = 3f;
     [SerializeField] string stateName = "Glow";
 
-    [Header("³Ì«G®Éªº©I§l®ÄªG¡]¥i¿ï¡^")]
-    [Tooltip("¨ì³Ì«G«á¬O§_¥[¤J»´·L©ú·À")]
+    [Header("æœ€äº®æ™‚çš„å‘¼å¸æ•ˆæœï¼ˆå¯é¸ï¼‰")]
+    [Tooltip("åˆ°æœ€äº®å¾Œæ˜¯å¦åŠ å…¥è¼•å¾®æ˜æ»…")]
     [SerializeField] bool breatheAtPeak = false;
-    [Tooltip("©I§l´T«×¡]0=¤£©I§l¡^")]
+    [Tooltip("å‘¼å¸å¹…åº¦ï¼ˆ0=ä¸å‘¼å¸ï¼‰")]
     [SerializeField] float breatheAmount = 0.05f;
-    [Tooltip("©I§l³t«×")]
+    [Tooltip("å‘¼å¸é€Ÿåº¦")]
     [SerializeField] float breatheSpeed = 2f;
 
     bool isHovering;
@@ -28,7 +28,7 @@ public class HoverAnimBlend : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         float displayBlend = blend;
 
-        // ¨ì³Ì«G¥B¤´Äa°±®É¡A¥[¤J»´·L©I§l
+        // åˆ°æœ€äº®ä¸”ä»æ‡¸åœæ™‚ï¼ŒåŠ å…¥è¼•å¾®å‘¼å¸
         if (breatheAtPeak && isHovering && blend >= 1f)
         {
             float breathe = Mathf.Sin(Time.unscaledTime * breatheSpeed) * breatheAmount;

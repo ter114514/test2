@@ -1,27 +1,27 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using UnityEngine;
 
 /// <summary>
-/// ª±®a¥Í©Rª¬ºA¨t²Î¡]®æ¤l¨î¡AªÅ¬}ÃM¤h­·¡^¡C
-/// ¦å¶q¥H¡u®æ¡v¬°³æ¦ì¡A¨ü¶Ë©T©w¦© 1 ®æ¡C
-/// ³Ì¤j¦å®æ¥Ñ PlayerStats ´£¨Ñ¡F¦å®æ¤W­­´£¤É®É¸Éº¡¨Ã§ó·sÅã¥Ü¡C
+/// ç©å®¶ç”Ÿå‘½ç‹€æ…‹ç³»çµ±ï¼ˆæ ¼å­åˆ¶ï¼Œç©ºæ´é¨å£«é¢¨ï¼‰ã€‚
+/// è¡€é‡ä»¥ã€Œæ ¼ã€ç‚ºå–®ä½ï¼Œå—å‚·å›ºå®šæ‰£ 1 æ ¼ã€‚
+/// æœ€å¤§è¡€æ ¼ç”± PlayerStats æä¾›ï¼›è¡€æ ¼ä¸Šé™æå‡æ™‚è£œæ»¿ä¸¦æ›´æ–°é¡¯ç¤ºã€‚
 /// </summary>
 [RequireComponent(typeof(PlayerStats))]
 public class PlayerHealthSystem : MonoBehaviour, IDamageable, ISaveable
 {
-    [Header("¨üÀ»µL¼Ä")]
+    [Header("å—æ“Šç„¡æ•µ")]
     [SerializeField] float invincibleTime = 1f;
     [SerializeField] float blinkInterval = 0.1f;
 
-    // ---- ¹ï¥~¨Æ¥ó ----
-    public event Action<int, int> OnHealthChanged;   // (·í«e®æ, ³Ì¤j®æ)
+    // ---- å°å¤–äº‹ä»¶ ----
+    public event Action<int, int> OnHealthChanged;   // (ç•¶å‰æ ¼, æœ€å¤§æ ¼)
     public event Action OnDamaged;
     public event Action OnHealed;
     public event Action OnDeath;
     public event Action<bool> OnInvincibleChanged;
 
-    // ---- ¹ï¥~°ßÅª ----
+    // ---- å°å¤–å”¯è®€ ----
     public int CurrentMasks { get; private set; }
     public int MaxMasks => stats.MaxMasks;
     public bool IsInvincible { get; private set; }
@@ -54,14 +54,14 @@ public class PlayerHealthSystem : MonoBehaviour, IDamageable, ISaveable
         OnHealthChanged?.Invoke(CurrentMasks, MaxMasks);
     }
 
-    // ¦å®æ¤W­­´£¤É®É¡G¸Éº¡¦å + §ó·s­±¨ãÅã¥Ü
+    // è¡€æ ¼ä¸Šé™æå‡æ™‚ï¼šè£œæ»¿è¡€ + æ›´æ–°é¢å…·é¡¯ç¤º
     void HandleMaxMasksChanged()
     {
-        CurrentMasks = MaxMasks;   // ¤É¯Å¸Éº¡
+        CurrentMasks = MaxMasks;   // å‡ç´šè£œæ»¿
         OnHealthChanged?.Invoke(CurrentMasks, MaxMasks);
     }
 
-    // ---- IDamageable¡G¨ü¶Ë©T©w¦© 1 ®æ ----
+    // ---- IDamageableï¼šå—å‚·å›ºå®šæ‰£ 1 æ ¼ ----
     public void TakeDamage(float amount, Vector2 knockback)
     {
         if (IsInvincible || IsDead) return;
@@ -85,7 +85,7 @@ public class PlayerHealthSystem : MonoBehaviour, IDamageable, ISaveable
         StartCoroutine(InvincibilityRoutine());
     }
 
-    // ---- ªvÀø¡]®æ¼Æ¡^----
+    // ---- æ²»ç™‚ï¼ˆæ ¼æ•¸ï¼‰----
     public void Heal(int masks = 1)
     {
         if (IsDead || masks <= 0) return;
@@ -108,7 +108,7 @@ public class PlayerHealthSystem : MonoBehaviour, IDamageable, ISaveable
         OnHealthChanged?.Invoke(CurrentMasks, MaxMasks);
     }
 
-    // ---- µL¼Ä®É¶¡ ----
+    // ---- ç„¡æ•µæ™‚é–“ ----
     IEnumerator InvincibilityRoutine()
     {
         SetInvincible(true);
@@ -129,7 +129,7 @@ public class PlayerHealthSystem : MonoBehaviour, IDamageable, ISaveable
         OnInvincibleChanged?.Invoke(value);
     }
 
-    // ---- ¦º¤` ----
+    // ---- æ­»äº¡ ----
     void Die()
     {
         IsDead = true;
@@ -139,7 +139,7 @@ public class PlayerHealthSystem : MonoBehaviour, IDamageable, ISaveable
         OnDeath?.Invoke();
     }
 
-    // ---- ­«¸m ----
+    // ---- é‡ç½® ----
     public void ResetHealth()
     {
         StopAllCoroutines();

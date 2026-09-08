@@ -1,13 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ¼Ä¤H§ğÀ»§P©w®Ø¡C¥Ñ§ğÀ»°Êµeªº Animation Event ¶}Ãö¡A¸I¨ìª±®a³y¦¨¶Ë®`¡C
-/// ±¾¦b¼Ä¤Hªº§ğÀ»§P©w¤lª«¥ó¤W¡]§t Trigger Collider¡^¡C
+/// æ•µäººæ”»æ“Šåˆ¤å®šæ¡†ã€‚ç”±æ”»æ“Šå‹•ç•«çš„ Animation Event é–‹é—œï¼Œç¢°åˆ°ç©å®¶é€ æˆå‚·å®³ã€‚
+/// æ›åœ¨æ•µäººçš„æ”»æ“Šåˆ¤å®šå­ç‰©ä»¶ä¸Šï¼ˆå« Trigger Colliderï¼‰ã€‚
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class EnemyAttackHitbox : MonoBehaviour
 {
-    [SerializeField] float damage = 1f;   // ®æ¤l¨î³q±`¦© 1 ®æ
+    [SerializeField] float damage = 1f;   // æ ¼å­åˆ¶é€šå¸¸æ‰£ 1 æ ¼
     [SerializeField] float knockbackForce = 8f;
 
     Collider2D hitbox;
@@ -16,7 +16,7 @@ public class EnemyAttackHitbox : MonoBehaviour
     {
         hitbox = GetComponent<Collider2D>();
         hitbox.isTrigger = true;
-        hitbox.enabled = false;   // ¥­®ÉÃö
+        hitbox.enabled = false;   // å¹³æ™‚é—œ
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -30,7 +30,7 @@ public class EnemyAttackHitbox : MonoBehaviour
         }
     }
 
-    // Animation Event ©I¥s
+    // Animation Event å‘¼å«
     public void EnableHitbox() => hitbox.enabled = true;
     public void DisableHitbox() => hitbox.enabled = false;
 }

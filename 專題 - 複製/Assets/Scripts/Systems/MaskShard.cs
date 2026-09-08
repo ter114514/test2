@@ -1,17 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-/// <summary>³õ´º¤¤ªº¦å®æ¸H¤ù¡Cª±®a¸I¨ì§Y¾ß¨ú¡C</summary>
+/// <summary>å ´æ™¯ä¸­çš„è¡€æ ¼ç¢ç‰‡ã€‚ç©å®¶ç¢°åˆ°å³æ’¿å–ã€‚</summary>
 [RequireComponent(typeof(Collider2D))]
 public class MaskShard : MonoBehaviour
 {
-    [Tooltip("¦¹¸H¤ùªº°ß¤@ ID")]
+    [Tooltip("æ­¤ç¢ç‰‡çš„å”¯ä¸€ ID")]
     [SerializeField] string shardId;
 
     void Awake()
     {
         GetComponent<Collider2D>().isTrigger = true;
 
-        // ¤w¾ß¹L´N¤£¥X²{
+        // å·²æ’¿éå°±ä¸å‡ºç¾
         if (CollectedMaskShardTracker.IsCollected(shardId))
             Destroy(gameObject);
     }

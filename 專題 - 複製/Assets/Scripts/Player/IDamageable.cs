@@ -1,6 +1,6 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-/// <summary>¥i¨ü¶Ëªºª«¥ó¡Cª±®a»P¼Ä¤H¦@¥Î¡AÅı§ğÀ»¤è¤£»İª¾¹D¥´¨ìªº¬O½Ö¡C</summary>
+/// <summary>å¯å—å‚·çš„ç‰©ä»¶ã€‚ç©å®¶èˆ‡æ•µäººå…±ç”¨ï¼Œè®“æ”»æ“Šæ–¹ä¸éœ€çŸ¥é“æ‰“åˆ°çš„æ˜¯èª°ã€‚</summary>
 public interface IDamageable
 {
     void TakeDamage(float amount, Vector2 knockback);

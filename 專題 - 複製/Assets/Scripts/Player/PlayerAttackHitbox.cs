@@ -1,24 +1,24 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ª±®a§ğÀ»§P©w®Ø¡C
-/// ±¾¦bªZ¾¹/§ğÀ»½d³òªº¤lª«¥ó¡]§t BoxCollider2D¡A³]¬° Trigger¡^¤W¡C
-/// ¥u°µ¤@¥ó¨Æ¡G§P©w®Ø±Ò¥Î´Á¶¡¡A°»´ú¸I¨ìªº¼Ä¤H¨Ã®M¥Î¶Ë®`¡C
-/// ±Ò¥Î/Ãö³¬®É¾÷¥Ñ PlayerCombatController ³z¹L°Êµe¨Æ¥ó±±¨î¡C
+/// ç©å®¶æ”»æ“Šåˆ¤å®šæ¡†ã€‚
+/// æ›åœ¨æ­¦å™¨/æ”»æ“Šç¯„åœçš„å­ç‰©ä»¶ï¼ˆå« BoxCollider2Dï¼Œè¨­ç‚º Triggerï¼‰ä¸Šã€‚
+/// åªåšä¸€ä»¶äº‹ï¼šåˆ¤å®šæ¡†å•Ÿç”¨æœŸé–“ï¼Œåµæ¸¬ç¢°åˆ°çš„æ•µäººä¸¦å¥—ç”¨å‚·å®³ã€‚
+/// å•Ÿç”¨/é—œé–‰æ™‚æ©Ÿç”± PlayerCombatController é€éå‹•ç•«äº‹ä»¶æ§åˆ¶ã€‚
 /// </summary>
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerAttackHitbox : MonoBehaviour
 {
-    [Tooltip("¥i³Q¥´¨ìªº¥Ø¼Ğ©Ò¦b Layer¡]¨Ò¦p Enemy¡^")]
+    [Tooltip("å¯è¢«æ‰“åˆ°çš„ç›®æ¨™æ‰€åœ¨ Layerï¼ˆä¾‹å¦‚ Enemyï¼‰")]
     [SerializeField] LayerMask targetLayer;
 
     PlayerStats stats;
     BoxCollider2D box;
 
-    // ³o¤@¦¸§ğÀ»¤w¸g¥´¹Lªº¥Ø¼Ğ¡AÁ×§K¦P¤@À»­«½ÆÄ²µo
+    // é€™ä¸€æ¬¡æ”»æ“Šå·²ç¶“æ‰“éçš„ç›®æ¨™ï¼Œé¿å…åŒä¸€æ“Šé‡è¤‡è§¸ç™¼
     readonly System.Collections.Generic.HashSet<Collider2D> hitThisSwing = new();
 
-    // ·í«e³o¤@À»ªº¶Ë®`­¿²v¡]¤£¦P³s¬q¬q¼Æ¥i¤£¦P¡^
+    // ç•¶å‰é€™ä¸€æ“Šçš„å‚·å®³å€ç‡ï¼ˆä¸åŒé€£æ®µæ®µæ•¸å¯ä¸åŒï¼‰
     float currentDamageMultiplier = 1f;
 
     void Awake()
@@ -26,10 +26,10 @@ public class PlayerAttackHitbox : MonoBehaviour
         stats = GetComponentInParent<PlayerStats>();
         box = GetComponent<BoxCollider2D>();
         box.isTrigger = true;
-        box.enabled = false;   // ¹w³]Ãö³¬¡A§ğÀ»®É¤~¶}
+        box.enabled = false;   // é è¨­é—œé–‰ï¼Œæ”»æ“Šæ™‚æ‰é–‹
     }
 
-    /// <summary>¶}±Ò§P©w¡]¥Ñ°Êµe¨Æ¥ó¦b©R¤¤´V©I¥s¡^¡C</summary>
+    /// <summary>é–‹å•Ÿåˆ¤å®šï¼ˆç”±å‹•ç•«äº‹ä»¶åœ¨å‘½ä¸­å¹€å‘¼å«ï¼‰ã€‚</summary>
     public void EnableHitbox(float damageMultiplier = 1f)
     {
         currentDamageMultiplier = damageMultiplier;
@@ -37,7 +37,7 @@ public class PlayerAttackHitbox : MonoBehaviour
         box.enabled = true;
     }
 
-    /// <summary>Ãö³¬§P©w¡]¥Ñ°Êµe¨Æ¥ó¦b©R¤¤´Vµ²§ô©I¥s¡^¡C</summary>
+    /// <summary>é—œé–‰åˆ¤å®šï¼ˆç”±å‹•ç•«äº‹ä»¶åœ¨å‘½ä¸­å¹€çµæŸå‘¼å«ï¼‰ã€‚</summary>
     public void DisableHitbox()
     {
         box.enabled = false;
@@ -46,9 +46,9 @@ public class PlayerAttackHitbox : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // ¤£¦b¥Ø¼Ğ Layer ´N©¿²¤
+        // ä¸åœ¨ç›®æ¨™ Layer å°±å¿½ç•¥
         if ((targetLayer.value & (1 << other.gameObject.layer)) == 0) return;
-        // ³o¤@À»¤w¥´¹L´N¸õ¹L
+        // é€™ä¸€æ“Šå·²æ‰“éå°±è·³é
         if (hitThisSwing.Contains(other)) return;
 
         if (other.TryGetComponent<IDamageable>(out var target))
@@ -57,7 +57,7 @@ public class PlayerAttackHitbox : MonoBehaviour
 
             float damage = stats.AttackPower * currentDamageMultiplier;
 
-            // À»°h¤è¦V¨Ìª±®a­±¦V
+            // æ“Šé€€æ–¹å‘ä¾ç©å®¶é¢å‘
             float facing = Mathf.Sign(transform.root.localScale.x);
             Vector2 knockback = new Vector2(
                 facing * stats.KnockbackForce,

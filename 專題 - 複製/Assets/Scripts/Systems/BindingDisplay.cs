@@ -1,12 +1,12 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// ¬d¸ß·í«e«öÁä¸j©wªºÅã¥Ü¤å¦r¡C¦Ò¼{ª±®a­«¸j«áªºµ²ªG¡C
+/// æŸ¥è©¢ç•¶å‰æŒ‰éµç¶å®šçš„é¡¯ç¤ºæ–‡å­—ã€‚è€ƒæ…®ç©å®¶é‡ç¶å¾Œçš„çµæœã€‚
 /// </summary>
 public static class BindingDisplay
 {
-    /// <summary>¨ú±o¬Y Action ·í«e¸j©wªº«öÁä¤å¦r¡]¦p "Space"¡B"J"¡^</summary>
+    /// <summary>å–å¾—æŸ Action ç•¶å‰ç¶å®šçš„æŒ‰éµæ–‡å­—ï¼ˆå¦‚ "Space"ã€"J"ï¼‰</summary>
     public static string GetKey(string actionName, int bindingIndex = 0)
     {
         if (RebindManager.Instance == null) return actionName;
@@ -14,7 +14,7 @@ public static class BindingDisplay
         var action = RebindManager.Instance.InputActions.FindAction(actionName);
         if (action == null) return actionName;
 
-        // ¦^¶Ç·í«e¸j©wªºÅã¥Ü¤å¦r¡]­«¸j«á·|¬O·s«öÁä¡^
+        // å›å‚³ç•¶å‰ç¶å®šçš„é¡¯ç¤ºæ–‡å­—ï¼ˆé‡ç¶å¾Œæœƒæ˜¯æ–°æŒ‰éµï¼‰
         return action.GetBindingDisplayString(bindingIndex);
     }
 }

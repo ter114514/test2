@@ -1,16 +1,16 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ª±®a§Ş¯à¬I©ñ¡C«ö§Ş¯àÁä¡A®ø¯Ó§l¦å­ÈÄÀ©ñ®ğ¤b¡C±¾¦bª±®a¨­¤W¡C
+/// ç©å®¶æŠ€èƒ½æ–½æ”¾ã€‚æŒ‰æŠ€èƒ½éµï¼Œæ¶ˆè€—å¸è¡€å€¼é‡‹æ”¾æ°£åˆƒã€‚æ›åœ¨ç©å®¶èº«ä¸Šã€‚
 /// </summary>
 public class PlayerSkillCaster : MonoBehaviour
 {
-    [Header("®ğ¤b§Ş¯à")]
-    [Tooltip("®ğ¤b§ë®gª« Prefab")]
+    [Header("æ°£åˆƒæŠ€èƒ½")]
+    [Tooltip("æ°£åˆƒæŠ•å°„ç‰© Prefab")]
     [SerializeField] GameObject bladeProjectilePrefab;
-    [Tooltip("¥Í¦¨¦ì¸m°¾²¾¡]¬Û¹ïª±®a¡A¨­«e¡^")]
+    [Tooltip("ç”Ÿæˆä½ç½®åç§»ï¼ˆç›¸å°ç©å®¶ï¼Œèº«å‰ï¼‰")]
     [SerializeField] Vector2 spawnOffset = new Vector2(1f, 0f);
-    [Tooltip("¬Iªk§N«o®É¶¡")]
+    [Tooltip("æ–½æ³•å†·å»æ™‚é–“")]
     [SerializeField] float castCooldown = 0.5f;
 
     PlayerInputHandler input;
@@ -43,22 +43,22 @@ public class PlayerSkillCaster : MonoBehaviour
     {
         if (cooldownTimer > 0) cooldownTimer -= Time.deltaTime;
 
-        // ¨Ì localScale °O¿ı­±¦V
+        // ä¾ localScale è¨˜éŒ„é¢å‘
         facingDir = transform.localScale.x >= 0 ? 1 : -1;
     }
 
     void TryCastSkill()
     {
-        if (cooldownTimer > 0) return;                            // §N«o¤¤
-        if (combat != null && combat.IsInHardState) return;      // µwª½¤¤
-        if (blood == null || !blood.CanCast) return;             // §l¦å­È¤£°÷
+        if (cooldownTimer > 0) return;                            // å†·å»ä¸­
+        if (combat != null && combat.IsInHardState) return;      // ç¡¬ç›´ä¸­
+        if (blood == null || !blood.CanCast) return;             // å¸è¡€å€¼ä¸å¤ 
 
-        if (!blood.TryCastSkill()) return;                       // ®ø¯Ó§l¦å­È
+        if (!blood.TryCastSkill()) return;                       // æ¶ˆè€—å¸è¡€å€¼
 
         cooldownTimer = castCooldown;
 
         if (animator != null)
-            animator.SetTrigger("CastSkill");                    // ¬Iªk°Êµe¡]¥i¿ï¡^
+            animator.SetTrigger("CastSkill");                    // æ–½æ³•å‹•ç•«ï¼ˆå¯é¸ï¼‰
 
         SpawnBlade();
     }

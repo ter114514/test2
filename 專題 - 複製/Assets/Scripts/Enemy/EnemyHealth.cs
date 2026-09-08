@@ -1,33 +1,33 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 /// <summary>
-/// ¼Ä¤H¥Í©R¨t²Î¡C¹ê§@ IDamageable¡A¨üÀ»°{¬õ+À»°h¡A¦º¤`¼½©ñ°Êµe«á¾P·´¡C
-/// ¦º¤`®É­áµ²ª«²z¡AÁ×§K«ÍÅé©¹¤U±¼¡Cµo¥X OnDeath ¨Æ¥ó¨Ñ¨ä¥L¨t²Î­q¾\¡C
+/// æ•µäººç”Ÿå‘½ç³»çµ±ã€‚å¯¦ä½œ IDamageableï¼Œå—æ“Šé–ƒç´…+æ“Šé€€ï¼Œæ­»äº¡æ’­æ”¾å‹•ç•«å¾ŒéŠ·æ¯€ã€‚
+/// æ­»äº¡æ™‚å‡çµç‰©ç†ï¼Œé¿å…å±é«”å¾€ä¸‹æ‰ã€‚ç™¼å‡º OnDeath äº‹ä»¶ä¾›å…¶ä»–ç³»çµ±è¨‚é–±ã€‚
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
-    [Header("¥Í©R")]
+    [Header("ç”Ÿå‘½")]
     [SerializeField] float maxHealth = 50f;
 
-    [Header("¨üÀ»")]
-    [Tooltip("¨üÀ»°{¬õ®É¶¡")]
+    [Header("å—æ“Š")]
+    [Tooltip("å—æ“Šé–ƒç´…æ™‚é–“")]
     [SerializeField] float flashDuration = 0.1f;
     [SerializeField] Color flashColor = Color.red;
 
-    [Header("¦º¤`")]
-    [Tooltip("¦º¤`°Êµe¼½©ñ«á¦h¤[¾P·´")]
+    [Header("æ­»äº¡")]
+    [Tooltip("æ­»äº¡å‹•ç•«æ’­æ”¾å¾Œå¤šä¹…éŠ·æ¯€")]
     [SerializeField] float destroyDelay = 1.5f;
 
-    [Header("ÃÑ§O")]
-    [Tooltip("¦¹¼Ä¤Hªº°ß¤@ ID¡]¦sÀÉ°O¿ıÀ»±Ñ¥Î¡^")]
+    [Header("è­˜åˆ¥")]
+    [Tooltip("æ­¤æ•µäººçš„å”¯ä¸€ IDï¼ˆå­˜æª”è¨˜éŒ„æ“Šæ•—ç”¨ï¼‰")]
     [SerializeField] string enemyId;
 
-    // ---- ¨Æ¥ó ----
-    /// <summary>¦º¤`®Éµo¥X</summary>
+    // ---- äº‹ä»¶ ----
+    /// <summary>æ­»äº¡æ™‚ç™¼å‡º</summary>
     public event Action OnDeath;
-    /// <summary>¦å¶qÅÜ¤Æ¡G(·í«e, ³Ì¤j)</summary>
+    /// <summary>è¡€é‡è®ŠåŒ–ï¼š(ç•¶å‰, æœ€å¤§)</summary>
     public event Action<float, float> OnHealthChanged;
 
     float currentHealth;
@@ -58,14 +58,14 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     void Start()
     {
-        // ¤w³QÀ»±Ñ¹L¡]¦sÀÉ°O¿ı¡^¡÷ ª½±µ®ø¥¢
+        // å·²è¢«æ“Šæ•—éï¼ˆå­˜æª”è¨˜éŒ„ï¼‰â†’ ç›´æ¥æ¶ˆå¤±
         if (!string.IsNullOrEmpty(enemyId) && DefeatedEnemyTracker.IsDefeated(enemyId))
             Destroy(gameObject);
     }
 
     void Update()
     {
-        // ¨üÀ»°{¬õ­p®É
+        // å—æ“Šé–ƒç´…è¨ˆæ™‚
         if (flashTimer > 0)
         {
             flashTimer -= Time.deltaTime;
@@ -82,17 +82,17 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         currentHealth -= damage;
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
-        // ¨üÀ»°{¬õ
+        // å—æ“Šé–ƒç´…
         if (sr != null)
         {
             sr.color = flashColor;
             flashTimer = flashDuration;
         }
 
-        // À»°h¡]¦º«e¤~±À¡A¦º«á Kinematic ¤£±À¡^
+        // æ“Šé€€ï¼ˆæ­»å‰æ‰æ¨ï¼Œæ­»å¾Œ Kinematic ä¸æ¨ï¼‰
         if (rb != null && currentHealth > 0)
         {
-            rb.linearVelocity = Vector2.zero;   // ¥ıÂk¹s¡AÀ»°h¤~©úÅã
+            rb.linearVelocity = Vector2.zero;   // å…ˆæ­¸é›¶ï¼Œæ“Šé€€æ‰æ˜é¡¯
             rb.AddForce(knockback, ForceMode2D.Impulse);
         }
 
@@ -105,33 +105,33 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (isDead) return;
         isDead = true;
 
-        // °O¿ı¤wÀ»±Ñ¡]¦sÀÉ¥Î¡^
+        // è¨˜éŒ„å·²æ“Šæ•—ï¼ˆå­˜æª”ç”¨ï¼‰
         if (!string.IsNullOrEmpty(enemyId))
             DefeatedEnemyTracker.MarkDefeated(enemyId);
 
-        // µo¥X¦º¤`¨Æ¥ó
+        // ç™¼å‡ºæ­»äº¡äº‹ä»¶
         OnDeath?.Invoke();
 
-        // ­áµ²ª«²z¡AÁ×§K«ÍÅé©¹¤U±¼©Î³Q±À
+        // å‡çµç‰©ç†ï¼Œé¿å…å±é«”å¾€ä¸‹æ‰æˆ–è¢«æ¨
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
 
-        // Ãö³¬¸I¼²¡]«ÍÅé¤£¾×¸ô¡B¤£¦A³Q¥´¡^
+        // é—œé–‰ç¢°æ’ï¼ˆå±é«”ä¸æ“‹è·¯ã€ä¸å†è¢«æ‰“ï¼‰
         if (col != null)
             col.enabled = false;
 
-        // °±¥Î§ğÀ»¦æ¬°
+        // åœç”¨æ”»æ“Šè¡Œç‚º
         if (TryGetComponent<EnemyAttacker>(out var attacker))
             attacker.enabled = false;
 
-        // ¼½¦º¤`°Êµe
+        // æ’­æ­»äº¡å‹•ç•«
         if (animator != null)
             animator.SetBool("IsDead", true);
 
-        // ©µ¿ğ¾P·´
+        // å»¶é²éŠ·æ¯€
         Destroy(gameObject, destroyDelay);
     }
 }

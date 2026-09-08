@@ -1,23 +1,23 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 /// <summary>
-/// ¯¸©w¶¡·²§ğÀ»ªº¼Ä¤H¡A§ğÀ»®É¦V­±¦V¤è¦V¼³À»¦ì²¾¡C
+/// ç«™å®šé–“æ­‡æ”»æ“Šçš„æ•µäººï¼Œæ”»æ“Šæ™‚å‘é¢å‘æ–¹å‘æ’²æ“Šä½ç§»ã€‚
 /// </summary>
 [RequireComponent(typeof(EnemyStats), typeof(Rigidbody2D))]
 public class EnemyAttacker : MonoBehaviour
 {
-    [Header("§ğÀ»§P©w½d³ò")]
+    [Header("æ”»æ“Šåˆ¤å®šç¯„åœ")]
     [SerializeField] Vector2 attackBoxSize = new Vector2(1.2f, 1f);
     [SerializeField] float attackReach = 0.8f;
-    [SerializeField] LayerMask targetLayer;   // ³]¦¨ Player
+    [SerializeField] LayerMask targetLayer;   // è¨­æˆ Player
 
-    [Header("§ğÀ»¦ì²¾¡]¼³À»¡^")]
-    [Tooltip("§ğÀ»®É¦V«e½Äªº¤O¹D")]
+    [Header("æ”»æ“Šä½ç§»ï¼ˆæ’²æ“Šï¼‰")]
+    [Tooltip("æ”»æ“Šæ™‚å‘å‰è¡çš„åŠ›é“")]
     [SerializeField] float lungeForce = 8f;
-    [Tooltip("±qÄ²µo§ğÀ»¨ì¹ê»Ú¦ì²¾+§P©wªº©µ¿ğ¡]°t¦X°Êµe¥X¤â®É¾÷¡^")]
+    [Tooltip("å¾è§¸ç™¼æ”»æ“Šåˆ°å¯¦éš›ä½ç§»+åˆ¤å®šçš„å»¶é²ï¼ˆé…åˆå‹•ç•«å‡ºæ‰‹æ™‚æ©Ÿï¼‰")]
     [SerializeField] float lungeDelay = 0.2f;
-    [Tooltip("¼³À»«ùÄò®É¶¡¡A¤§«á·Ù°±")]
+    [Tooltip("æ’²æ“ŠæŒçºŒæ™‚é–“ï¼Œä¹‹å¾Œç…åœ")]
     [SerializeField] float lungeDuration = 0.15f;
 
     static readonly int AttackHash = Animator.StringToHash("Attack");
@@ -40,7 +40,7 @@ public class EnemyAttacker : MonoBehaviour
     void Update()
     {
         if (health != null && health.IsDead) return;
-        if (isAttacking) return;   // §ğÀ»¤¤¤£­«½ÆÄ²µo
+        if (isAttacking) return;   // æ”»æ“Šä¸­ä¸é‡è¤‡è§¸ç™¼
 
         if (Time.time >= lastAttackTime + stats.AttackCooldown)
         {
@@ -53,24 +53,24 @@ public class EnemyAttacker : MonoBehaviour
     {
         isAttacking = true;
 
-        // 1. ¼½§ğÀ»°Êµe
+        // 1. æ’­æ”»æ“Šå‹•ç•«
         if (animator != null)
             animator.SetTrigger(AttackHash);
 
-        // 2. µ¥¨ì¥X¤â®É¾÷¡]°t¦X°Êµe¡^
+        // 2. ç­‰åˆ°å‡ºæ‰‹æ™‚æ©Ÿï¼ˆé…åˆå‹•ç•«ï¼‰
         yield return new WaitForSeconds(lungeDelay);
 
         if (health != null && health.IsDead) { isAttacking = false; yield break; }
 
-        // 3. ¦V«e¼³À»¦ì²¾
+        // 3. å‘å‰æ’²æ“Šä½ç§»
         float facing = Mathf.Sign(transform.localScale.x);
         if (facing == 0) facing = 1;
         rb.linearVelocity = new Vector2(-facing * lungeForce, rb.linearVelocity.y);
 
-        // 4. ¼³À»Àş¶¡°µ¶Ë®`§P©w
+        // 4. æ’²æ“Šç¬é–“åšå‚·å®³åˆ¤å®š
         DoAttackHit(facing);
 
-        // 5. ¼³À»«ùÄò¤@¤p¬q«á·Ù°±
+        // 5. æ’²æ“ŠæŒçºŒä¸€å°æ®µå¾Œç…åœ
         yield return new WaitForSeconds(lungeDuration);
         rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
 

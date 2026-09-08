@@ -1,10 +1,10 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
-/// ³æ¤@¦sÀÉÄæ¦ìªº UI Åã¥Ü»P¤¬°Ê¡C
+/// å–®ä¸€å­˜æª”æ¬„ä½çš„ UI é¡¯ç¤ºèˆ‡äº’å‹•ã€‚
 /// </summary>
 public class SaveSlotUI : MonoBehaviour
 {
@@ -24,21 +24,21 @@ public class SaveSlotUI : MonoBehaviour
         onSelect = selectCallback;
         onDelete = deleteCallback;
 
-        slotNumberText.text = $"¦sÀÉ {index + 1}";
+        slotNumberText.text = $"å­˜æª” {index + 1}";
 
         bool hasData = data != null;
         if (hasData)
         {
-            // Åã¥Ü¦å®æ¡]®æ¤l¨î¡^¡CÂÂ¦sÀÉ¨S¦å®æ¸ê®Æ®É°h¦^Åã¥Ü³õ´º/®É¶¡
+            // é¡¯ç¤ºè¡€æ ¼ï¼ˆæ ¼å­åˆ¶ï¼‰ã€‚èˆŠå­˜æª”æ²’è¡€æ ¼è³‡æ–™æ™‚é€€å›é¡¯ç¤ºå ´æ™¯/æ™‚é–“
             string healthLine = data.playerMaxMasks > 0
-                ? $"¦å¶q¤W­­ {data.playerMaxMasks}"
-                : "¦sÀÉ";
+                ? $"è¡€é‡ä¸Šé™ {data.playerMaxMasks}"
+                : "å­˜æª”";
 
             infoText.text = $"{healthLine}\n{data.saveTime}";
         }
         else
         {
-            infoText.text = "¡X ªÅÄæ¦ì ¡X";
+            infoText.text = "â€” ç©ºæ¬„ä½ â€”";
         }
 
         selectButton.interactable = isNewGameMode || hasData;

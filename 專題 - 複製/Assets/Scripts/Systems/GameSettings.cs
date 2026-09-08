@@ -1,8 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.Audio;
 
 /// <summary>
-/// ¹CÀ¸³]©wªº³æ¤@¨Ó·½¡C­t³dÅª¼g PlayerPrefs ¨Ã®M¥Î¨ì¨t²Î¡C
+/// éŠæˆ²è¨­å®šçš„å–®ä¸€ä¾†æºã€‚è² è²¬è®€å¯« PlayerPrefs ä¸¦å¥—ç”¨åˆ°ç³»çµ±ã€‚
 /// </summary>
 public static class GameSettings
 {
@@ -13,9 +13,9 @@ public static class GameSettings
     const string KEY_RESOLUTION = "gfx_resolution";
     const string KEY_FRAMERATE = "gfx_framerate";
 
-    // ---- ©T©w¿ï¶µ²M³æ ----
+    // ---- å›ºå®šé¸é …æ¸…å–® ----
 
-    /// <summary>¸ÑªR«×¿ï¶µ¡]¼e, °ª¡^¡C¯Á¤Ş 2 = 1920x1080 ¬°¹w³]</summary>
+    /// <summary>è§£æåº¦é¸é …ï¼ˆå¯¬, é«˜ï¼‰ã€‚ç´¢å¼• 2 = 1920x1080 ç‚ºé è¨­</summary>
     public static readonly (int width, int height)[] Resolutions =
     {
         (1280, 720),
@@ -26,15 +26,15 @@ public static class GameSettings
     };
     public const int DefaultResolutionIndex = 2;   // 1920x1080
 
-    /// <summary>´V¼Æ¿ï¶µ¡A-1 ¥NªíµL¤W­­¡C¯Á¤Ş 1 = 60 ¬°¹w³]</summary>
+    /// <summary>å¹€æ•¸é¸é …ï¼Œ-1 ä»£è¡¨ç„¡ä¸Šé™ã€‚ç´¢å¼• 1 = 60 ç‚ºé è¨­</summary>
     public static readonly int[] FrameRates = { 30, 60, 90, 120, 240, -1 };
     public const int DefaultFrameRateIndex = 1;    // 60
 
-    /// <summary>µøµ¡¼Ò¦¡¿ï¶µÅã¥Ü¤å¦r</summary>
-    public static readonly string[] WindowModeNames = { "¥ş¿Ã¹õ", "µøµ¡" };
-    public const int DefaultWindowModeIndex = 0;   // ¥ş¿Ã¹õ
+    /// <summary>è¦–çª—æ¨¡å¼é¸é …é¡¯ç¤ºæ–‡å­—</summary>
+    public static readonly string[] WindowModeNames = { "å…¨è¢å¹•", "è¦–çª—" };
+    public const int DefaultWindowModeIndex = 0;   // å…¨è¢å¹•
 
-    // ---- ­µ¶q¡]0~1¡^----
+    // ---- éŸ³é‡ï¼ˆ0~1ï¼‰----
 
     public static float MasterVolume
     {
@@ -52,9 +52,9 @@ public static class GameSettings
         set { PlayerPrefs.SetFloat(KEY_SFX, value); ApplyVolume("SFXVolume", value); }
     }
 
-    // ---- µøµ¡¼Ò¦¡ ----
+    // ---- è¦–çª—æ¨¡å¼ ----
 
-    /// <summary>0 = ¥ş¿Ã¹õ¡A1 = µøµ¡</summary>
+    /// <summary>0 = å…¨è¢å¹•ï¼Œ1 = è¦–çª—</summary>
     public static int WindowModeIndex
     {
         get => PlayerPrefs.GetInt(KEY_WINDOWMODE, DefaultWindowModeIndex);
@@ -65,7 +65,7 @@ public static class GameSettings
         }
     }
 
-    // ---- ¸ÑªR«× ----
+    // ---- è§£æåº¦ ----
 
     public static int ResolutionIndex
     {
@@ -77,7 +77,7 @@ public static class GameSettings
         }
     }
 
-    // ---- ´V¼Æ ----
+    // ---- å¹€æ•¸ ----
 
     public static int FrameRateIndex
     {
@@ -89,14 +89,14 @@ public static class GameSettings
         }
     }
 
-    // ---- ®M¥Î¤èªk ----
+    // ---- å¥—ç”¨æ–¹æ³• ----
 
     static void ApplyResolutionAndWindow()
     {
         int resIdx = Mathf.Clamp(ResolutionIndex, 0, Resolutions.Length - 1);
         var (w, h) = Resolutions[resIdx];
 
-        // µøµ¡¼Ò¦¡¡G0 ¥ş¿Ã¹õ¡A1 µøµ¡
+        // è¦–çª—æ¨¡å¼ï¼š0 å…¨è¢å¹•ï¼Œ1 è¦–çª—
         var mode = WindowModeIndex == 0
             ? FullScreenMode.FullScreenWindow
             : FullScreenMode.Windowed;
@@ -109,9 +109,9 @@ public static class GameSettings
         int idx = Mathf.Clamp(FrameRateIndex, 0, FrameRates.Length - 1);
         int fps = FrameRates[idx];
 
-        // ´V¼Æ¤W­­»İ­nÃö³¬ VSync ¤~·|¥Í®Ä
+        // å¹€æ•¸ä¸Šé™éœ€è¦é—œé–‰ VSync æ‰æœƒç”Ÿæ•ˆ
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = fps;   // -1 = µL¤W­­
+        Application.targetFrameRate = fps;   // -1 = ç„¡ä¸Šé™
     }
 
     static AudioMixer mixer;
@@ -124,7 +124,7 @@ public static class GameSettings
         mixer.SetFloat(param, dB);
     }
 
-    /// <summary>¹CÀ¸±Ò°Ê®É©I¥s¡A®M¥Î©Ò¦³¤wÀx¦s³]©w</summary>
+    /// <summary>éŠæˆ²å•Ÿå‹•æ™‚å‘¼å«ï¼Œå¥—ç”¨æ‰€æœ‰å·²å„²å­˜è¨­å®š</summary>
     public static void ApplyAll(AudioMixer m)
     {
         SetMixer(m);

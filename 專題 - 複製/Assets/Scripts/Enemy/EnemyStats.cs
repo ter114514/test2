@@ -1,26 +1,26 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// �ĤH��¦�ݩʼƭȮw�C�u�s�ƭȡA���t�޿�C
+/// 敵人基礎屬性數值庫。只存數值，不含邏輯。
 /// </summary>
 public class EnemyStats : MonoBehaviour
 {
-    [Header("�ͩR")]
+    [Header("生命")]
     [SerializeField] float maxHealth = 30f;
 
-    [Header("����")]
+    [Header("攻擊")]
     [SerializeField] float attackPower = 10f;
     [SerializeField] float knockbackForce = 8f;
 
-    [Header("����")]
+    [Header("移動")]
     [SerializeField] float moveSpeed = 2.5f;
 
-    [Header("AI �d��")]
-    [Tooltip("�����쪱�a���Z��")]
+    [Header("AI 範圍")]
+    [Tooltip("偵測到玩家的距離")]
     [SerializeField] float detectRange = 6f;
-    [Tooltip("�i�J�������Z��")]
+    [Tooltip("進入攻擊的距離")]
     [SerializeField] float attackRange = 1.2f;
-    [Tooltip("�����N�o�ɶ�")]
+    [Tooltip("攻擊冷卻時間")]
     [SerializeField] float attackCooldown = 1.5f;
 
     public float MaxHealth => maxHealth;

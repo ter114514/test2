@@ -1,13 +1,13 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// ¦sÀÉºŞ²z¾¹¡]¦hÄæ¦ìª©¡^¡C
-/// ºŞ²z 3 ­Ó¦sÀÉÄæ¦ì¡B°O¦í·í«eÄæ¦ì¡]¸ó³õ´º«O¯d¡^¡C
-/// ÅªÀÉ®É¸ü¤J¦sÀÉ°O¿ıªº³õ´º¡AÅıª±®a¦^¨ì¦sÀÉ·í¤Uªº¨º¤@Ãö¡C
+/// å­˜æª”ç®¡ç†å™¨ï¼ˆå¤šæ¬„ä½ç‰ˆï¼‰ã€‚
+/// ç®¡ç† 3 å€‹å­˜æª”æ¬„ä½ã€è¨˜ä½ç•¶å‰æ¬„ä½ï¼ˆè·¨å ´æ™¯ä¿ç•™ï¼‰ã€‚
+/// è®€æª”æ™‚è¼‰å…¥å­˜æª”è¨˜éŒ„çš„å ´æ™¯ï¼Œè®“ç©å®¶å›åˆ°å­˜æª”ç•¶ä¸‹çš„é‚£ä¸€é—œã€‚
 /// </summary>
 public class SaveManager : MonoBehaviour
 {
@@ -15,13 +15,13 @@ public class SaveManager : MonoBehaviour
 
     public const int SlotCount = 3;
 
-    [Header("³]©w")]
+    [Header("è¨­å®š")]
     [SerializeField] bool useEncryption = false;
 
-    [Header("³õ´º¦WºÙ")]
-    [Tooltip("¹w³]¹CÀ¸³õ´º¡]ÂÂ¦sÀÉ¨S°O³õ´º®Éªº°h¦^­È¡^")]
+    [Header("å ´æ™¯åç¨±")]
+    [Tooltip("é è¨­éŠæˆ²å ´æ™¯ï¼ˆèˆŠå­˜æª”æ²’è¨˜å ´æ™¯æ™‚çš„é€€å›å€¼ï¼‰")]
     [SerializeField] string gameSceneName = "Level1";
-    [Tooltip("¥Dµe­±³õ´º¦WºÙ")]
+    [Tooltip("ä¸»ç•«é¢å ´æ™¯åç¨±")]
     [SerializeField] string menuSceneName = "MainMenu";
 
     public int CurrentSlot { get; private set; } = -1;
@@ -51,7 +51,7 @@ public class SaveManager : MonoBehaviour
     string GetPath(int slot)
         => Path.Combine(Application.persistentDataPath, $"save_slot{slot}.json");
 
-    // ---- Äæ¦ì¬d¸ß ----
+    // ---- æ¬„ä½æŸ¥è©¢ ----
 
     public bool SlotHasData(int slot) => File.Exists(GetPath(slot));
 
@@ -66,26 +66,26 @@ public class SaveManager : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogError($"Åª¨úÄæ¦ì {slot} ¥¢±Ñ¡G{e.Message}");
+            Debug.LogError($"è®€å–æ¬„ä½ {slot} å¤±æ•—ï¼š{e.Message}");
             return null;
         }
     }
 
-    // ---- ·s¹CÀ¸ ----
+    // ---- æ–°éŠæˆ² ----
 
     public void StartNewGame(int slot)
     {
         CurrentSlot = slot;
         pendingLoadData = null;
-        DefeatedEnemyTracker.Clear();          // ²MªÅ¤wÀ»±Ñ¼Ä¤H
-        CollectedShardTracker.Clear();         // ²MªÅ¤w¾ßÃÄÅø¸H¤ù
-        CollectedMaskShardTracker.Clear();     // ²MªÅ¤w¾ß¦å®æ¸H¤ù
-        GameSession.Clear();                   // ²MªÅ¸óÃö¥d¼È¦s
-        DeleteSlot(slot);                      // ²M±¼¸ÓÄæ¦ìÂÂÀÉ
+        DefeatedEnemyTracker.Clear();          // æ¸…ç©ºå·²æ“Šæ•—æ•µäºº
+        CollectedShardTracker.Clear();         // æ¸…ç©ºå·²æ’¿è—¥ç½ç¢ç‰‡
+        CollectedMaskShardTracker.Clear();     // æ¸…ç©ºå·²æ’¿è¡€æ ¼ç¢ç‰‡
+        GameSession.Clear();                   // æ¸…ç©ºè·¨é—œå¡æš«å­˜
+        DeleteSlot(slot);                      // æ¸…æ‰è©²æ¬„ä½èˆŠæª”
         SceneManager.LoadScene(gameSceneName);
     }
 
-    // ---- Ä~Äò¹CÀ¸ ----
+    // ---- ç¹¼çºŒéŠæˆ² ----
 
     public bool ContinueGame(int slot)
     {
@@ -120,16 +120,16 @@ public class SaveManager : MonoBehaviour
 
         OnLoaded?.Invoke();
         pendingLoadData = null;
-        Debug.Log($"¤w¸ü¤JÄæ¦ì {CurrentSlot + 1} ªº¦sÀÉ¡]³õ´º¡G{scene.name}¡^");
+        Debug.Log($"å·²è¼‰å…¥æ¬„ä½ {CurrentSlot + 1} çš„å­˜æª”ï¼ˆå ´æ™¯ï¼š{scene.name}ï¼‰");
     }
 
-    // ---- ¹CÀ¸¤º¦sÀÉ¡]êº¤õ©I¥s¡^----
+    // ---- éŠæˆ²å…§å­˜æª”ï¼ˆç¯ç«å‘¼å«ï¼‰----
 
     public void SaveToCurrentSlot()
     {
         if (CurrentSlot < 0)
         {
-            Debug.LogWarning("©|¥¼¿ï¾Ü¦sÀÉÄæ¦ì");
+            Debug.LogWarning("å°šæœªé¸æ“‡å­˜æª”æ¬„ä½");
             return;
         }
 
@@ -150,22 +150,22 @@ public class SaveManager : MonoBehaviour
             if (useEncryption) json = XorObfuscate(json);
             File.WriteAllText(GetPath(CurrentSlot), json);
             OnSaved?.Invoke();
-            Debug.Log($"¤w¦sÀÉ¦ÜÄæ¦ì {CurrentSlot + 1}¡]³õ´º¡G{data.currentSceneName}¡^");
+            Debug.Log($"å·²å­˜æª”è‡³æ¬„ä½ {CurrentSlot + 1}ï¼ˆå ´æ™¯ï¼š{data.currentSceneName}ï¼‰");
         }
         catch (Exception e)
         {
-            Debug.LogError($"¦sÀÉ¥¢±Ñ¡G{e.Message}");
+            Debug.LogError($"å­˜æª”å¤±æ•—ï¼š{e.Message}");
         }
     }
 
-    // ---- ¨ä¥L ----
+    // ---- å…¶ä»– ----
 
     public void DeleteSlot(int slot)
     {
         if (SlotHasData(slot))
         {
             File.Delete(GetPath(slot));
-            Debug.Log($"Äæ¦ì {slot + 1} ¦sÀÉ¤w§R°£");
+            Debug.Log($"æ¬„ä½ {slot + 1} å­˜æª”å·²åˆªé™¤");
         }
     }
 

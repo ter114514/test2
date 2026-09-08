@@ -1,23 +1,23 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 /// <summary>
-/// ÃÄÅø¸H¤ù¨t²Î¡Cª±®a¾ß¸H¤ù¡A¶°º¡ªùÂe´£¤É¦å²~¤W­­¡C
-/// ¹ê§@ ISaveable¡A¦sÀÉ°O¿ı¸H¤ù¶i«×»P¤w¾ß¸H¤ù²M³æ¡C
+/// è—¥ç½ç¢ç‰‡ç³»çµ±ã€‚ç©å®¶æ’¿ç¢ç‰‡ï¼Œé›†æ»¿é–€æª»æå‡è¡€ç“¶ä¸Šé™ã€‚
+/// å¯¦ä½œ ISaveableï¼Œå­˜æª”è¨˜éŒ„ç¢ç‰‡é€²åº¦èˆ‡å·²æ’¿ç¢ç‰‡æ¸…å–®ã€‚
 /// </summary>
 public class PotionShardSystem : MonoBehaviour, ISaveable
 {
-    [Header("¸H¤ù³]©w")]
-    [Tooltip("¶°º¡´X¤ù´£¤É¤@¦¸¦å²~¤W­­")]
+    [Header("ç¢ç‰‡è¨­å®š")]
+    [Tooltip("é›†æ»¿å¹¾ç‰‡æå‡ä¸€æ¬¡è¡€ç“¶ä¸Šé™")]
     [SerializeField] int shardsPerUpgrade = 4;
 
-    // ---- ¨Æ¥ó ----
-    /// <summary>¸H¤ù¼ÆÅÜ¤Æ¡G(·í«e²Ö¿n, ¶°º¡©Ò»İ)</summary>
+    // ---- äº‹ä»¶ ----
+    /// <summary>ç¢ç‰‡æ•¸è®ŠåŒ–ï¼š(ç•¶å‰ç´¯ç©, é›†æ»¿æ‰€éœ€)</summary>
     public event Action<int, int> OnShardChanged;
-    /// <summary>¶°º¡´£¤É¤W­­®É</summary>
+    /// <summary>é›†æ»¿æå‡ä¸Šé™æ™‚</summary>
     public event Action OnPotionUpgraded;
 
-    /// <summary>¥Ø«e´Â¤U¤@¦¸¤É¯Å²Ö¿nªº¸H¤ù¼Æ</summary>
+    /// <summary>ç›®å‰æœä¸‹ä¸€æ¬¡å‡ç´šç´¯ç©çš„ç¢ç‰‡æ•¸</summary>
     public int CurrentShards { get; private set; }
 
     PotionSystem potion;
@@ -32,15 +32,15 @@ public class PotionShardSystem : MonoBehaviour, ISaveable
         OnShardChanged?.Invoke(CurrentShards, shardsPerUpgrade);
     }
 
-    /// <summary>¾ß¨ì¤@¤ù¸H¤ù</summary>
+    /// <summary>æ’¿åˆ°ä¸€ç‰‡ç¢ç‰‡</summary>
     public void CollectShard()
     {
         CurrentShards++;
 
-        // ¶°º¡ªùÂe ¡÷ ´£¤É¦å²~¤W­­
+        // é›†æ»¿é–€æª» â†’ æå‡è¡€ç“¶ä¸Šé™
         if (CurrentShards >= shardsPerUpgrade)
         {
-            CurrentShards -= shardsPerUpgrade;   // ¦©±¼¡A³Ñ¾l¶i¤U¤@½ü
+            CurrentShards -= shardsPerUpgrade;   // æ‰£æ‰ï¼Œå‰©é¤˜é€²ä¸‹ä¸€è¼ª
             potion?.IncreaseMaxPotions(1);
             OnPotionUpgraded?.Invoke();
         }
@@ -48,7 +48,7 @@ public class PotionShardSystem : MonoBehaviour, ISaveable
         OnShardChanged?.Invoke(CurrentShards, shardsPerUpgrade);
     }
 
-    /// <summary>ª½±µ³]©w¸H¤ù¶i«×¡]ÅªÀÉ¥Î¡^</summary>
+    /// <summary>ç›´æ¥è¨­å®šç¢ç‰‡é€²åº¦ï¼ˆè®€æª”ç”¨ï¼‰</summary>
     public void SetShards(int shards)
     {
         CurrentShards = shards;

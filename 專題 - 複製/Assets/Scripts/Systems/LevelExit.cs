@@ -1,20 +1,20 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// Ãö¥d¥X¤f¡Cª±®a¶i¤J®É«O¦s·í«eª¬ºA¡A¨Ã¤Á´«¨ì«ü©wÃö¥d¡C
-/// ±¾¦b§t Trigger Collider ªº¥X¤f/¶Ç°eªùª«¥ó¤W¡C
+/// é—œå¡å‡ºå£ã€‚ç©å®¶é€²å…¥æ™‚ä¿å­˜ç•¶å‰ç‹€æ…‹ï¼Œä¸¦åˆ‡æ›åˆ°æŒ‡å®šé—œå¡ã€‚
+/// æ›åœ¨å« Trigger Collider çš„å‡ºå£/å‚³é€é–€ç‰©ä»¶ä¸Šã€‚
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class LevelExit : MonoBehaviour
 {
-    [Header("¥Ø¼ĞÃö¥d")]
-    [Tooltip("­n¸ü¤Jªº¤U¤@Ãö³õ´º¦WºÙ")]
+    [Header("ç›®æ¨™é—œå¡")]
+    [Tooltip("è¦è¼‰å…¥çš„ä¸‹ä¸€é—œå ´æ™¯åç¨±")]
     [SerializeField] string nextSceneName = "Level2";
-    [Tooltip("¶i¤J¤U¤@Ãö«áª±®aªº¥X¥ÍÂI ID¡]¹ïÀ³¸ÓÃö SpawnPoint ªº spawnID¡^")]
+    [Tooltip("é€²å…¥ä¸‹ä¸€é—œå¾Œç©å®¶çš„å‡ºç”Ÿé» IDï¼ˆå°æ‡‰è©²é—œ SpawnPoint çš„ spawnIDï¼‰")]
     [SerializeField] string targetSpawnID = "FromLevel1";
 
-    [Header("³]©w")]
-    [Tooltip("¬O§_»İ­n«öÁä¤~¤Á´«¡]§_«h¶i¤J½d³ò¦Û°Ê¤Á´«¡^")]
+    [Header("è¨­å®š")]
+    [Tooltip("æ˜¯å¦éœ€è¦æŒ‰éµæ‰åˆ‡æ›ï¼ˆå¦å‰‡é€²å…¥ç¯„åœè‡ªå‹•åˆ‡æ›ï¼‰")]
     [SerializeField] bool requireKeyPress = false;
 
     bool playerInRange;
@@ -27,7 +27,7 @@ public class LevelExit : MonoBehaviour
 
     void Update()
     {
-        // »İ­n«öÁäªº¼Ò¦¡¡Gª±®a¦b½d³ò¤º«ö W ©Î¤WÁä¤~¤Á´«
+        // éœ€è¦æŒ‰éµçš„æ¨¡å¼ï¼šç©å®¶åœ¨ç¯„åœå…§æŒ‰ W æˆ–ä¸Šéµæ‰åˆ‡æ›
         if (requireKeyPress && playerInRange)
         {
             if (UnityEngine.InputSystem.Keyboard.current != null &&
@@ -45,7 +45,7 @@ public class LevelExit : MonoBehaviour
         playerInRange = true;
         playerCollider = other;
 
-        // ¦Û°Ê¤Á´«¼Ò¦¡¡G¶i¤J´N¤Á
+        // è‡ªå‹•åˆ‡æ›æ¨¡å¼ï¼šé€²å…¥å°±åˆ‡
         if (!requireKeyPress)
             TransitionToNextLevel();
     }
@@ -60,16 +60,16 @@ public class LevelExit : MonoBehaviour
     {
         if (playerCollider == null) return;
 
-        // ¤ÁÃö¥d«e¡A«O¦sª±®a·í«eª¬ºA¡]¸óÃö¥d©µÄò¡^
+        // åˆ‡é—œå¡å‰ï¼Œä¿å­˜ç©å®¶ç•¶å‰ç‹€æ…‹ï¼ˆè·¨é—œå¡å»¶çºŒï¼‰
         var health = playerCollider.GetComponent<PlayerHealthSystem>();
         var stats = playerCollider.GetComponent<PlayerStats>();
         var blood = playerCollider.GetComponent<BloodResource>();
         GameSession.Save(health, stats, blood);
 
-        // ¤Á´«¨ì¤U¤@Ãö
+        // åˆ‡æ›åˆ°ä¸‹ä¸€é—œ
         if (LevelManager.Instance != null)
             LevelManager.Instance.LoadLevel(nextSceneName, targetSpawnID);
         else
-            Debug.LogError("¡iLevelExit¡j§ä¤£¨ì LevelManager¡I");
+            Debug.LogError("ã€LevelExitã€‘æ‰¾ä¸åˆ° LevelManagerï¼");
     }
 }

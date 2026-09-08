@@ -1,25 +1,25 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// «öÁä­«¸jºŞ²z¾¹¡C«ù¦³¦@¥Îªº Input Actions ¸ê²£¡A
-/// ­t³d¸ü¤J/Àx¦s­«¸jÂĞ»\¡A¨Ã¸ó³õ´º«O¯d¡C
-/// PlayerInputHandler »P RebindButton ³£¨Ï¥Î³o¸Ìªº¦P¤@¥÷¸ê²£¡C
+/// æŒ‰éµé‡ç¶ç®¡ç†å™¨ã€‚æŒæœ‰å…±ç”¨çš„ Input Actions è³‡ç”¢ï¼Œ
+/// è² è²¬è¼‰å…¥/å„²å­˜é‡ç¶è¦†è“‹ï¼Œä¸¦è·¨å ´æ™¯ä¿ç•™ã€‚
+/// PlayerInputHandler èˆ‡ RebindButton éƒ½ä½¿ç”¨é€™è£¡çš„åŒä¸€ä»½è³‡ç”¢ã€‚
 /// </summary>
 public class RebindManager : MonoBehaviour
 {
     public static RebindManager Instance { get; private set; }
 
-    [Header("¦@¥Î¸ê²£")]
-    [Tooltip("©ì¤J PlayerControls ³o­Ó Input Actions ¸ê²£")]
+    [Header("å…±ç”¨è³‡ç”¢")]
+    [Tooltip("æ‹–å…¥ PlayerControls é€™å€‹ Input Actions è³‡ç”¢")]
     [SerializeField] InputActionAsset inputActions;
 
     public InputActionAsset InputActions => inputActions;
 
     const string RebindsKey = "rebinds";
 
-    [Header("°£¿ù")]
-    [Tooltip("¤Ä¿ï·|¦b±Ò°Ê®É²M°£©Ò¦³­«¸j¦sÀÉ¡]±Æ¬d¥Î¡A¤§«á¨ú®ø¡^")]
+    [Header("é™¤éŒ¯")]
+    [Tooltip("å‹¾é¸æœƒåœ¨å•Ÿå‹•æ™‚æ¸…é™¤æ‰€æœ‰é‡ç¶å­˜æª”ï¼ˆæ’æŸ¥ç”¨ï¼Œä¹‹å¾Œå–æ¶ˆï¼‰")]
     [SerializeField] bool clearRebindsOnStart = false;
 
     void Awake()
@@ -32,25 +32,25 @@ public class RebindManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // ¶EÂ_¡G²M°£­«¸j¦sÀÉ¡]±Æ¬d Dash °İÃD¥Î¡^
+        // è¨ºæ–·ï¼šæ¸…é™¤é‡ç¶å­˜æª”ï¼ˆæ’æŸ¥ Dash å•é¡Œç”¨ï¼‰
         if (clearRebindsOnStart)
         {
             PlayerPrefs.DeleteKey(RebindsKey);
             PlayerPrefs.Save();
-            Debug.Log("¡iRebindManager¡j¤w²M°£­«¸j¦sÀÉ¡]¶EÂ_¡^");
+            Debug.Log("ã€RebindManagerã€‘å·²æ¸…é™¤é‡ç¶å­˜æª”ï¼ˆè¨ºæ–·ï¼‰");
         }
 
         LoadRebinds();
     }
 
-    // ---- ¸ü¤J / Àx¦s­«¸j ----
+    // ---- è¼‰å…¥ / å„²å­˜é‡ç¶ ----
 
-    /// <summary>±q PlayerPrefs ¸ü¤J­«¸jÂĞ»\¡A®M¥Î¨ì¸ê²£</summary>
+    /// <summary>å¾ PlayerPrefs è¼‰å…¥é‡ç¶è¦†è“‹ï¼Œå¥—ç”¨åˆ°è³‡ç”¢</summary>
     public void LoadRebinds()
     {
         if (inputActions == null)
         {
-            Debug.LogError("¡iRebindManager¡jInputActions ¨S³]©w¡I");
+            Debug.LogError("ã€RebindManagerã€‘InputActions æ²’è¨­å®šï¼");
             return;
         }
 
@@ -58,11 +58,11 @@ public class RebindManager : MonoBehaviour
         if (!string.IsNullOrEmpty(json))
         {
             inputActions.LoadBindingOverridesFromJson(json);
-            Debug.Log("¡iRebindManager¡j¤w¸ü¤J­«¸j");
+            Debug.Log("ã€RebindManagerã€‘å·²è¼‰å…¥é‡ç¶");
         }
     }
 
-    /// <summary>§â·í«e­«¸jÂĞ»\¦s¶i PlayerPrefs</summary>
+    /// <summary>æŠŠç•¶å‰é‡ç¶è¦†è“‹å­˜é€² PlayerPrefs</summary>
     public void SaveRebinds()
     {
         if (inputActions == null) return;
@@ -72,7 +72,7 @@ public class RebindManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    /// <summary>­«¸m©Ò¦³­«¸j¡A«ì´_¸ê²£­ì©l¸j©w</summary>
+    /// <summary>é‡ç½®æ‰€æœ‰é‡ç¶ï¼Œæ¢å¾©è³‡ç”¢åŸå§‹ç¶å®š</summary>
     public void ResetAllRebinds()
     {
         if (inputActions == null) return;
@@ -82,6 +82,6 @@ public class RebindManager : MonoBehaviour
 
         PlayerPrefs.DeleteKey(RebindsKey);
         PlayerPrefs.Save();
-        Debug.Log("¡iRebindManager¡j¤w­«¸m©Ò¦³­«¸j");
+        Debug.Log("ã€RebindManagerã€‘å·²é‡ç½®æ‰€æœ‰é‡ç¶");
     }
 }

@@ -1,37 +1,37 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 
 /// <summary>
-/// ª±®a²¾°Ê¨t²Î¡C­q¾\ PlayerInputHandler ªº¿é¤J¨Æ¥ó¡A
-/// ¦b FixedUpdate ¥H Rigidbody2D °µª«²z²¾°Ê¡C
-/// ¤º«Ø¤g¯T®É¶¡¡B¸õÅD½w½Ä¡B½Ä¨ë¡C
+/// ç©å®¶ç§»å‹•ç³»çµ±ã€‚è¨‚é–± PlayerInputHandler çš„è¼¸å…¥äº‹ä»¶ï¼Œ
+/// åœ¨ FixedUpdate ä»¥ Rigidbody2D åšç‰©ç†ç§»å‹•ã€‚
+/// å…§å»ºåœŸç‹¼æ™‚é–“ã€è·³èºç·©è¡ã€è¡åˆºã€‚
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerInputHandler))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("²¾°Ê")]
+    [Header("ç§»å‹•")]
     public float moveSpeed = 8f;
     public float acceleration = 60f;
     public float deceleration = 70f;
 
-    [Header("¸õÅD")]
+    [Header("è·³èº")]
     public float jumpForce = 16f;
     public float jumpCutMultiplier = 0.5f;
     public float fallGravityMultiplier = 2f;
 
-    [Header("¤â·P»²§U")]
+    [Header("æ‰‹æ„Ÿè¼”åŠ©")]
     public float coyoteTime = 0.1f;
     public float jumpBufferTime = 0.1f;
 
-    [Header("½Ä¨ë")]
-    [Tooltip("½Ä¨ë³t«×")]
+    [Header("è¡åˆº")]
+    [Tooltip("è¡åˆºé€Ÿåº¦")]
     public float dashForce = 24f;
-    [Tooltip("½Ä¨ë«ùÄò®É¶¡")]
+    [Tooltip("è¡åˆºæŒçºŒæ™‚é–“")]
     public float dashDuration = 0.15f;
-    [Tooltip("½Ä¨ë§N«o®É¶¡")]
+    [Tooltip("è¡åˆºå†·å»æ™‚é–“")]
     public float dashCooldown = 0.5f;
 
-    [Header("¦a­±°»´ú")]
+    [Header("åœ°é¢åµæ¸¬")]
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     bool jumpHeld;
     int facingDir = 1;
 
-    // ½Ä¨ëª¬ºA
+    // è¡åˆºç‹€æ…‹
     bool isDashing;
     float dashCooldownTimer;
 
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         input = GetComponent<PlayerInputHandler>();
-        combat = GetComponent<PlayerCombatController>();   // ¥i¯à¨S¦³¡A¤¹³\ null
+        combat = GetComponent<PlayerCombatController>();   // å¯èƒ½æ²’æœ‰ï¼Œå…è¨± null
     }
 
     void OnEnable()
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         input.OnMove += SetMove;
         input.OnJumpPressed += OnJumpPressed;
         input.OnJumpReleased += OnJumpReleased;
-        input.OnDashPressed += OnDashPressed;   // ­q¾\½Ä¨ë
+        input.OnDashPressed += OnDashPressed;   // è¨‚é–±è¡åˆº
     }
 
     void OnDisable()
@@ -93,11 +93,11 @@ public class PlayerMovement : MonoBehaviour
                 rb.linearVelocity.y * jumpCutMultiplier);
     }
 
-    // ---- ½Ä¨ë ----
+    // ---- è¡åˆº ----
 
     void OnDashPressed()
     {
-        // §N«o¤¤¡B¥¿¦b½Ä¨ë¡B©Î§ğÀ»/¨¾¿mµwª½¤¤¡A¤£¯à½Ä
+        // å†·å»ä¸­ã€æ­£åœ¨è¡åˆºã€æˆ–æ”»æ“Š/é˜²ç¦¦ç¡¬ç›´ä¸­ï¼Œä¸èƒ½è¡
         if (dashCooldownTimer > 0) return;
         if (isDashing) return;
         if (combat != null && combat.IsInHardState) return;
@@ -110,11 +110,11 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         dashCooldownTimer = dashCooldown;
 
-        // ½Ä¨ë¤è¦V¨Ì­±¦V¡]¨S¦³¿é¤J®É¥Î­±¦V¡A¦³¿é¤J¥Î¿é¤J¤è¦V¡^
+        // è¡åˆºæ–¹å‘ä¾é¢å‘ï¼ˆæ²’æœ‰è¼¸å…¥æ™‚ç”¨é¢å‘ï¼Œæœ‰è¼¸å…¥ç”¨è¼¸å…¥æ–¹å‘ï¼‰
         float dir = Mathf.Abs(moveInput) > 0.01f ? Mathf.Sign(moveInput) : facingDir;
 
         float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;                    // ½Ä¨ë®ÉµLµø­«¤O¡]¤ô¥­½Ä¡^
+        rb.gravityScale = 0f;                    // è¡åˆºæ™‚ç„¡è¦–é‡åŠ›ï¼ˆæ°´å¹³è¡ï¼‰
 
         float elapsed = 0f;
         while (elapsed < dashDuration)
@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
 
-        rb.gravityScale = originalGravity;       // ÁÙ­ì­«¤O
+        rb.gravityScale = originalGravity;       // é‚„åŸé‡åŠ›
         isDashing = false;
     }
 
@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
     {
         CheckGround();
 
-        // ½Ä¨ë¤¤¤£°µ¤@¯ë¤ô¥­²¾°Ê¡]¥Ñ½Ä¨ë¨óµ{±±¨î³t«×¡^
+        // è¡åˆºä¸­ä¸åšä¸€èˆ¬æ°´å¹³ç§»å‹•ï¼ˆç”±è¡åˆºå”ç¨‹æ§åˆ¶é€Ÿåº¦ï¼‰
         if (!isDashing)
         {
             HandleHorizontal();
@@ -157,12 +157,12 @@ public class PlayerMovement : MonoBehaviour
         jumpBufferCounter -= Time.deltaTime;
 
         if (dashCooldownTimer > 0)
-            dashCooldownTimer -= Time.deltaTime;   // ½Ä¨ë§N«o­Ë¼Æ
+            dashCooldownTimer -= Time.deltaTime;   // è¡åˆºå†·å»å€’æ•¸
     }
 
     void UpdateFacing()
     {
-        if (isDashing) return;   // ½Ä¨ë¤¤¤£§ï­±¦V
+        if (isDashing) return;   // è¡åˆºä¸­ä¸æ”¹é¢å‘
         if (moveInput > 0.01f) facingDir = 1;
         else if (moveInput < -0.01f) facingDir = -1;
         transform.localScale = new Vector3(facingDir, 1, 1);

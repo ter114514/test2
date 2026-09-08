@@ -1,9 +1,9 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ª±®a¾Ô°«±±¨î¾¹¡C
-/// Â¾³d¡G³s¬q(1¡÷2¡÷3´`Àô)¡B¨¾¿m¬[¶Õ¡B§ğÀ»/¨¾¿mµwª½¡B«ü´§ Animator¡C
-/// §t­p®É«OÀI¡A¨¾¤î°Êµe¨Æ¥ó¨SÄ²µo¾É­P§ğÀ»¥d¦º¡C
+/// ç©å®¶æˆ°é¬¥æ§åˆ¶å™¨ã€‚
+/// è·è²¬ï¼šé€£æ®µ(1â†’2â†’3å¾ªç’°)ã€é˜²ç¦¦æ¶å‹¢ã€æ”»æ“Š/é˜²ç¦¦ç¡¬ç›´ã€æŒ‡æ® Animatorã€‚
+/// å«è¨ˆæ™‚ä¿éšªï¼Œé˜²æ­¢å‹•ç•«äº‹ä»¶æ²’è§¸ç™¼å°è‡´æ”»æ“Šå¡æ­»ã€‚
 /// </summary>
 [RequireComponent(typeof(Animator))]
 public class PlayerCombatController : MonoBehaviour
@@ -12,24 +12,24 @@ public class PlayerCombatController : MonoBehaviour
     static readonly int ComboStepHash = Animator.StringToHash("ComboStep");
     static readonly int IsBlockingHash = Animator.StringToHash("IsBlocking");
 
-    [Header("³s¬q³]©w")]
-    [Tooltip("³Ì¤j³s¬q¼Æ")]
+    [Header("é€£æ®µè¨­å®š")]
+    [Tooltip("æœ€å¤§é€£æ®µæ•¸")]
     [SerializeField] int maxCombo = 3;
-    [Tooltip("³s¬qµ¡¤f¡G¦¹®É¶¡¤º«ùÄò§ğÀ»«h´`Àô©¹¤U±µ¬q¡A¶W¹L«h­«¸m¦^²Ä¤@¬q")]
+    [Tooltip("é€£æ®µçª—å£ï¼šæ­¤æ™‚é–“å…§æŒçºŒæ”»æ“Šå‰‡å¾ªç’°å¾€ä¸‹æ¥æ®µï¼Œè¶…éå‰‡é‡ç½®å›ç¬¬ä¸€æ®µ")]
     [SerializeField] float comboWindow = 2.5f;
 
-    [Header("§ğÀ»µwª½«OÀI")]
-    [Tooltip("§ğÀ»³Ìªø«ùÄò®É¶¡¡A¶W¹L±j¨î¸Ñ°£¡]¨¾¤î°Êµe¨Æ¥ó¨SÄ²µo¥d¦º¡^")]
+    [Header("æ”»æ“Šç¡¬ç›´ä¿éšª")]
+    [Tooltip("æ”»æ“Šæœ€é•·æŒçºŒæ™‚é–“ï¼Œè¶…éå¼·åˆ¶è§£é™¤ï¼ˆé˜²æ­¢å‹•ç•«äº‹ä»¶æ²’è§¸ç™¼å¡æ­»ï¼‰")]
     [SerializeField] float attackMaxDuration = 1f;
 
-    [Header("§ğÀ»«e½Ä")]
-    [Tooltip("§ğÀ»®É¦V«e»´±Àªº¤O¹D¡]0 = ¤£«e½Ä¡^")]
+    [Header("æ”»æ“Šå‰è¡")]
+    [Tooltip("æ”»æ“Šæ™‚å‘å‰è¼•æ¨çš„åŠ›é“ï¼ˆ0 = ä¸å‰è¡ï¼‰")]
     [SerializeField] float attackLungeForce = 3f;
 
-    [Header("¤Ş¥Î")]
+    [Header("å¼•ç”¨")]
     [SerializeField] PlayerAttackHitbox hitbox;
 
-    // ---- ¹ï¥~°ßÅªª¬ºA ----
+    // ---- å°å¤–å”¯è®€ç‹€æ…‹ ----
     public bool IsAttacking { get; private set; }
     public bool IsBlocking { get; private set; }
     public bool IsInHardState => IsAttacking || IsBlocking;
@@ -65,7 +65,7 @@ public class PlayerCombatController : MonoBehaviour
 
     void Update()
     {
-        // ¶W¹L³s¬qµ¡¤f¥B«D§ğÀ»¤¤¡A­«¸m¦^²Ä¤@¬q
+        // è¶…éé€£æ®µçª—å£ä¸”éæ”»æ“Šä¸­ï¼Œé‡ç½®å›ç¬¬ä¸€æ®µ
         if (comboStep > 0 && !IsAttacking
             && Time.time - lastAttackTime > comboWindow)
         {
@@ -74,11 +74,11 @@ public class PlayerCombatController : MonoBehaviour
         }
     }
 
-    // ---- §ğÀ»³s¬q ----
+    // ---- æ”»æ“Šé€£æ®µ ----
 
     void HandleAttackInput()
     {
-        if (IsBlocking) return;   // ¨¾¿m¤¤¤£¯à§ğÀ»
+        if (IsBlocking) return;   // é˜²ç¦¦ä¸­ä¸èƒ½æ”»æ“Š
 
         if (!IsAttacking)
             StartAttack();
@@ -88,13 +88,13 @@ public class PlayerCombatController : MonoBehaviour
 
     void StartAttack()
     {
-        // ´`Àô³s¬q¡G1 ¡÷ 2 ¡÷ 3 ¡÷ 1 ¡÷ 2 ¡÷ 3 ...
+        // å¾ªç’°é€£æ®µï¼š1 â†’ 2 â†’ 3 â†’ 1 â†’ 2 â†’ 3 ...
         comboStep = comboStep % maxCombo + 1;
         lastAttackTime = Time.time;
         IsAttacking = true;
         canQueueNext = false;
 
-        // ¦V­±¦V¤è¦V»´±À¡]«e½Ä·P¡^
+        // å‘é¢å‘æ–¹å‘è¼•æ¨ï¼ˆå‰è¡æ„Ÿï¼‰
         if (rb != null && attackLungeForce > 0)
         {
             float facing = Mathf.Sign(transform.localScale.x);
@@ -104,7 +104,7 @@ public class PlayerCombatController : MonoBehaviour
         animator.SetInteger(ComboStepHash, comboStep);
         animator.SetTrigger(AttackTrigger);
 
-        // «OÀI¡G¶W¹L³Ìªø®É¶¡±j¨îµ²§ô¡A¨¾¤î AttackEnd ¨SÄ²µo¥d¦º
+        // ä¿éšªï¼šè¶…éæœ€é•·æ™‚é–“å¼·åˆ¶çµæŸï¼Œé˜²æ­¢ AttackEnd æ²’è§¸ç™¼å¡æ­»
         CancelInvoke(nameof(ForceAttackEnd));
         Invoke(nameof(ForceAttackEnd), attackMaxDuration);
     }
@@ -113,41 +113,41 @@ public class PlayerCombatController : MonoBehaviour
     {
         if (IsAttacking)
         {
-            Debug.LogWarning("§ğÀ»µwª½¹O®É¡A±j¨î¸Ñ°£¡]AttackEnd ¥i¯à¨SÄ²µo¡^");
+            Debug.LogWarning("æ”»æ“Šç¡¬ç›´é€¾æ™‚ï¼Œå¼·åˆ¶è§£é™¤ï¼ˆAttackEnd å¯èƒ½æ²’è§¸ç™¼ï¼‰");
             AnimEvent_AttackEnd();
         }
     }
 
-    // ---- ¥H¤U¥Ñ Animation Event ©I¥s ----
+    // ---- ä»¥ä¸‹ç”± Animation Event å‘¼å« ----
 
-    /// <summary>©R¤¤´V¡G¶}±Ò§P©w®Ø</summary>
+    /// <summary>å‘½ä¸­å¹€ï¼šé–‹å•Ÿåˆ¤å®šæ¡†</summary>
     public void AnimEvent_EnableHitbox()
     {
-        float mult = comboStep >= maxCombo ? 1.5f : 1f;   // ²Ä¤T¬q¥[­«
+        float mult = comboStep >= maxCombo ? 1.5f : 1f;   // ç¬¬ä¸‰æ®µåŠ é‡
         if (hitbox != null) hitbox.EnableHitbox(mult);
     }
 
-    /// <summary>©R¤¤´Vµ²§ô¡GÃö³¬§P©w®Ø</summary>
+    /// <summary>å‘½ä¸­å¹€çµæŸï¼šé—œé–‰åˆ¤å®šæ¡†</summary>
     public void AnimEvent_DisableHitbox()
     {
         if (hitbox != null) hitbox.DisableHitbox();
     }
 
-    /// <summary>¶}©ñ³s¬q¿é¤Jµ¡¤f¡]©ñ¦b«á·n¶¥¬q¡^</summary>
+    /// <summary>é–‹æ”¾é€£æ®µè¼¸å…¥çª—å£ï¼ˆæ”¾åœ¨å¾Œæ–éšæ®µï¼‰</summary>
     public void AnimEvent_OpenComboWindow()
     {
         canQueueNext = true;
     }
 
-    /// <summary>§ğÀ»°Êµeµ²§ô¡G¸Ñ°£µwª½¡]©ñ¦b³Ì«á¤@´V¡^</summary>
+    /// <summary>æ”»æ“Šå‹•ç•«çµæŸï¼šè§£é™¤ç¡¬ç›´ï¼ˆæ”¾åœ¨æœ€å¾Œä¸€å¹€ï¼‰</summary>
     public void AnimEvent_AttackEnd()
     {
         IsAttacking = false;
         canQueueNext = false;
-        CancelInvoke(nameof(ForceAttackEnd));   // ¥¿±`µ²§ô´N¨ú®ø«OÀI
+        CancelInvoke(nameof(ForceAttackEnd));   // æ­£å¸¸çµæŸå°±å–æ¶ˆä¿éšª
     }
 
-    // ---- ¨¾¿m¬[¶Õ ----
+    // ---- é˜²ç¦¦æ¶å‹¢ ----
 
     void StartBlock()
     {

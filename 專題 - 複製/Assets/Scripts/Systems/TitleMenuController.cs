@@ -1,36 +1,36 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// ¼ĞÃD¿ï³æ±±¨î¡C¼ĞÃD¤@ª½¼½ Animator ³v´V°Êµe¡]µ{¦¡¤£¸I¼ĞÃD sprite¡^¡C
-/// Äa°±®É¥iÄ²µo¿ï³æ©³¹Ï°Êµe¡CÂIÀ»®i¶}¿ï³æ¡C
+/// æ¨™é¡Œé¸å–®æ§åˆ¶ã€‚æ¨™é¡Œä¸€ç›´æ’­ Animator é€å¹€å‹•ç•«ï¼ˆç¨‹å¼ä¸ç¢°æ¨™é¡Œ spriteï¼‰ã€‚
+/// æ‡¸åœæ™‚å¯è§¸ç™¼é¸å–®åº•åœ–å‹•ç•«ã€‚é»æ“Šå±•é–‹é¸å–®ã€‚
 /// </summary>
 public class TitleMenuController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [Header("¼ĞÃD¹Ï¡]¤W²¾ÁY¤p¡^")]
+    [Header("æ¨™é¡Œåœ–ï¼ˆä¸Šç§»ç¸®å°ï¼‰")]
     [SerializeField] RectTransform titleImage;
     [SerializeField] Vector2 titleTargetOffset = new Vector2(0, 200);
     [SerializeField] float titleShrinkScale = 0.6f;
 
-    [Header("¿ï³æ©³¹Ï¡]¤U²¾ + Äa°±°Êµe¡^")]
+    [Header("é¸å–®åº•åœ–ï¼ˆä¸‹ç§» + æ‡¸åœå‹•ç•«ï¼‰")]
     [SerializeField] RectTransform menuBgImage;
     [SerializeField] Vector2 menuBgTargetOffset = new Vector2(0, -150);
     [SerializeField] float menuBgScale = 1f;
     [SerializeField] Animator menuBgAnimator;
 
-    [Header("²¾°Ê")]
+    [Header("ç§»å‹•")]
     [SerializeField] float moveSpeed = 4f;
 
-    [Header("¿ï³æ«ö¶s")]
+    [Header("é¸å–®æŒ‰éˆ•")]
     [SerializeField] CanvasGroup menuGroup;
     [SerializeField] float fadeSpeed = 4f;
 
-    [Header("ª^³ò²É¤l")]
+    [Header("æ°›åœç²’å­")]
     [SerializeField] UIAmbientParticles ambientParticles;
 
-    [Header("¶¢¸m¦^´_")]
+    [Header("é–’ç½®å›å¾©")]
     [SerializeField] float idleTimeout = 8f;
 
     static readonly int HoverHash = Animator.StringToHash("Hover");
@@ -101,7 +101,7 @@ public class TitleMenuController : MonoBehaviour, IPointerEnterHandler, IPointer
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (isExpanded) return;
-        // Äa°±¥uÄ²µo©³¹Ï°Êµe¡]¼ĞÃD¤£¸I¡A¥æµ¹ Animator ¤@ª½¼½¡^
+        // æ‡¸åœåªè§¸ç™¼åº•åœ–å‹•ç•«ï¼ˆæ¨™é¡Œä¸ç¢°ï¼Œäº¤çµ¦ Animator ä¸€ç›´æ’­ï¼‰
         if (menuBgAnimator != null) menuBgAnimator.SetBool(HoverHash, true);
     }
 

@@ -1,27 +1,27 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 /// <summary>
-/// ¦å²~¨t²Î¡Cª±®a«öÁä¨Ï¥Î¦å²~¦^¦å¡]®æ¤l¨î¡^¡A¦³¼Æ¶q­­¨î¡C
-/// êº¤õ¥ğ®§¸Éº¡¡A¸H¤ù¶°º¡¥i´£¤É¤W­­¡C
-/// ¹ê§@ ISaveable¡A¦sÀÉ°O¿ı¦å²~¤W­­»P·í«e¼Æ¶q¡C
+/// è¡€ç“¶ç³»çµ±ã€‚ç©å®¶æŒ‰éµä½¿ç”¨è¡€ç“¶å›è¡€ï¼ˆæ ¼å­åˆ¶ï¼‰ï¼Œæœ‰æ•¸é‡é™åˆ¶ã€‚
+/// ç¯ç«ä¼‘æ¯è£œæ»¿ï¼Œç¢ç‰‡é›†æ»¿å¯æå‡ä¸Šé™ã€‚
+/// å¯¦ä½œ ISaveableï¼Œå­˜æª”è¨˜éŒ„è¡€ç“¶ä¸Šé™èˆ‡ç•¶å‰æ•¸é‡ã€‚
 /// </summary>
 public class PotionSystem : MonoBehaviour, ISaveable
 {
-    [Header("¦å²~³]©w")]
-    [Tooltip("³Ì¤j¦å²~¼Æ")]
+    [Header("è¡€ç“¶è¨­å®š")]
+    [Tooltip("æœ€å¤§è¡€ç“¶æ•¸")]
     [SerializeField] int maxPotions = 3;
-    [Tooltip("¨C²~¦^´X®æ¦å")]
+    [Tooltip("æ¯ç“¶å›å¹¾æ ¼è¡€")]
     [SerializeField] int healMasks = 2;
-    [Tooltip("¨Ï¥Î§N«o®É¶¡¡]Á×§K³sÄò¨g³Ü¡^")]
+    [Tooltip("ä½¿ç”¨å†·å»æ™‚é–“ï¼ˆé¿å…é€£çºŒç‹‚å–ï¼‰")]
     [SerializeField] float useCooldown = 0.8f;
 
-    // ---- ¨Æ¥ó ----
-    /// <summary>¦å²~¼ÆÅÜ¤Æ¡G(·í«e, ³Ì¤j)</summary>
+    // ---- äº‹ä»¶ ----
+    /// <summary>è¡€ç“¶æ•¸è®ŠåŒ–ï¼š(ç•¶å‰, æœ€å¤§)</summary>
     public event Action<int, int> OnPotionCountChanged;
-    /// <summary>¨Ï¥Î¦å²~®É</summary>
+    /// <summary>ä½¿ç”¨è¡€ç“¶æ™‚</summary>
     public event Action OnPotionUsed;
-    /// <summary>¨S¦å²~¥i¥Î®É</summary>
+    /// <summary>æ²’è¡€ç“¶å¯ç”¨æ™‚</summary>
     public event Action OnNoPotion;
 
     public int CurrentPotions { get; private set; }
@@ -37,7 +37,7 @@ public class PotionSystem : MonoBehaviour, ISaveable
         input = GetComponent<PlayerInputHandler>();
         health = GetComponent<PlayerHealthSystem>();
         combat = GetComponent<PlayerCombatController>();
-        CurrentPotions = maxPotions;   // ªì©lµ¹º¡
+        CurrentPotions = maxPotions;   // åˆå§‹çµ¦æ»¿
     }
 
     void OnEnable()
@@ -60,40 +60,40 @@ public class PotionSystem : MonoBehaviour, ISaveable
         if (cooldownTimer > 0) cooldownTimer -= Time.deltaTime;
     }
 
-    // ---- ¨Ï¥Î¦å²~ ----
+    // ---- ä½¿ç”¨è¡€ç“¶ ----
     void TryUsePotion()
     {
-        if (cooldownTimer > 0) return;                              // §N«o¤¤
-        if (combat != null && combat.IsInHardState) return;        // §ğÀ»/¨¾¿mµwª½¤¤
-        if (CurrentPotions <= 0) { OnNoPotion?.Invoke(); return; } // ¨S¦å²~
-        // ¦å®æ¤wº¡¤£®ö¶O
+        if (cooldownTimer > 0) return;                              // å†·å»ä¸­
+        if (combat != null && combat.IsInHardState) return;        // æ”»æ“Š/é˜²ç¦¦ç¡¬ç›´ä¸­
+        if (CurrentPotions <= 0) { OnNoPotion?.Invoke(); return; } // æ²’è¡€ç“¶
+        // è¡€æ ¼å·²æ»¿ä¸æµªè²»
         if (health != null && health.CurrentMasks >= health.MaxMasks) return;
 
         CurrentPotions--;
         cooldownTimer = useCooldown;
-        health?.Heal(healMasks);   // ¦^®æ¼Æ
+        health?.Heal(healMasks);   // å›æ ¼æ•¸
 
         OnPotionUsed?.Invoke();
         OnPotionCountChanged?.Invoke(CurrentPotions, maxPotions);
     }
 
-    // ---- ¸É¥R / ´£¤É¤W­­ ----
-    /// <summary>¸Éº¡¡]êº¤õ©I¥s¡^</summary>
+    // ---- è£œå…… / æå‡ä¸Šé™ ----
+    /// <summary>è£œæ»¿ï¼ˆç¯ç«å‘¼å«ï¼‰</summary>
     public void RefillPotions()
     {
         CurrentPotions = maxPotions;
         OnPotionCountChanged?.Invoke(CurrentPotions, maxPotions);
     }
 
-    /// <summary>´£¤É¤W­­¡]¸H¤ù¶°º¡©I¥s¡^</summary>
+    /// <summary>æå‡ä¸Šé™ï¼ˆç¢ç‰‡é›†æ»¿å‘¼å«ï¼‰</summary>
     public void IncreaseMaxPotions(int amount = 1)
     {
         maxPotions += amount;
-        CurrentPotions = maxPotions;   // ´£¤É®É¸Éº¡
+        CurrentPotions = maxPotions;   // æå‡æ™‚è£œæ»¿
         OnPotionCountChanged?.Invoke(CurrentPotions, maxPotions);
     }
 
-    /// <summary>ª½±µ³]©w·í«e»P¤W­­¡]ÅªÀÉ¥Î¡^</summary>
+    /// <summary>ç›´æ¥è¨­å®šç•¶å‰èˆ‡ä¸Šé™ï¼ˆè®€æª”ç”¨ï¼‰</summary>
     public void SetState(int current, int max)
     {
         maxPotions = max;

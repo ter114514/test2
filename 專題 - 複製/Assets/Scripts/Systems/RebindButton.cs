@@ -1,27 +1,27 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 
 /// <summary>
-/// ³æ­Ó«öÁä­«¸j UI¡CÂIÀ»«á¶i¤Jµ¥«İª¬ºA¡Aª±®a«ö¤U·sÁä§¹¦¨­«¸j¡C
-/// ½Ä¬ğ®É±Ä¡u¥æ´«¡vµ¦²¤¡G·sÁä¤w³Q¥e¥Î®É¡A±N¹ï¤èªºÁä´«¦¨¥» Action ­ì¥»ªºÁä¡C
+/// å–®å€‹æŒ‰éµé‡ç¶ UIã€‚é»æ“Šå¾Œé€²å…¥ç­‰å¾…ç‹€æ…‹ï¼Œç©å®¶æŒ‰ä¸‹æ–°éµå®Œæˆé‡ç¶ã€‚
+/// è¡çªæ™‚æ¡ã€Œäº¤æ›ã€ç­–ç•¥ï¼šæ–°éµå·²è¢«å ç”¨æ™‚ï¼Œå°‡å°æ–¹çš„éµæ›æˆæœ¬ Action åŸæœ¬çš„éµã€‚
 /// </summary>
 public class RebindButton : MonoBehaviour
 {
-    [Header("­n­«¸jªº Action")]
-    [Tooltip("Action ¦WºÙ¡A¨Ò¦p Jump¡BAttack¡BMove")]
+    [Header("è¦é‡ç¶çš„ Action")]
+    [Tooltip("Action åç¨±ï¼Œä¾‹å¦‚ Jumpã€Attackã€Move")]
     [SerializeField] string actionName;
-    [Tooltip("­n­«¸j²Ä´X­Ó binding¡]³æÁä³q±` 0¡FMove ªº¥ª=1 ¥k=2¡^")]
+    [Tooltip("è¦é‡ç¶ç¬¬å¹¾å€‹ bindingï¼ˆå–®éµé€šå¸¸ 0ï¼›Move çš„å·¦=1 å³=2ï¼‰")]
     [SerializeField] int bindingIndex = 0;
 
     [Header("UI")]
-    [SerializeField] TMP_Text bindingLabel;   // Åã¥Ü·í«e«öÁä
-    [SerializeField] Button rebindButton;      // ÂIÀ»¶}©l­«¸j
-    [SerializeField] TMP_Text buttonText;      // «ö¶s¤Wªº¤å¦r
+    [SerializeField] TMP_Text bindingLabel;   // é¡¯ç¤ºç•¶å‰æŒ‰éµ
+    [SerializeField] Button rebindButton;      // é»æ“Šé–‹å§‹é‡ç¶
+    [SerializeField] TMP_Text buttonText;      // æŒ‰éˆ•ä¸Šçš„æ–‡å­—
 
-    [Header("¥æ´«³qª¾")]
-    [Tooltip("µo¥Í¥æ´«®É¡A¥Î¨Ó¨ê·s¨ä¥L«öÁä¦CªºÅã¥Ü¡]§â©Ò¦³¦C³£©ì¶i¨Ó¡^")]
+    [Header("äº¤æ›é€šçŸ¥")]
+    [Tooltip("ç™¼ç”Ÿäº¤æ›æ™‚ï¼Œç”¨ä¾†åˆ·æ–°å…¶ä»–æŒ‰éµåˆ—çš„é¡¯ç¤ºï¼ˆæŠŠæ‰€æœ‰åˆ—éƒ½æ‹–é€²ä¾†ï¼‰")]
     [SerializeField] RebindButton[] allRebindButtons;
 
     InputAction action;
@@ -29,28 +29,28 @@ public class RebindButton : MonoBehaviour
 
     void Start()
     {
-        // ---- null ¨¾Å@¡A¥X°İÃD®É©ú½T§iª¾ ----
+        // ---- null é˜²è­·ï¼Œå‡ºå•é¡Œæ™‚æ˜ç¢ºå‘ŠçŸ¥ ----
         if (RebindManager.Instance == null)
         {
-            Debug.LogError("¡iRebindButton¡jRebindManager.Instance ¬O null ¡X¡X ³õ´º¤¤¨S¦³ RebindManager ª«¥ó¡C");
+            Debug.LogError("ã€RebindButtonã€‘RebindManager.Instance æ˜¯ null â€”â€” å ´æ™¯ä¸­æ²’æœ‰ RebindManager ç‰©ä»¶ã€‚");
             return;
         }
         if (RebindManager.Instance.InputActions == null)
         {
-            Debug.LogError("¡iRebindButton¡jInputActions ¬O null ¡X¡X RebindManager ¨S©ì¤J PlayerControls ¸ê²£¡C");
+            Debug.LogError("ã€RebindButtonã€‘InputActions æ˜¯ null â€”â€” RebindManager æ²’æ‹–å…¥ PlayerControls è³‡ç”¢ã€‚");
             return;
         }
 
         action = RebindManager.Instance.InputActions.FindAction(actionName);
         if (action == null)
         {
-            Debug.LogError($"¡iRebindButton¡j§ä¤£¨ì Action¡G'{actionName}' ¡X¡X ¦WºÙ«÷¿ù©Î¸ê²£¸Ì¨S³o­Ó Action¡C");
+            Debug.LogError($"ã€RebindButtonã€‘æ‰¾ä¸åˆ° Actionï¼š'{actionName}' â€”â€” åç¨±æ‹¼éŒ¯æˆ–è³‡ç”¢è£¡æ²’é€™å€‹ Actionã€‚");
             return;
         }
 
         if (rebindButton == null)
         {
-            Debug.LogError("¡iRebindButton¡jrebindButton ¨S³s ¡X¡X Inspector ©ì¤J§ó§ï«ö¶s¡C");
+            Debug.LogError("ã€RebindButtonã€‘rebindButton æ²’é€£ â€”â€” Inspector æ‹–å…¥æ›´æ”¹æŒ‰éˆ•ã€‚");
             return;
         }
 
@@ -61,9 +61,9 @@ public class RebindButton : MonoBehaviour
     void StartRebind()
     {
         action.Disable();
-        if (buttonText != null) buttonText.text = "½Ğ«öÁä...";
+        if (buttonText != null) buttonText.text = "è«‹æŒ‰éµ...";
 
-        // °O¿ı­«¸j«eªº­ì¸ô®|¡A¥æ´«®É­n¥Î
+        // è¨˜éŒ„é‡ç¶å‰çš„åŸè·¯å¾‘ï¼Œäº¤æ›æ™‚è¦ç”¨
         string oldPath = action.bindings[bindingIndex].effectivePath;
 
         rebindOperation = action.PerformInteractiveRebinding(bindingIndex)
@@ -82,10 +82,10 @@ public class RebindButton : MonoBehaviour
 
         string newPath = action.bindings[bindingIndex].effectivePath;
 
-        // §ä¥X·sÁä¬O§_³Q¨ä¥L¸j©w¥e¥Î ¡÷ ¥æ´«
+        // æ‰¾å‡ºæ–°éµæ˜¯å¦è¢«å…¶ä»–ç¶å®šå ç”¨ â†’ äº¤æ›
         if (FindConflict(newPath, out InputAction conflictAction, out int conflictIndex))
         {
-            // §â½Ä¬ğ¹ï¶HªºÁä´«¦¨¥» Action ­ì¥»ªºÁä
+            // æŠŠè¡çªå°è±¡çš„éµæ›æˆæœ¬ Action åŸæœ¬çš„éµ
             conflictAction.ApplyBindingOverride(conflictIndex, oldPath);
         }
 
@@ -95,7 +95,7 @@ public class RebindButton : MonoBehaviour
         RefreshAll();
     }
 
-    /// <summary>§ä¥X¬Y­Ó«öÁä¸ô®|³Q­ş­Ó¸j©w¥e¥Î¡]±Æ°£¦Û¤v»P composite ¼ĞÀY¡^</summary>
+    /// <summary>æ‰¾å‡ºæŸå€‹æŒ‰éµè·¯å¾‘è¢«å“ªå€‹ç¶å®šå ç”¨ï¼ˆæ’é™¤è‡ªå·±èˆ‡ composite æ¨™é ­ï¼‰</summary>
     bool FindConflict(string path, out InputAction conflictAction, out int conflictIndex)
     {
         conflictAction = null;
@@ -110,8 +110,8 @@ public class RebindButton : MonoBehaviour
                 {
                     var binding = act.bindings[i];
 
-                    if (binding.isComposite) continue;                 // ¸õ¹L composite ¼ĞÀY
-                    if (act == action && i == bindingIndex) continue;  // ¸õ¹L¦Û¤v
+                    if (binding.isComposite) continue;                 // è·³é composite æ¨™é ­
+                    if (act == action && i == bindingIndex) continue;  // è·³éè‡ªå·±
 
                     if (binding.effectivePath == path)
                     {
@@ -139,10 +139,10 @@ public class RebindButton : MonoBehaviour
         if (bindingLabel != null)
             bindingLabel.text = action.GetBindingDisplayString(bindingIndex);
         if (buttonText != null)
-            buttonText.text = "§ó§ï";
+            buttonText.text = "æ›´æ”¹";
     }
 
-    /// <summary>¨Ñ¥~³¡¡]­«¸m«ö¶s¡B¥æ´«¡^¨ê·sÅã¥Ü</summary>
+    /// <summary>ä¾›å¤–éƒ¨ï¼ˆé‡ç½®æŒ‰éˆ•ã€äº¤æ›ï¼‰åˆ·æ–°é¡¯ç¤º</summary>
     public void RefreshDisplay() => UpdateDisplay();
 
     void OnDestroy() => rebindOperation?.Dispose();

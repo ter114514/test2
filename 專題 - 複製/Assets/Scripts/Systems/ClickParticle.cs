@@ -1,13 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-/// <summary>ÂIÀ»®É¼½©ñ²É¤l®ÄªG¡C</summary>
+/// <summary>é»æ“Šæ™‚æ’­æ”¾ç²’å­æ•ˆæœã€‚</summary>
 public class ClickParticle : MonoBehaviour
 {
     [SerializeField] ParticleSystem particles;
 
     void Awake()
     {
-        // ¤@¶}©l¤£¼½
+        // ä¸€é–‹å§‹ä¸æ’­
         if (particles != null)
         {
             var main = particles.main;
@@ -15,7 +15,7 @@ public class ClickParticle : MonoBehaviour
         }
     }
 
-    /// <summary>«ö¶s OnClick ©I¥s³o­Ó</summary>
+    /// <summary>æŒ‰éˆ• OnClick å‘¼å«é€™å€‹</summary>
     public void PlayParticles()
     {
         if (particles != null)

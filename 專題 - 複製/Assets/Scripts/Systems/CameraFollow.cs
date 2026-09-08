@@ -1,39 +1,39 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ¦Û»sÄá¼v¾÷¸òÀH¡CSmoothDamp ¥­·Æ¸òÀHª±®a¡A§t¦º°Ï»PÃä¬É­­¨î¡C
-/// Ãä¬É¥i¦b°õ¦æ¤¤°ÊºA§ïÅÜ¡]©Ğ¶¡¤Á´«¡BBoss ¾Ôµ¥¡^¡C
+/// è‡ªè£½æ”å½±æ©Ÿè·Ÿéš¨ã€‚SmoothDamp å¹³æ»‘è·Ÿéš¨ç©å®¶ï¼Œå«æ­»å€èˆ‡é‚Šç•Œé™åˆ¶ã€‚
+/// é‚Šç•Œå¯åœ¨åŸ·è¡Œä¸­å‹•æ…‹æ”¹è®Šï¼ˆæˆ¿é–“åˆ‡æ›ã€Boss æˆ°ç­‰ï¼‰ã€‚
 /// </summary>
 public class CameraFollow : MonoBehaviour
 {
-    [Header("¸òÀH¥Ø¼Ğ")]
+    [Header("è·Ÿéš¨ç›®æ¨™")]
     [SerializeField] Transform target;
 
-    [Header("¸òÀH³]©w")]
-    [Tooltip("¸òÀH¥­·Æ®É¶¡¡A¶V¤j¶VºC")]
+    [Header("è·Ÿéš¨è¨­å®š")]
+    [Tooltip("è·Ÿéš¨å¹³æ»‘æ™‚é–“ï¼Œè¶Šå¤§è¶Šæ…¢")]
     [SerializeField] float smoothTime = 0.2f;
-    [Tooltip("Äá¼v¾÷»P¥Ø¼Ğªº°¾²¾")]
+    [Tooltip("æ”å½±æ©Ÿèˆ‡ç›®æ¨™çš„åç§»")]
     [SerializeField] Vector3 offset = new Vector3(0, 1, -10);
 
-    [Header("¦º°Ï¡]¥Ø¼Ğ¦b¦¹½d³ò¤º¤£²¾°ÊÃèÀY¡^")]
+    [Header("æ­»å€ï¼ˆç›®æ¨™åœ¨æ­¤ç¯„åœå…§ä¸ç§»å‹•é¡é ­ï¼‰")]
     [SerializeField] float deadZoneWidth = 1f;
     [SerializeField] float deadZoneHeight = 1f;
 
-    [Header("Ãä¬É­­¨î")]
-    [Tooltip("¬O§_±Ò¥ÎÃä¬É­­¨î")]
+    [Header("é‚Šç•Œé™åˆ¶")]
+    [Tooltip("æ˜¯å¦å•Ÿç”¨é‚Šç•Œé™åˆ¶")]
     [SerializeField] bool useBounds = true;
     [SerializeField] float minX = -10f;
     [SerializeField] float maxX = 10f;
     [SerializeField] float minY = -5f;
     [SerializeField] float maxY = 5f;
 
-    [Tooltip("Ãä¬É¤Á´«®É¬O§_¥­·Æ¹L´ç")]
+    [Tooltip("é‚Šç•Œåˆ‡æ›æ™‚æ˜¯å¦å¹³æ»‘éæ¸¡")]
     [SerializeField] bool smoothBoundTransition = true;
     [SerializeField] float boundTransitionSpeed = 3f;
 
     Vector3 velocity = Vector3.zero;
 
-    // ¥Ø¼ĞÃä¬É¡]°ÊºA§ïÅÜ®É¥­·Æ¹L´ç¥Î¡^
+    // ç›®æ¨™é‚Šç•Œï¼ˆå‹•æ…‹æ”¹è®Šæ™‚å¹³æ»‘éæ¸¡ç”¨ï¼‰
     float targetMinX, targetMaxX, targetMinY, targetMaxY;
 
     void Start()
@@ -44,7 +44,7 @@ public class CameraFollow : MonoBehaviour
             if (player != null) target = player.transform;
         }
 
-        // ªì©l¤Æ¥Ø¼ĞÃä¬É¬°·í«e­È
+        // åˆå§‹åŒ–ç›®æ¨™é‚Šç•Œç‚ºç•¶å‰å€¼
         targetMinX = minX; targetMaxX = maxX;
         targetMinY = minY; targetMaxY = maxY;
     }
@@ -53,7 +53,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (target == null) return;
 
-        // Ãä¬É¥­·Æ¹L´ç¡]°ÊºA§ïÅÜ®É¡^
+        // é‚Šç•Œå¹³æ»‘éæ¸¡ï¼ˆå‹•æ…‹æ”¹è®Šæ™‚ï¼‰
         if (smoothBoundTransition)
         {
             float t = boundTransitionSpeed * Time.deltaTime;
@@ -65,7 +65,7 @@ public class CameraFollow : MonoBehaviour
 
         Vector3 desired = target.position + offset;
 
-        // ¦º°Ï¡G¥Ø¼Ğ¦b¦º°Ï¤º¤£²¾°ÊÃèÀY
+        // æ­»å€ï¼šç›®æ¨™åœ¨æ­»å€å…§ä¸ç§»å‹•é¡é ­
         Vector3 current = transform.position;
         float dx = desired.x - current.x;
         float dy = desired.y - current.y;
@@ -77,11 +77,11 @@ public class CameraFollow : MonoBehaviour
             targetPos.y = desired.y - Mathf.Sign(dy) * deadZoneHeight;
         targetPos.z = desired.z;
 
-        // ¥­·Æ²¾°Ê
+        // å¹³æ»‘ç§»å‹•
         Vector3 smoothed = Vector3.SmoothDamp(
             transform.position, targetPos, ref velocity, smoothTime);
 
-        // Ãä¬É­­¨î
+        // é‚Šç•Œé™åˆ¶
         if (useBounds)
         {
             smoothed.x = Mathf.Clamp(smoothed.x, minX, maxX);
@@ -91,9 +91,9 @@ public class CameraFollow : MonoBehaviour
         transform.position = smoothed;
     }
 
-    // ---- °ÊºA§ïÅÜÃä¬É ----
+    // ---- å‹•æ…‹æ”¹è®Šé‚Šç•Œ ----
 
-    /// <summary>³]©w·sªºÄá¼v¾÷Ãä¬É¡]¥i¥­·Æ¹L´ç¡^</summary>
+    /// <summary>è¨­å®šæ–°çš„æ”å½±æ©Ÿé‚Šç•Œï¼ˆå¯å¹³æ»‘éæ¸¡ï¼‰</summary>
     public void SetBounds(float newMinX, float newMaxX, float newMinY, float newMaxY)
     {
         targetMinX = newMinX;
@@ -101,7 +101,7 @@ public class CameraFollow : MonoBehaviour
         targetMinY = newMinY;
         targetMaxY = newMaxY;
 
-        // ¤£¥­·Æ´N¥ß¨è®M¥Î
+        // ä¸å¹³æ»‘å°±ç«‹åˆ»å¥—ç”¨
         if (!smoothBoundTransition)
         {
             minX = newMinX; maxX = newMaxX;
@@ -109,13 +109,13 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-    /// <summary>¥Î¤@­Ó Rect ³]©wÃä¬É¡]¤è«K±q°Ï°ìª«¥ó¶Ç¤J¡^</summary>
+    /// <summary>ç”¨ä¸€å€‹ Rect è¨­å®šé‚Šç•Œï¼ˆæ–¹ä¾¿å¾å€åŸŸç‰©ä»¶å‚³å…¥ï¼‰</summary>
     public void SetBounds(Rect bounds)
     {
         SetBounds(bounds.xMin, bounds.xMax, bounds.yMin, bounds.yMax);
     }
 
-    /// <summary>±Ò¥Î/°±¥ÎÃä¬É­­¨î</summary>
+    /// <summary>å•Ÿç”¨/åœç”¨é‚Šç•Œé™åˆ¶</summary>
     public void SetUseBounds(bool enabled)
     {
         useBounds = enabled;
@@ -123,7 +123,7 @@ public class CameraFollow : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        // µe¥XÃä¬É½d³ò
+        // ç•«å‡ºé‚Šç•Œç¯„åœ
         Gizmos.color = Color.cyan;
         Vector3 tl = new Vector3(minX, maxY, 0);
         Vector3 tr = new Vector3(maxX, maxY, 0);

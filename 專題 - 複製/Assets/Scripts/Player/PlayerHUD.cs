@@ -1,47 +1,47 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ª±®a HUD Á`ºŞ¡C­q¾\¦U¨t²Î¨Æ¥ó¡A§ó·s©Ò¦³ UI¡G
-/// - ¦å¶q­±¨ã(ªÅ¬}ÃM¤h­·¡G¤@±Æ­±¨ã¡Aº¡ªº«G¡BªÅªº·t)
-/// - §l¦å­È±ø
-/// - ÀY¹³(ÀH¦å®æ¤ñ¨Ò´«¹Ï)¡BÀY¹³®Ø¨â¸Ë¹¢(ÀH§l¦å­È´«¹Ï)
-/// - ¦å²~(¤À¶¥¬q´«¹Ï)¡B¸H¤ù¹Ï¥Ü
+/// ç©å®¶ HUD ç¸½ç®¡ã€‚è¨‚é–±å„ç³»çµ±äº‹ä»¶ï¼Œæ›´æ–°æ‰€æœ‰ UIï¼š
+/// - è¡€é‡é¢å…·(ç©ºæ´é¨å£«é¢¨ï¼šä¸€æ’é¢å…·ï¼Œæ»¿çš„äº®ã€ç©ºçš„æš—)
+/// - å¸è¡€å€¼æ¢
+/// - é ­åƒ(éš¨è¡€æ ¼æ¯”ä¾‹æ›åœ–)ã€é ­åƒæ¡†å…©è£é£¾(éš¨å¸è¡€å€¼æ›åœ–)
+/// - è¡€ç“¶(åˆ†éšæ®µæ›åœ–)ã€ç¢ç‰‡åœ–ç¤º
 /// </summary>
 public class PlayerHUD : MonoBehaviour
 {
-    [Header("¸ê®Æ¨Ó·½")]
+    [Header("è³‡æ–™ä¾†æº")]
     [SerializeField] PlayerHealthSystem health;
     [SerializeField] BloodResource blood;
     [SerializeField] PotionSystem potion;
     [SerializeField] PotionShardSystem shardSystem;
 
-    [Header("¦å¶q­±¨ã(ªÅ¬}ÃM¤h­·)")]
-    [Tooltip("¤@±Æ­±¨ã¹Ï¥Ü(¨Ì³Ì¤j¦å®æ±Æ¦n)")]
+    [Header("è¡€é‡é¢å…·(ç©ºæ´é¨å£«é¢¨)")]
+    [Tooltip("ä¸€æ’é¢å…·åœ–ç¤º(ä¾æœ€å¤§è¡€æ ¼æ’å¥½)")]
     [SerializeField] Image[] maskIcons;
-    [Tooltip("º¡¦å®æªº¹Ï(«G)")]
+    [Tooltip("æ»¿è¡€æ ¼çš„åœ–(äº®)")]
     [SerializeField] Sprite maskFullSprite;
-    [Tooltip("ªÅ¦å®æªº¹Ï(·t)")]
+    [Tooltip("ç©ºè¡€æ ¼çš„åœ–(æš—)")]
     [SerializeField] Sprite maskEmptySprite;
 
-    [Header("§l¦å­È±ø")]
+    [Header("å¸è¡€å€¼æ¢")]
     [SerializeField] Image bloodFill;
     [SerializeField] float bloodFillSpeed = 5f;
 
-    [Header("ÀY¹³(ÀH¦å®æ¤ñ¨Ò´«¹Ï)")]
+    [Header("é ­åƒ(éš¨è¡€æ ¼æ¯”ä¾‹æ›åœ–)")]
     [SerializeField] Image portraitImage;
     [SerializeField] PortraitState[] portraitStates;
 
-    [Header("ÀY¹³®Ø¨â¸Ë¹¢(ÀH§l¦å­È´«¹Ï)")]
+    [Header("é ­åƒæ¡†å…©è£é£¾(éš¨å¸è¡€å€¼æ›åœ–)")]
     [SerializeField] Image deco1;
     [SerializeField] Image deco2;
     [SerializeField] DecoState[] decoStates;
 
-    [Header("¦å²~(¤À¶¥¬q´«¹Ï)")]
+    [Header("è¡€ç“¶(åˆ†éšæ®µæ›åœ–)")]
     [SerializeField] Image potionImage;
     [SerializeField] PotionStage[] potionStages;
 
-    [Header("¸H¤ù¹Ï¥Ü")]
+    [Header("ç¢ç‰‡åœ–ç¤º")]
     [SerializeField] Image[] shardIcons;
     [SerializeField] Sprite shardFilledSprite;
     [SerializeField] Sprite shardEmptySprite;
@@ -49,7 +49,7 @@ public class PlayerHUD : MonoBehaviour
     [System.Serializable]
     public struct PortraitState
     {
-        [Tooltip("¦å®æ¤ñ¨Ò°ª©ó¦¹­È®É¥Î³o±i(0~1)")]
+        [Tooltip("è¡€æ ¼æ¯”ä¾‹é«˜æ–¼æ­¤å€¼æ™‚ç”¨é€™å¼µ(0~1)")]
         public float healthThreshold;
         public Sprite portrait;
     }
@@ -57,7 +57,7 @@ public class PlayerHUD : MonoBehaviour
     [System.Serializable]
     public struct DecoState
     {
-        [Tooltip("§l¦å­È¦Ê¤À¤ñ°ª©ó¦¹­È®É®M¥Î(0~1)")]
+        [Tooltip("å¸è¡€å€¼ç™¾åˆ†æ¯”é«˜æ–¼æ­¤å€¼æ™‚å¥—ç”¨(0~1)")]
         public float bloodThreshold;
         public Sprite deco1Sprite;
         public Sprite deco2Sprite;
@@ -66,7 +66,7 @@ public class PlayerHUD : MonoBehaviour
     [System.Serializable]
     public struct PotionStage
     {
-        [Tooltip("³Ñ¾l¤ñ¨Ò¹F¨ì¦¹­È®É¥Î³o±i¹Ï(0~1)¡A¥Ñ°ª¨ì§C±Æ")]
+        [Tooltip("å‰©é¤˜æ¯”ä¾‹é”åˆ°æ­¤å€¼æ™‚ç”¨é€™å¼µåœ–(0~1)ï¼Œç”±é«˜åˆ°ä½æ’")]
         public float threshold;
         public Sprite sprite;
     }
@@ -97,12 +97,12 @@ public class PlayerHUD : MonoBehaviour
         if (shardSystem != null) shardSystem.OnShardChanged -= HandleShardChanged;
     }
 
-    // ---- ¦å¶q¡G­±¨ã¹Ï¥Ü + ÀY¹³ ----
+    // ---- è¡€é‡ï¼šé¢å…·åœ–ç¤º + é ­åƒ ----
     void HandleHealthChanged(int current, int max)
     {
         UpdateMasks(current, max);
 
-        // ÀY¹³¥Î¦å®æ¤ñ¨Ò
+        // é ­åƒç”¨è¡€æ ¼æ¯”ä¾‹
         float percent = max > 0 ? (float)current / max : 0;
         UpdatePortrait(percent);
     }
@@ -118,17 +118,17 @@ public class PlayerHUD : MonoBehaviour
             if (i < max)
             {
                 maskIcons[i].enabled = true;
-                // «e current ­Ó¬Oº¡ªº¡A¨ä¾l¬OªÅªº
+                // å‰ current å€‹æ˜¯æ»¿çš„ï¼Œå…¶é¤˜æ˜¯ç©ºçš„
                 maskIcons[i].sprite = (i < current) ? maskFullSprite : maskEmptySprite;
             }
             else
             {
-                maskIcons[i].enabled = false;   // ¶W¹L¤W­­ªºÁôÂÃ
+                maskIcons[i].enabled = false;   // è¶…éä¸Šé™çš„éš±è—
             }
         }
     }
 
-    // ---- §l¦å­È¡G§l¦å­È±ø + ÀY¹³®Ø¸Ë¹¢ ----
+    // ---- å¸è¡€å€¼ï¼šå¸è¡€å€¼æ¢ + é ­åƒæ¡†è£é£¾ ----
     void HandleBloodChanged(float current, float max)
     {
         float percent = max > 0 ? current / max : 0;
@@ -136,7 +136,7 @@ public class PlayerHUD : MonoBehaviour
         UpdateDeco(percent);
     }
 
-    // ---- ¦å²~¡G¤À¶¥¬q´«¹Ï ----
+    // ---- è¡€ç“¶ï¼šåˆ†éšæ®µæ›åœ– ----
     void HandlePotionChanged(int current, int max)
     {
         float percent = max > 0 ? (float)current / max : 0;
@@ -162,7 +162,7 @@ public class PlayerHUD : MonoBehaviour
             potionImage.sprite = chosen;
     }
 
-    // ---- ¸H¤ù¹Ï¥Ü ----
+    // ---- ç¢ç‰‡åœ–ç¤º ----
     void HandleShardChanged(int current, int needed)
     {
         if (shardIcons == null) return;

@@ -1,34 +1,34 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 
 /// <summary>
-/// ®ğ¤b§ë®gª«¡C©¹«ü©w¤è¦V­¸¦æ¡A¬ï³z¦h­Ó¼Ä¤H¨Ã³y¦¨¶Ë®`+À»°h¡C
-/// ¤£¶Ë®`ª±®a¦Û¤v¡A¤£­«½Æ¥´¦P¤@¼Ä¤H¡C
+/// æ°£åˆƒæŠ•å°„ç‰©ã€‚å¾€æŒ‡å®šæ–¹å‘é£›è¡Œï¼Œç©¿é€å¤šå€‹æ•µäººä¸¦é€ æˆå‚·å®³+æ“Šé€€ã€‚
+/// ä¸å‚·å®³ç©å®¶è‡ªå·±ï¼Œä¸é‡è¤‡æ‰“åŒä¸€æ•µäººã€‚
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class BladeProjectile : MonoBehaviour
 {
-    [Header("­¸¦æ")]
+    [Header("é£›è¡Œ")]
     [SerializeField] float speed = 15f;
     [SerializeField] float lifetime = 3f;
 
-    [Header("¶Ë®`")]
+    [Header("å‚·å®³")]
     [SerializeField] float damage = 35f;
     [SerializeField] float knockbackForce = 6f;
 
-    [Header("¬ï³z")]
-    [Tooltip("¬O§_¬ï³z¼Ä¤H¡]true=¬ï¹LÄ~Äò­¸¡Afalse=¥´¨ì´N®ø¥¢¡^")]
+    [Header("ç©¿é€")]
+    [Tooltip("æ˜¯å¦ç©¿é€æ•µäººï¼ˆtrue=ç©¿éç¹¼çºŒé£›ï¼Œfalse=æ‰“åˆ°å°±æ¶ˆå¤±ï¼‰")]
     [SerializeField] bool piercing = true;
-    [Tooltip("³Ì¦h¬ï³z´X­Ó¼Ä¤H¡]0=µL­­¡^")]
+    [Tooltip("æœ€å¤šç©¿é€å¹¾å€‹æ•µäººï¼ˆ0=ç„¡é™ï¼‰")]
     [SerializeField] int maxPierceCount = 0;
 
-    [Header("©R¤¤¯S®Ä¡]¥i¿ï¡^")]
+    [Header("å‘½ä¸­ç‰¹æ•ˆï¼ˆå¯é¸ï¼‰")]
     [SerializeField] GameObject hitEffectPrefab;
 
     int direction = 1;
     int pierceCount;
 
-    // ¤w¥´¹Lªº¼Ä¤H¡]Á×§K¬ï³z®É­«½Æ¥´¦P¤@­Ó¡^
+    // å·²æ‰“éçš„æ•µäººï¼ˆé¿å…ç©¿é€æ™‚é‡è¤‡æ‰“åŒä¸€å€‹ï¼‰
     readonly HashSet<Collider2D> hitTargets = new();
 
     void Awake()
@@ -56,28 +56,28 @@ public class BladeProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // ©¿²¤ª±®a¦Û¤v
+        // å¿½ç•¥ç©å®¶è‡ªå·±
         if (other.CompareTag("Player")) return;
 
-        // ¤w¸g¥´¹L³o­Ó¥Ø¼Ğ¡A¤£­«½Æ¥´
+        // å·²ç¶“æ‰“éé€™å€‹ç›®æ¨™ï¼Œä¸é‡è¤‡æ‰“
         if (hitTargets.Contains(other)) return;
 
         if (other.TryGetComponent<IDamageable>(out var damageable))
         {
-            hitTargets.Add(other);   // °O¿ı¥´¹L
+            hitTargets.Add(other);   // è¨˜éŒ„æ‰“é
 
-            // ¶Ë®` + À»°h
+            // å‚·å®³ + æ“Šé€€
             Vector2 knockback = new Vector2(direction, 0.2f).normalized * knockbackForce;
             damageable.TakeDamage(damage, knockback);
 
-            // ©R¤¤¯S®Ä
+            // å‘½ä¸­ç‰¹æ•ˆ
             if (hitEffectPrefab != null)
                 Instantiate(hitEffectPrefab, other.ClosestPoint(transform.position),
                     Quaternion.identity);
 
             pierceCount++;
 
-            // ¤£¬ï³z¡A©Î¹F¨ì¬ï³z¤W­­ ¡÷ ¾P·´
+            // ä¸ç©¿é€ï¼Œæˆ–é”åˆ°ç©¿é€ä¸Šé™ â†’ éŠ·æ¯€
             if (!piercing)
             {
                 Destroy(gameObject);
@@ -86,7 +86,7 @@ public class BladeProjectile : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            // §_«hÄ~Äò­¸¡]¬ï³z¡^
+            // å¦å‰‡ç¹¼çºŒé£›ï¼ˆç©¿é€ï¼‰
         }
     }
 }

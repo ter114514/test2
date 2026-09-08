@@ -1,20 +1,20 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 /// <summary>
-/// ¦å®æ¸H¤ù¨t²Î¡Cª±®a¾ß¦å®æ¸H¤ù¡A¶°º¡ªùÂe´£¤É³Ì¤j¦å®æ¡C
-/// ¹ê§@ ISaveable¡A¦sÀÉ°O¿ı¶i«×»P¤w¾ß²M³æ¡C
+/// è¡€æ ¼ç¢ç‰‡ç³»çµ±ã€‚ç©å®¶æ’¿è¡€æ ¼ç¢ç‰‡ï¼Œé›†æ»¿é–€æª»æå‡æœ€å¤§è¡€æ ¼ã€‚
+/// å¯¦ä½œ ISaveableï¼Œå­˜æª”è¨˜éŒ„é€²åº¦èˆ‡å·²æ’¿æ¸…å–®ã€‚
 /// </summary>
 public class MaskShardSystem : MonoBehaviour, ISaveable
 {
-    [Header("¸H¤ù³]©w")]
-    [Tooltip("¶°º¡´X¤ù´£¤É¤@®æ¦å®æ")]
+    [Header("ç¢ç‰‡è¨­å®š")]
+    [Tooltip("é›†æ»¿å¹¾ç‰‡æå‡ä¸€æ ¼è¡€æ ¼")]
     [SerializeField] int shardsPerUpgrade = 3;
 
-    // ---- ¨Æ¥ó ----
-    /// <summary>¸H¤ù¼ÆÅÜ¤Æ¡G(·í«e²Ö¿n, ¶°º¡©Ò»İ)</summary>
+    // ---- äº‹ä»¶ ----
+    /// <summary>ç¢ç‰‡æ•¸è®ŠåŒ–ï¼š(ç•¶å‰ç´¯ç©, é›†æ»¿æ‰€éœ€)</summary>
     public event Action<int, int> OnMaskShardChanged;
-    /// <summary>¶°º¡´£¤É¦å®æ®É</summary>
+    /// <summary>é›†æ»¿æå‡è¡€æ ¼æ™‚</summary>
     public event Action OnMaskUpgraded;
 
     public int CurrentShards { get; private set; }
@@ -31,23 +31,23 @@ public class MaskShardSystem : MonoBehaviour, ISaveable
         OnMaskShardChanged?.Invoke(CurrentShards, shardsPerUpgrade);
     }
 
-    /// <summary>¾ß¨ì¤@¤ù¦å®æ¸H¤ù</summary>
+    /// <summary>æ’¿åˆ°ä¸€ç‰‡è¡€æ ¼ç¢ç‰‡</summary>
     public void CollectShard()
     {
         CurrentShards++;
 
-        // ¶°º¡ªùÂe ¡÷ ´£¤É¦å®æ
+        // é›†æ»¿é–€æª» â†’ æå‡è¡€æ ¼
         if (CurrentShards >= shardsPerUpgrade)
         {
             CurrentShards -= shardsPerUpgrade;
-            stats?.IncreaseMaxMasks(1);   // ³Ì¤j¦å®æ +1¡]PlayerStats ·|µo¨Æ¥ó¡A¦å¶q¸Éº¡+HUD§ó·s¡^
+            stats?.IncreaseMaxMasks(1);   // æœ€å¤§è¡€æ ¼ +1ï¼ˆPlayerStats æœƒç™¼äº‹ä»¶ï¼Œè¡€é‡è£œæ»¿+HUDæ›´æ–°ï¼‰
             OnMaskUpgraded?.Invoke();
         }
 
         OnMaskShardChanged?.Invoke(CurrentShards, shardsPerUpgrade);
     }
 
-    /// <summary>ª½±µ³]©w¸H¤ù¶i«×¡]ÅªÀÉ¥Î¡^</summary>
+    /// <summary>ç›´æ¥è¨­å®šç¢ç‰‡é€²åº¦ï¼ˆè®€æª”ç”¨ï¼‰</summary>
     public void SetShards(int shards)
     {
         CurrentShards = shards;

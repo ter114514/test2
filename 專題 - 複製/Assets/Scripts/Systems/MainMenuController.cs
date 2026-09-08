@@ -1,32 +1,32 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ¥Dµe­±±±¨î¡CºŞ²z¥D¿ï³æ»P¦sÀÉ¿ï¾Ü­±ªOªº¤Á´«¡C
-/// ¨S¦³¦sÀÉ®É¡A¡uÄ~Äò¹CÀ¸¡v¾ã²Õ¡]«ö¶s¡Ï·f¸ü¹Ï¤ù¡^³z¹L CanvasGroup ÅÜ²H¥B¤£¥iÂIÀ»¡C
+/// ä¸»ç•«é¢æ§åˆ¶ã€‚ç®¡ç†ä¸»é¸å–®èˆ‡å­˜æª”é¸æ“‡é¢æ¿çš„åˆ‡æ›ã€‚
+/// æ²’æœ‰å­˜æª”æ™‚ï¼Œã€Œç¹¼çºŒéŠæˆ²ã€æ•´çµ„ï¼ˆæŒ‰éˆ•ï¼‹æ­è¼‰åœ–ç‰‡ï¼‰é€é CanvasGroup è®Šæ·¡ä¸”ä¸å¯é»æ“Šã€‚
 /// </summary>
 public class MainMenuController : MonoBehaviour
 {
-    [Header("­±ªO")]
+    [Header("é¢æ¿")]
     [SerializeField] GameObject mainPanel;
     [SerializeField] GameObject slotPanel;
 
-    [Header("¥D¿ï³æ«ö¶s")]
+    [Header("ä¸»é¸å–®æŒ‰éˆ•")]
     [SerializeField] Button newGameButton;
     [SerializeField] Button continueButton;
     [SerializeField] Button quitButton;
 
-    [Header("Ä~Äò¹CÀ¸¾ã²Õ¡]«ö¶s¡Ï·f¸ü¹Ï¤ù¡^")]
-    [Tooltip("¥]¦íÄ~Äò¹CÀ¸«ö¶s»P¨ä·f¸ü¹Ï¤ùªº¤÷ª«¥ó¤Wªº CanvasGroup")]
+    [Header("ç¹¼çºŒéŠæˆ²æ•´çµ„ï¼ˆæŒ‰éˆ•ï¼‹æ­è¼‰åœ–ç‰‡ï¼‰")]
+    [Tooltip("åŒ…ä½ç¹¼çºŒéŠæˆ²æŒ‰éˆ•èˆ‡å…¶æ­è¼‰åœ–ç‰‡çš„çˆ¶ç‰©ä»¶ä¸Šçš„ CanvasGroup")]
     [SerializeField] CanvasGroup continueGroup;
-    [Tooltip("µL¦sÀÉ®Éªº²H¤Æ³z©ú«×")]
+    [Tooltip("ç„¡å­˜æª”æ™‚çš„æ·¡åŒ–é€æ˜åº¦")]
     [SerializeField] float continueDisabledAlpha = 0.4f;
 
-    [Header("¦sÀÉÄæ¦ì UI")]
+    [Header("å­˜æª”æ¬„ä½ UI")]
     [SerializeField] SaveSlotUI[] slots = new SaveSlotUI[3];
     [SerializeField] Button backButton;
 
-    // ¥Ø«e¬O¡u·s¹CÀ¸¡v¼Ò¦¡ÁÙ¬O¡uÄ~Äò¡v¼Ò¦¡
+    // ç›®å‰æ˜¯ã€Œæ–°éŠæˆ²ã€æ¨¡å¼é‚„æ˜¯ã€Œç¹¼çºŒã€æ¨¡å¼
     bool isNewGameMode;
 
     void Start()
@@ -41,7 +41,7 @@ public class MainMenuController : MonoBehaviour
         ShowMain();
     }
 
-    /// <summary>¨Ì¬O§_¦³¦sÀÉ¡A§ó·s¡uÄ~Äò¹CÀ¸¡v¾ã²Õªº¥i¥Î©Ê»P²H¤Æ¡C</summary>
+    /// <summary>ä¾æ˜¯å¦æœ‰å­˜æª”ï¼Œæ›´æ–°ã€Œç¹¼çºŒéŠæˆ²ã€æ•´çµ„çš„å¯ç”¨æ€§èˆ‡æ·¡åŒ–ã€‚</summary>
     void RefreshContinueAvailability()
     {
         bool hasSave = AnySaveExists();
@@ -50,9 +50,9 @@ public class MainMenuController : MonoBehaviour
 
         if (continueGroup != null)
         {
-            // ¾ã²Õ¡]«ö¶s¡Ï·f¸ü¹Ï¤ù¡^¤@°_ÅÜ²H
+            // æ•´çµ„ï¼ˆæŒ‰éˆ•ï¼‹æ­è¼‰åœ–ç‰‡ï¼‰ä¸€èµ·è®Šæ·¡
             continueGroup.alpha = hasSave ? 1f : continueDisabledAlpha;
-            // ¤£¥i¥Î®É¾ã²Õ¤£±µ¦¬ÂIÀ»
+            // ä¸å¯ç”¨æ™‚æ•´çµ„ä¸æ¥æ”¶é»æ“Š
             continueGroup.interactable = hasSave;
             continueGroup.blocksRaycasts = hasSave;
         }
@@ -85,7 +85,7 @@ public class MainMenuController : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            int index = i;   // ³¬¥]®·Àò¡A¥²¶·¥Î°Ï°ìÅÜ¼Æ
+            int index = i;   // é–‰åŒ…æ•ç²ï¼Œå¿…é ˆç”¨å€åŸŸè®Šæ•¸
             var data = SaveManager.Instance.PeekSlot(i);
             slots[i].Setup(index, data, isNewGameMode, OnSlotSelected, OnSlotDelete);
         }
@@ -103,6 +103,6 @@ public class MainMenuController : MonoBehaviour
     {
         SaveManager.Instance.DeleteSlot(slot);
         RefreshSlots();
-        RefreshContinueAvailability();   // §RÀÉ«á¥i¯à¨S¦sÀÉ¤F¡A§ó·sÄ~Äò¹CÀ¸ª¬ºA
+        RefreshContinueAvailability();   // åˆªæª”å¾Œå¯èƒ½æ²’å­˜æª”äº†ï¼Œæ›´æ–°ç¹¼çºŒéŠæˆ²ç‹€æ…‹
     }
 }

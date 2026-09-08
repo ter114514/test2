@@ -1,9 +1,9 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// ª±®a¿é¤J°»´ú¾¹¡C¨Ï¥Î RebindManager ªº¦@¥Î¸ê²£¡A¥H¨Æ¥ó¹ï¥~µo°e¿é¤J¡C
+/// ç©å®¶è¼¸å…¥åµæ¸¬å™¨ã€‚ä½¿ç”¨ RebindManager çš„å…±ç”¨è³‡ç”¢ï¼Œä»¥äº‹ä»¶å°å¤–ç™¼é€è¼¸å…¥ã€‚
 /// </summary>
 public class PlayerInputHandler : MonoBehaviour
 {
@@ -32,7 +32,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (RebindManager.Instance == null)
         {
-            Debug.LogError("¡iPlayerInputHandler¡j§ä¤£¨ì RebindManager¡I");
+            Debug.LogError("ã€PlayerInputHandlerã€‘æ‰¾ä¸åˆ° RebindManagerï¼");
             enabled = false;
             return;
         }
@@ -40,7 +40,7 @@ public class PlayerInputHandler : MonoBehaviour
         var asset = RebindManager.Instance.InputActions;
         if (asset == null)
         {
-            Debug.LogError("¡iPlayerInputHandler¡jInputActions ¨S³]©w¡C");
+            Debug.LogError("ã€PlayerInputHandlerã€‘InputActions æ²’è¨­å®šã€‚");
             enabled = false;
             return;
         }
@@ -48,7 +48,7 @@ public class PlayerInputHandler : MonoBehaviour
         playerMap = asset.FindActionMap("Player");
         if (playerMap == null)
         {
-            Debug.LogError("¡iPlayerInputHandler¡j§ä¤£¨ì 'Player' Action Map¡C");
+            Debug.LogError("ã€PlayerInputHandlerã€‘æ‰¾ä¸åˆ° 'Player' Action Mapã€‚");
             enabled = false;
             return;
         }

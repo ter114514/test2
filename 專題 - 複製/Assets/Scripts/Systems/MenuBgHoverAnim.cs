@@ -1,31 +1,31 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
 /// <summary>
-/// ¿ï³æ«ö¶sÄa°±®É¡AÅı¿ï³æ©³¹Ï¼½©ñ°Êµe¡C
-/// ¥ô¤@«ö¶s³QÄa°±´NÄ²µo¡A¥ş³¡²¾¶}¤~«ì´_¡C
-/// ±¾¦b¤@­ÓºŞ²zª«¥ó¤W¡A§â«ö¶s©M©³¹Ï Animator «ü©w¶i¨Ó¡C
+/// é¸å–®æŒ‰éˆ•æ‡¸åœæ™‚ï¼Œè®“é¸å–®åº•åœ–æ’­æ”¾å‹•ç•«ã€‚
+/// ä»»ä¸€æŒ‰éˆ•è¢«æ‡¸åœå°±è§¸ç™¼ï¼Œå…¨éƒ¨ç§»é–‹æ‰æ¢å¾©ã€‚
+/// æ›åœ¨ä¸€å€‹ç®¡ç†ç‰©ä»¶ä¸Šï¼ŒæŠŠæŒ‰éˆ•å’Œåº•åœ– Animator æŒ‡å®šé€²ä¾†ã€‚
 /// </summary>
 public class MenuBgHoverAnim : MonoBehaviour
 {
-    [Header("Ä²µo¨Ó·½")]
-    [Tooltip("·|Ä²µo©³¹Ï°Êµeªº©Ò¦³¿ï³æ«ö¶s")]
+    [Header("è§¸ç™¼ä¾†æº")]
+    [Tooltip("æœƒè§¸ç™¼åº•åœ–å‹•ç•«çš„æ‰€æœ‰é¸å–®æŒ‰éˆ•")]
     [SerializeField] List<RectTransform> buttons = new();
 
-    [Header("©³¹Ï")]
-    [Tooltip("­n¼½°Êµeªº¿ï³æ©³¹Ï Animator")]
+    [Header("åº•åœ–")]
+    [Tooltip("è¦æ’­å‹•ç•«çš„é¸å–®åº•åœ– Animator")]
     [SerializeField] Animator bgAnimator;
-    [Tooltip("©³¹Ï°Êµeªº bool °Ñ¼Æ¦W")]
+    [Tooltip("åº•åœ–å‹•ç•«çš„ bool åƒæ•¸å")]
     [SerializeField] string hoverParam = "Hover";
 
     static readonly int HoverHash = Animator.StringToHash("Hover");
 
-    int hoverCount = 0;   // ¥Ø«e¦³´X­Ó«ö¶s¥¿³QÄa°±
+    int hoverCount = 0;   // ç›®å‰æœ‰å¹¾å€‹æŒ‰éˆ•æ­£è¢«æ‡¸åœ
 
     void Start()
     {
-        // ¬°¨C­Ó«ö¶s¦Û°Ê±¾¤WÄa°±°»´ú
+        // ç‚ºæ¯å€‹æŒ‰éˆ•è‡ªå‹•æ›ä¸Šæ‡¸åœåµæ¸¬
         foreach (var btn in buttons)
         {
             if (btn == null) continue;

@@ -1,17 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// ¼È°±¿ï³æ¡CESC ¶}Ãö¡A¶}±Ò®É¼È°±¹CÀ¸®É¶¡¡C
-/// ´£¨ÑÄ~Äò¹CÀ¸¡B¦^¨ì¥Dµe­±¡B°h¥X¹CÀ¸¡C
+/// æš«åœé¸å–®ã€‚ESC é–‹é—œï¼Œé–‹å•Ÿæ™‚æš«åœéŠæˆ²æ™‚é–“ã€‚
+/// æä¾›ç¹¼çºŒéŠæˆ²ã€å›åˆ°ä¸»ç•«é¢ã€é€€å‡ºéŠæˆ²ã€‚
 /// </summary>
 public class PauseMenu : MonoBehaviour
 {
-    [Header("­±ªO")]
+    [Header("é¢æ¿")]
     [SerializeField] GameObject pausePanel;
 
-    [Header("«ö¶s")]
+    [Header("æŒ‰éˆ•")]
     [SerializeField] Button resumeButton;
     [SerializeField] Button mainMenuButton;
     [SerializeField] Button quitButton;
@@ -29,7 +29,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        // ESC ¤Á´«¼È°±
+        // ESC åˆ‡æ›æš«åœ
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if (IsPaused) Resume();
@@ -41,19 +41,19 @@ public class PauseMenu : MonoBehaviour
     {
         IsPaused = true;
         pausePanel.SetActive(true);
-        Time.timeScale = 0f;   // ¼È°±¹CÀ¸®É¶¡¡]ª«²z¡B°Êµe¡B­p®É¥ş°±¡^
+        Time.timeScale = 0f;   // æš«åœéŠæˆ²æ™‚é–“ï¼ˆç‰©ç†ã€å‹•ç•«ã€è¨ˆæ™‚å…¨åœï¼‰
     }
 
     void Resume()
     {
         IsPaused = false;
         pausePanel.SetActive(false);
-        Time.timeScale = 1f;   // «ì´_®É¶¡
+        Time.timeScale = 1f;   // æ¢å¾©æ™‚é–“
     }
 
     void ReturnToMainMenu()
     {
-        // SaveManager ªº ReturnToMenu ·|§â timeScale ´_­ì¡AÁ×§K¥Dµe­±­áµ²
+        // SaveManager çš„ ReturnToMenu æœƒæŠŠ timeScale å¾©åŸï¼Œé¿å…ä¸»ç•«é¢å‡çµ
         Time.timeScale = 1f;
         SaveManager.Instance.ReturnToMenu();
     }

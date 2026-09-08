@@ -1,13 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// Äá¼v¾÷Ãä¬É°Ï°ì¡Cª±®a¶i¤J®É¡A§âÃèÀYÃä¬É§ï¦¨¦¹°Ï°ìªº½d³ò¡C
-/// ±¾¦b§t Trigger Collider ªº°Ï°ìª«¥ó¤W¡C
+/// æ”å½±æ©Ÿé‚Šç•Œå€åŸŸã€‚ç©å®¶é€²å…¥æ™‚ï¼ŒæŠŠé¡é ­é‚Šç•Œæ”¹æˆæ­¤å€åŸŸçš„ç¯„åœã€‚
+/// æ›åœ¨å« Trigger Collider çš„å€åŸŸç‰©ä»¶ä¸Šã€‚
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class CameraBoundsZone : MonoBehaviour
 {
-    [Header("¦¹°Ï°ìªºÃèÀYÃä¬É")]
+    [Header("æ­¤å€åŸŸçš„é¡é ­é‚Šç•Œ")]
     [SerializeField] float minX = -10f;
     [SerializeField] float maxX = 10f;
     [SerializeField] float minY = -5f;
@@ -29,7 +29,7 @@ public class CameraBoundsZone : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        // µe¥X³o­Ó°Ï°ìªºÃèÀYÃä¬É¡]ºñ¦â¡^
+        // ç•«å‡ºé€™å€‹å€åŸŸçš„é¡é ­é‚Šç•Œï¼ˆç¶ è‰²ï¼‰
         Gizmos.color = Color.green;
         Vector3 tl = new Vector3(minX, maxY, 0);
         Vector3 tr = new Vector3(maxX, maxY, 0);

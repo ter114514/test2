@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 
 /// <summary>
-/// °lÂÜ¥»¦¸¹Cª±¤¤¤wÀ»±Ñªº¼Ä¤H ID¡C
-/// ¦]¬°¼Ä¤H¦º¤`«áª«¥ó·|³Q¾P·´¡AµLªk¦b¦sÀÉ®É¦Û¤v¦^³ø¡A
-/// ¬G¥Ñ¦¹ÀRºAÃş§O¼È¦s¡A¦sÀÉ®É²Î¤@¼g¤J¡C
+/// è¿½è¹¤æœ¬æ¬¡éŠç©ä¸­å·²æ“Šæ•—çš„æ•µäºº IDã€‚
+/// å› ç‚ºæ•µäººæ­»äº¡å¾Œç‰©ä»¶æœƒè¢«éŠ·æ¯€ï¼Œç„¡æ³•åœ¨å­˜æª”æ™‚è‡ªå·±å›å ±ï¼Œ
+/// æ•…ç”±æ­¤éœæ…‹é¡åˆ¥æš«å­˜ï¼Œå­˜æª”æ™‚çµ±ä¸€å¯«å…¥ã€‚
 /// </summary>
 public static class DefeatedEnemyTracker
 {
@@ -20,14 +20,14 @@ public static class DefeatedEnemyTracker
 
     public static void Clear() => defeated.Clear();
 
-    /// <summary>±q¦sÀÉ¸ê®ÆÁÙ­ì</summary>
+    /// <summary>å¾å­˜æª”è³‡æ–™é‚„åŸ</summary>
     public static void RestoreFrom(SaveData data)
     {
         defeated.Clear();
         foreach (var id in data.defeatedEnemies) defeated.Add(id);
     }
 
-    /// <summary>¼g¤J¦sÀÉ¸ê®Æ</summary>
+    /// <summary>å¯«å…¥å­˜æª”è³‡æ–™</summary>
     public static void WriteTo(SaveData data)
     {
         data.defeatedEnemies.Clear();

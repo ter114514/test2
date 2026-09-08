@@ -1,18 +1,18 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ª±®a°ÊµeÅX°Ê¾¹¡CÅª¨ú²¾°Êª¬ºA¨Ã§ó·s Animator °Ñ¼Æ¡A
-/// ¤£³B²z¥ô¦ó²¾°Ê©Î¿é¤JÅŞ¿è¡A¥u­t³dÅı°Êµe¤Ï¬M·í«eª¬ºA¡C
+/// ç©å®¶å‹•ç•«é©…å‹•å™¨ã€‚è®€å–ç§»å‹•ç‹€æ…‹ä¸¦æ›´æ–° Animator åƒæ•¸ï¼Œ
+/// ä¸è™•ç†ä»»ä½•ç§»å‹•æˆ–è¼¸å…¥é‚è¼¯ï¼Œåªè² è²¬è®“å‹•ç•«åæ˜ ç•¶å‰ç‹€æ…‹ã€‚
 /// </summary>
 [RequireComponent(typeof(Animator), typeof(Rigidbody2D))]
 public class PlayerAnimator : MonoBehaviour
 {
-    // Animator °Ñ¼Æªº¦r¦ê¹w¥ıÂà¦¨ hash¡A®Ä¯à¸û¦n¤]Á×§K¥´¿ù¦r
+    // Animator åƒæ•¸çš„å­—ä¸²é å…ˆè½‰æˆ hashï¼Œæ•ˆèƒ½è¼ƒå¥½ä¹Ÿé¿å…æ‰“éŒ¯å­—
     static readonly int SpeedHash = Animator.StringToHash("Speed");
     static readonly int IsGroundedHash = Animator.StringToHash("IsGrounded");
     static readonly int VerticalVelocityHash = Animator.StringToHash("VerticalVelocity");
 
-    [Tooltip("¦a­±°»´úÂI¡A»P PlayerMovement ¦@¥Î¦P¤@­Ó")]
+    [Tooltip("åœ°é¢åµæ¸¬é»ï¼Œèˆ‡ PlayerMovement å…±ç”¨åŒä¸€å€‹")]
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
@@ -28,13 +28,13 @@ public class PlayerAnimator : MonoBehaviour
 
     void Update()
     {
-        // ¤ô¥­³t«×µ´¹ï­È ¡÷ Speed¡]¨M©w Idle/Run¡^
+        // æ°´å¹³é€Ÿåº¦çµ•å°å€¼ â†’ Speedï¼ˆæ±ºå®š Idle/Runï¼‰
         animator.SetFloat(SpeedHash, Mathf.Abs(rb.linearVelocity.x));
 
-        // ««ª½³t«× ¡÷ ¨M©w Jump / Fall
+        // å‚ç›´é€Ÿåº¦ â†’ æ±ºå®š Jump / Fall
         animator.SetFloat(VerticalVelocityHash, rb.linearVelocity.y);
 
-        // µÛ¦a§PÂ_
+        // è‘—åœ°åˆ¤æ–·
         bool grounded = Physics2D.OverlapCircle(
             groundCheck.position, groundCheckRadius, groundLayer);
         animator.SetBool(IsGroundedHash, grounded);

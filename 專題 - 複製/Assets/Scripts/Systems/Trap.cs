@@ -1,15 +1,15 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ³´¨À¡Cª±®a¸I¨ì«á¦©¦å¨Ã¶Ç°e¦^³Ì«áªº¦w¥ş¦ì¸m¡C
+/// é™·é˜±ã€‚ç©å®¶ç¢°åˆ°å¾Œæ‰£è¡€ä¸¦å‚³é€å›æœ€å¾Œçš„å®‰å…¨ä½ç½®ã€‚
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class Trap : MonoBehaviour
 {
-    [Header("¶Ë®`")]
+    [Header("å‚·å®³")]
     [SerializeField] float damage = 20f;
 
-    [Header("³´¨ÀÃş«¬")]
+    [Header("é™·é˜±é¡å‹")]
     [SerializeField] bool teleportBack = true;
     [SerializeField] bool continuousDamage = false;
     [SerializeField] float damageInterval = 1f;
@@ -27,7 +27,7 @@ public class Trap : MonoBehaviour
 
         DealDamage(other);
 
-        // ¶Ç°e¦^ª±®a³Ì«áªº¦w¥ş¦ì¸m
+        // å‚³é€å›ç©å®¶æœ€å¾Œçš„å®‰å…¨ä½ç½®
         if (teleportBack && other.TryGetComponent<SafePositionTracker>(out var tracker))
             tracker.RespawnToSafe();
     }

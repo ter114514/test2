@@ -1,24 +1,24 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ¼Ä¤H°Êµe¨Æ¥ó¤¤Âà¡C
-/// Animation Event ¥u¯à©I¥s Animator ©Ò¦bª«¥óªº¤èªk¡A
-/// ¦¹¸}¥»Âàµoµ¹¤lª«¥óªº EnemyAttackHitbox¡C
-/// ±¾¦b¼Ä¤H¥Dª«¥ó¡]Animator ©Ò¦bª«¥ó¡^¤W¡C
+/// æ•µäººå‹•ç•«äº‹ä»¶ä¸­è½‰ã€‚
+/// Animation Event åªèƒ½å‘¼å« Animator æ‰€åœ¨ç‰©ä»¶çš„æ–¹æ³•ï¼Œ
+/// æ­¤è…³æœ¬è½‰ç™¼çµ¦å­ç‰©ä»¶çš„ EnemyAttackHitboxã€‚
+/// æ›åœ¨æ•µäººä¸»ç‰©ä»¶ï¼ˆAnimator æ‰€åœ¨ç‰©ä»¶ï¼‰ä¸Šã€‚
 /// </summary>
 public class EnemyAnimEventRelay : MonoBehaviour
 {
-    [Tooltip("§ğÀ»§P©w®Ø¡]¦b¤lª«¥ó¤W¡^")]
+    [Tooltip("æ”»æ“Šåˆ¤å®šæ¡†ï¼ˆåœ¨å­ç‰©ä»¶ä¸Šï¼‰")]
     [SerializeField] EnemyAttackHitbox attackHitbox;
 
     void Awake()
     {
-        // ¨S¤â°Ê«ü©w´N¦Û°Ê§ä¤lª«¥óªº
+        // æ²’æ‰‹å‹•æŒ‡å®šå°±è‡ªå‹•æ‰¾å­ç‰©ä»¶çš„
         if (attackHitbox == null)
             attackHitbox = GetComponentInChildren<EnemyAttackHitbox>(true);
     }
 
-    // ---- Animation Event ©I¥s³o¨Ç¡AÂàµoµ¹ Hitbox ----
+    // ---- Animation Event å‘¼å«é€™äº›ï¼Œè½‰ç™¼çµ¦ Hitbox ----
 
     public void AnimEvent_EnableHitbox()
     {

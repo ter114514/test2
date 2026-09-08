@@ -1,35 +1,35 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
-/// ¥Dµe­±ª^³ò²É¤l¡C¾ã­Óµe­±«ùÄò½wºC©¹¤WÄÆªº²É¤l¡C
-/// ¹w³]¤£¥Í¦¨¡A¥Ñ¼ĞÃDÂIÀ»©I¥s StartSpawning ¶}©l¡A
-/// ¦¬¦^©ÎÂ÷¶}®É©I¥s StopAndClear °±¤î¨Ã¾P·´¡C
-/// ±¾¦b Canvas ¤Uªºº¡ª©®e¾¹¤W¡C
+/// ä¸»ç•«é¢æ°›åœç²’å­ã€‚æ•´å€‹ç•«é¢æŒçºŒç·©æ…¢å¾€ä¸Šé£„çš„ç²’å­ã€‚
+/// é è¨­ä¸ç”Ÿæˆï¼Œç”±æ¨™é¡Œé»æ“Šå‘¼å« StartSpawning é–‹å§‹ï¼Œ
+/// æ”¶å›æˆ–é›¢é–‹æ™‚å‘¼å« StopAndClear åœæ­¢ä¸¦éŠ·æ¯€ã€‚
+/// æ›åœ¨ Canvas ä¸‹çš„æ»¿ç‰ˆå®¹å™¨ä¸Šã€‚
 /// </summary>
 public class UIAmbientParticles : MonoBehaviour
 {
-    [Header("²É¤l")]
-    [Tooltip("²É¤l¹w»s¡]UI Image¡^")]
+    [Header("ç²’å­")]
+    [Tooltip("ç²’å­é è£½ï¼ˆUI Imageï¼‰")]
     [SerializeField] GameObject particlePrefab;
 
-    [Header("¥Í¦¨")]
-    [Tooltip("¨C¬í¥Í¦¨´X­Ó²É¤l")]
+    [Header("ç”Ÿæˆ")]
+    [Tooltip("æ¯ç§’ç”Ÿæˆå¹¾å€‹ç²’å­")]
     [SerializeField] float spawnRate = 8f;
-    [Tooltip("²É¤l©¹¤WÄÆªº³t«×½d³ò")]
+    [Tooltip("ç²’å­å¾€ä¸Šé£„çš„é€Ÿåº¦ç¯„åœ")]
     [SerializeField] float minSpeed = 20f;
     [SerializeField] float maxSpeed = 50f;
-    [Tooltip("²É¤l¦s¬¡®É¶¡")]
+    [Tooltip("ç²’å­å­˜æ´»æ™‚é–“")]
     [SerializeField] float minLifetime = 4f;
     [SerializeField] float maxLifetime = 7f;
-    [Tooltip("²É¤l¤j¤p½d³ò")]
+    [Tooltip("ç²’å­å¤§å°ç¯„åœ")]
     [SerializeField] float minSize = 8f;
     [SerializeField] float maxSize = 20f;
 
     RectTransform area;
-    bool spawning = false;   // ¹w³]¤£¥Í¦¨¡Aµ¥¼ĞÃDÂIÀ»¤~±Ò°Ê
+    bool spawning = false;   // é è¨­ä¸ç”Ÿæˆï¼Œç­‰æ¨™é¡Œé»æ“Šæ‰å•Ÿå‹•
     float spawnTimer;
     readonly List<GameObject> activeParticles = new();
 
@@ -110,13 +110,13 @@ public class UIAmbientParticles : MonoBehaviour
         Destroy(p);
     }
 
-    /// <summary>¶}©l¥Í¦¨²É¤l¡]ÂIÀ»¼ĞÃD«á©I¥s¡^</summary>
+    /// <summary>é–‹å§‹ç”Ÿæˆç²’å­ï¼ˆé»æ“Šæ¨™é¡Œå¾Œå‘¼å«ï¼‰</summary>
     public void StartSpawning()
     {
         spawning = true;
     }
 
-    /// <summary>°±¤î¥Í¦¨¨Ã¾P·´©Ò¦³²É¤l¡]¦¬¦^©ÎÂ÷¶}®É©I¥s¡^</summary>
+    /// <summary>åœæ­¢ç”Ÿæˆä¸¦éŠ·æ¯€æ‰€æœ‰ç²’å­ï¼ˆæ”¶å›æˆ–é›¢é–‹æ™‚å‘¼å«ï¼‰</summary>
     public void StopAndClear()
     {
         spawning = false;

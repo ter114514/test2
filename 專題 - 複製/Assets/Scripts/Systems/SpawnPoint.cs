@@ -1,27 +1,27 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ¥X¥ÍÂI¡CÃö¥d¸ü¤J«á¡A§âª±®a²¾¨ì ID ¹ïÀ³ªº¥X¥ÍÂI¡C
+/// å‡ºç”Ÿé»ã€‚é—œå¡è¼‰å…¥å¾Œï¼ŒæŠŠç©å®¶ç§»åˆ° ID å°æ‡‰çš„å‡ºç”Ÿé»ã€‚
 /// </summary>
 public class SpawnPoint : MonoBehaviour
 {
-    [Tooltip("¦¹¥X¥ÍÂIªº ID¡A»P LevelExit ªº targetSpawnID ¹ïÀ³")]
+    [Tooltip("æ­¤å‡ºç”Ÿé»çš„ IDï¼Œèˆ‡ LevelExit çš„ targetSpawnID å°æ‡‰")]
     [SerializeField] string spawnID = "Default";
 
     void Start()
     {
-        // ¦pªG³o­Ó¥X¥ÍÂI´N¬O¥Ø¼Ğ
+        // å¦‚æœé€™å€‹å‡ºç”Ÿé»å°±æ˜¯ç›®æ¨™
         if (LevelManager.TargetSpawnID == spawnID)
         {
             var player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                // ²¾¨ì¥X¥ÍÂI
+                // ç§»åˆ°å‡ºç”Ÿé»
                 player.transform.position = transform.position;
                 if (player.TryGetComponent<Rigidbody2D>(out var rb))
                     rb.linearVelocity = Vector2.zero;
 
-                // ®M¥Î¸óÃö¥d«O¯dªºª±®aª¬ºA
+                // å¥—ç”¨è·¨é—œå¡ä¿ç•™çš„ç©å®¶ç‹€æ…‹
                 var health = player.GetComponent<PlayerHealthSystem>();
                 var stats = player.GetComponent<PlayerStats>();
                 var blood = player.GetComponent<BloodResource>();
