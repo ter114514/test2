@@ -3704,7 +3704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   upwardKnockback: 12
-  initialDelay: 0
+  initialDelay: 2
   retractedTime: 2
   extendedTime: 1.5
   slideDuration: 0.25
@@ -675203,7 +675203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1646080198}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MoveSpike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -676691,7 +676691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   upwardKnockback: 12
-  initialDelay: 0
+  initialDelay: 2
   retractedTime: 2
   extendedTime: 1.5
   slideDuration: 0.25
