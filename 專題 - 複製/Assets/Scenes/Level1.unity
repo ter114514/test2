@@ -651252,7 +651252,6 @@ GameObject:
   - component: {fileID: 1072404029}
   - component: {fileID: 1072404028}
   - component: {fileID: 1072404027}
-  - component: {fileID: 1072404026}
   - component: {fileID: 1072404025}
   - component: {fileID: 1072404031}
   - component: {fileID: 1072404032}
@@ -651267,6 +651266,7 @@ GameObject:
   - component: {fileID: 1072404039}
   - component: {fileID: 1072404042}
   - component: {fileID: 1072404043}
+  - component: {fileID: 1072404044}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -651302,18 +651302,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &1072404026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072404024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8dc4afcc9feb7408789b12d815b41c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &1072404027
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -651656,6 +651644,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shardsPerUpgrade: 3
+--- !u!114 &1072404044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072404024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3264a92d46c2b3c47bc1954f3c5e9888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  blood: {fileID: 0}
+  potion: {fileID: 0}
+  shardSystem: {fileID: 0}
+  maskIcons: []
+  maskFullSprite: {fileID: 0}
+  maskEmptySprite: {fileID: 0}
+  bloodFill: {fileID: 0}
+  bloodFillSpeed: 5
+  portraitImage: {fileID: 0}
+  portraitStates: []
+  deco1: {fileID: 0}
+  deco2: {fileID: 0}
+  decoStates: []
+  potionImage: {fileID: 0}
+  potionStages: []
+  shardIcons: []
+  shardFilledSprite: {fileID: 0}
+  shardEmptySprite: {fileID: 0}
 --- !u!1 &1088755222
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,12 +27,18 @@ public class PlayerInputHandler : MonoBehaviour
     InputAction castSkillAction;
 
     bool ready;
+    bool isSubscribed;
 
-    void Awake()
+    void Start()
+    {
+        InitializeInput();
+    }
+
+    void InitializeInput()
     {
         if (RebindManager.Instance == null)
         {
-            Debug.LogError("【PlayerInputHandler】找不到 RebindManager！");
+            Debug.LogError("【PlayerInputHandler】找不到 RebindManager！請確保場景中有 RebindManager 物件。");
             enabled = false;
             return;
         }
@@ -40,7 +46,7 @@ public class PlayerInputHandler : MonoBehaviour
         var asset = RebindManager.Instance.InputActions;
         if (asset == null)
         {
-            Debug.LogError("【PlayerInputHandler】InputActions 沒設定。");
+            Debug.LogError("【PlayerInputHandler】InputActions 沒設定。請在 RebindManager 上綁定 PlayerControls 資產。");
             enabled = false;
             return;
         }
@@ -62,40 +68,84 @@ public class PlayerInputHandler : MonoBehaviour
         castSkillAction = playerMap.FindAction("CastSkill");
 
         ready = true;
+
+        if (isActiveAndEnabled)
+        {
+            EnableInput();
+        }
     }
 
     void OnEnable()
     {
-        if (!ready) return;
-
-        playerMap.Enable();
-
-        moveAction.performed += HandleMove;
-        moveAction.canceled += HandleMove;
-        jumpAction.performed += HandleJumpPressed;
-        jumpAction.canceled += HandleJumpReleased;
-        attackAction.performed += HandleAttack;
-        dashAction.performed += HandleDash;
-        blockAction.performed += HandleBlockPressed;
-        blockAction.canceled += HandleBlockReleased;
-        if (usePotionAction != null) usePotionAction.performed += HandleUsePotion;
-        if (castSkillAction != null) castSkillAction.performed += HandleCastSkill;
+        if (ready)
+        {
+            EnableInput();
+        }
     }
 
     void OnDisable()
     {
-        if (!ready) return;
+        if (ready)
+        {
+            DisableInput();
+        }
+    }
 
-        moveAction.performed -= HandleMove;
-        moveAction.canceled -= HandleMove;
-        jumpAction.performed -= HandleJumpPressed;
-        jumpAction.canceled -= HandleJumpReleased;
-        attackAction.performed -= HandleAttack;
-        dashAction.performed -= HandleDash;
-        blockAction.performed -= HandleBlockPressed;
-        blockAction.canceled -= HandleBlockReleased;
+    void EnableInput()
+    {
+        if (isSubscribed || playerMap == null) return;
+
+        playerMap.Enable();
+
+        if (moveAction != null)
+        {
+            moveAction.performed += HandleMove;
+            moveAction.canceled += HandleMove;
+        }
+        if (jumpAction != null)
+        {
+            jumpAction.performed += HandleJumpPressed;
+            jumpAction.canceled += HandleJumpReleased;
+        }
+        if (attackAction != null) attackAction.performed += HandleAttack;
+        if (dashAction != null) dashAction.performed += HandleDash;
+        if (blockAction != null)
+        {
+            blockAction.performed += HandleBlockPressed;
+            blockAction.canceled += HandleBlockReleased;
+        }
+        if (usePotionAction != null) usePotionAction.performed += HandleUsePotion;
+        if (castSkillAction != null) castSkillAction.performed += HandleCastSkill;
+
+        isSubscribed = true;
+    }
+
+    void DisableInput()
+    {
+        if (!isSubscribed || playerMap == null) return;
+
+        if (moveAction != null)
+        {
+            moveAction.performed -= HandleMove;
+            moveAction.canceled -= HandleMove;
+        }
+        if (jumpAction != null)
+        {
+            jumpAction.performed -= HandleJumpPressed;
+            jumpAction.canceled -= HandleJumpReleased;
+        }
+        if (attackAction != null) attackAction.performed -= HandleAttack;
+        if (dashAction != null) dashAction.performed -= HandleDash;
+        if (blockAction != null)
+        {
+            blockAction.performed -= HandleBlockPressed;
+            blockAction.canceled -= HandleBlockReleased;
+        }
         if (usePotionAction != null) usePotionAction.performed -= HandleUsePotion;
         if (castSkillAction != null) castSkillAction.performed -= HandleCastSkill;
+
+        playerMap.Disable();
+        isSubscribed = false;
     }
 
     void HandleMove(InputAction.CallbackContext ctx) => OnMove?.Invoke(ctx.ReadValue<float>());
