@@ -15,13 +15,14 @@ public class RisingPlatform : MonoBehaviour
     [Header("反應延遲 (秒)")]
     [Tooltip("玩家踩上後，延遲多久開始上升")]
     public float riseDelay = 0.1f;
-    [Tooltip("玩家離開後，延遲多久開始下降（避免起跳時瞬間抽動）")]
+    [Tooltip("玩家離開後，延遲多久開始下降（避免原地小跳瞬間抽動）")]
     public float returnDelay = 0.2f;
 
     Vector3 startPos;
     Vector3 topPos;
     bool isPlayerOnPlatform = false;
     float delayTimer = 0f;
+    Transform originalPlayerParent;
 
     void Awake()
     {
@@ -29,31 +30,32 @@ public class RisingPlatform : MonoBehaviour
         topPos = startPos + new Vector3(0, riseDistance, 0);
     }
 
-    // 玩家進入頂部感應區
+    // 玩家踩入感應區
     public void OnPlayerEnter(Transform player)
     {
         isPlayerOnPlatform = true;
         delayTimer = riseDelay;
 
-        // 將玩家綁定為子物件，讓玩家平滑跟隨移動不滑動
+        // 記錄玩家原本的層級，並設為平台子物件
+        originalPlayerParent = player.parent;
         player.SetParent(transform);
     }
 
-    // 玩家離開頂部感應區（跳開或走開）
+    // 玩家離開感應區（跳開或走下平台）
     public void OnPlayerExit(Transform player)
     {
         isPlayerOnPlatform = false;
         delayTimer = returnDelay;
 
+        // 還原玩家原本的層級
         if (player.parent == transform)
         {
-            player.SetParent(null);
+            player.SetParent(originalPlayerParent);
         }
     }
 
     void Update()
     {
-        // 倒數延遲計時
         if (delayTimer > 0f)
         {
             delayTimer -= Time.deltaTime;
@@ -62,7 +64,7 @@ public class RisingPlatform : MonoBehaviour
 
         if (isPlayerOnPlatform)
         {
-            // 玩家在上面：往頂端移動
+            // 踩著時往頂部升
             if (Vector3.Distance(transform.position, topPos) > 0.001f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, topPos, riseSpeed * Time.deltaTime);
@@ -70,7 +72,7 @@ public class RisingPlatform : MonoBehaviour
         }
         else
         {
-            // 玩家離開：往原位下降
+            // 離開時回底部降
             if (Vector3.Distance(transform.position, startPos) > 0.001f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, startPos, returnSpeed * Time.deltaTime);
