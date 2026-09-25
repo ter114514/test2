@@ -1,0 +1,697 @@
+fileFormatVersion: 2
+guid: e2642492dd55cdb4684cea24b8f32db9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8868316417348770999
+    second: df-Sheet_0
+  - first:
+      213: -7030059902457476476
+    second: df-Sheet_1
+  - first:
+      213: -6212564424443714754
+    second: df-Sheet_2
+  - first:
+      213: -3513102823649211143
+    second: df-Sheet_3
+  - first:
+      213: 6259885349641202621
+    second: df-Sheet_4
+  - first:
+      213: 3844835319256389743
+    second: df-Sheet_5
+  - first:
+      213: 4902199462793275364
+    second: df-Sheet_6
+  - first:
+      213: 5827397794025880370
+    second: df-Sheet_7
+  - first:
+      213: -2219703687804173363
+    second: df-Sheet_8
+  - first:
+      213: 9000781264507970716
+    second: df-Sheet_9
+  - first:
+      213: 3468451288046966541
+    second: df-Sheet_10
+  - first:
+      213: -7420561170864825647
+    second: df-Sheet_11
+  - first:
+      213: -489604054548190559
+    second: df-Sheet_12
+  - first:
+      213: 3150583849536148970
+    second: df-Sheet_13
+  - first:
+      213: -4203629553132290857
+    second: df-Sheet_14
+  - first:
+      213: -6451726782425192359
+    second: df-Sheet_15
+  - first:
+      213: -9206328107715455810
+    second: df-Sheet_16
+  - first:
+      213: 225353344221312386
+    second: df-Sheet_17
+  - first:
+      213: 7407693496017498985
+    second: df-Sheet_18
+  - first:
+      213: -3083095819403179375
+    second: df-Sheet_19
+  - first:
+      213: 3970149878094966922
+    second: df-Sheet_20
+  - first:
+      213: 1506764445486101884
+    second: df-Sheet_21
+  - first:
+      213: 2924200138130244680
+    second: df-Sheet_22
+  - first:
+      213: 3178256169460992918
+    second: df-Sheet_23
+  - first:
+      213: -1607680320355128927
+    second: df-Sheet_24
+  - first:
+      213: -4143116541703563379
+    second: df-Sheet_25
+  - first:
+      213: 8967481412597111963
+    second: df-Sheet_26
+  - first:
+      213: -8282203964779884486
+    second: df-Sheet_27
+  - first:
+      213: 7347468592720711948
+    second: df-Sheet_28
+  - first:
+      213: 5936431698739385358
+    second: df-Sheet_29
+  - first:
+      213: 8455001108587982445
+    second: df-Sheet_30
+  - first:
+      213: 8116810033729172494
+    second: df-Sheet_31
+  - first:
+      213: -2556423215628953672
+    second: df-Sheet_32
+  - first:
+      213: 2295244434310541279
+    second: df-Sheet_33
+  - first:
+      213: 8033104500162293565
+    second: df-Sheet_34
+  - first:
+      213: 8902367006578815366
+    second: df-Sheet_35
+  - first:
+      213: 6950289026375620966
+    second: df-Sheet_36
+  - first:
+      213: 2594397600226823955
+    second: df-Sheet_37
+  - first:
+      213: -7663522547763147798
+    second: df-Sheet_38
+  - first:
+      213: 7915582789334817676
+    second: df-Sheet_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 145
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: df-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156a80333b05b60449f97e6cc338045c
+      internalID: 8868316417348770999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 2880
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a717723623c3c446beef094280df973
+      internalID: -7030059902457476476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2880
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 720578bb792796645944625d80bf5a39
+      internalID: -6212564424443714754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 2880
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35faa9ee83c87e74182ef86a1af15438
+      internalID: -3513102823649211143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2880
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52899b058893b994fb79e5c47a52d464
+      internalID: 6259885349641202621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0bcc9570d3bcae4cbbe9db96907232f
+      internalID: 3844835319256389743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e38a73fb3c5e9f4eaa3e4642632c5bc
+      internalID: 4902199462793275364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98cf65a22a7c1684299c5c24933c6e0f
+      internalID: 5827397794025880370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 466a39a4cfe314b40878dc4af8ba5d1c
+      internalID: -2219703687804173363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1920
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf9a0945ff434b40ad9e5ef47a5a014
+      internalID: 9000781264507970716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c55aef7117514499b031012e5109c1
+      internalID: 3468451288046966541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 960
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 596c082662dd245498389957f46d3e9e
+      internalID: -7420561170864825647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 960
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69bd4dabb20c84f4f850dd45cd066aa8
+      internalID: -489604054548190559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 960
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2468a9d3c05ed0f42b06f081c3564868
+      internalID: 3150583849536148970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 960
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 306c9ea4c4829974e9cc0d6c458cca30
+      internalID: -4203629553132290857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7688147cb00fa459915b2565dc0a9f
+      internalID: -6451726782425192359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3abe0fb0c0474e046a522530237b16b4
+      internalID: -9206328107715455810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eff8491a644dfa46a6d8d0468d86e5f
+      internalID: 225353344221312386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c38c8a4a6bf50c4a9d52ce1c8817609
+      internalID: 7407693496017498985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: df-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 800
+        height: 960
+      alignment: 9
+      pivot: {x: 0.44, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5033d1fdbf9023b448c926a752a0d4df
+      internalID: -3083095819403179375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4205b92784e39844b9f7b7ced1d44c3d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      df-Sheet_0: 8868316417348770999
+      df-Sheet_1: -7030059902457476476
+      df-Sheet_10: 3468451288046966541
+      df-Sheet_11: -7420561170864825647
+      df-Sheet_12: -489604054548190559
+      df-Sheet_13: 3150583849536148970
+      df-Sheet_14: -4203629553132290857
+      df-Sheet_15: -6451726782425192359
+      df-Sheet_16: -9206328107715455810
+      df-Sheet_17: 225353344221312386
+      df-Sheet_18: 7407693496017498985
+      df-Sheet_19: -3083095819403179375
+      df-Sheet_2: -6212564424443714754
+      df-Sheet_3: -3513102823649211143
+      df-Sheet_4: 6259885349641202621
+      df-Sheet_5: 3844835319256389743
+      df-Sheet_6: 4902199462793275364
+      df-Sheet_7: 5827397794025880370
+      df-Sheet_8: -2219703687804173363
+      df-Sheet_9: 9000781264507970716
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

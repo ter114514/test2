@@ -1,0 +1,391 @@
+fileFormatVersion: 2
+guid: d29b44055cc05384a889ae702c7475aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7683276791121095420
+    second: blood-Sheet_0
+  - first:
+      213: 918778781751090758
+    second: blood-Sheet_1
+  - first:
+      213: 987744836550284667
+    second: blood-Sheet_2
+  - first:
+      213: -4176884428549521031
+    second: blood-Sheet_3
+  - first:
+      213: 5267009371519942883
+    second: blood-Sheet_4
+  - first:
+      213: 4461725881247016013
+    second: blood-Sheet_5
+  - first:
+      213: -3541271897981775498
+    second: blood-Sheet_6
+  - first:
+      213: -5389892853339091802
+    second: blood-Sheet_7
+  - first:
+      213: 4269823491331054931
+    second: blood-Sheet_8
+  - first:
+      213: 7485735880120679567
+    second: blood-Sheet_9
+  - first:
+      213: -8408897228908990412
+    second: blood-Sheet_10
+  - first:
+      213: -3057791494101970148
+    second: blood-Sheet_11
+  - first:
+      213: 2440412584836223688
+    second: blood-Sheet_12
+  - first:
+      213: 568394264811848568
+    second: blood-Sheet_13
+  - first:
+      213: 1322333591988574961
+    second: blood-Sheet_14
+  - first:
+      213: 1164258306132906448
+    second: blood-Sheet_15
+  - first:
+      213: 6870441817029129574
+    second: blood-Sheet_16
+  - first:
+      213: 4705443515990580627
+    second: blood-Sheet_17
+  - first:
+      213: -2548109104917303284
+    second: blood-Sheet_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 70
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blood-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 48
+        width: 417
+        height: 284
+      alignment: 9
+      pivot: {x: 0.25, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 405593a57748f5590800000000000000
+      internalID: -7683276791121095420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 17
+        width: 474
+        height: 314
+      alignment: 9
+      pivot: {x: 0.25, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e0891a1e1d281940800000000000000
+      internalID: 5267009371519942883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 18
+        width: 474
+        height: 317
+      alignment: 9
+      pivot: {x: 0.25, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4425ecbc0c3bed30800000000000000
+      internalID: 4461725881247016013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 19
+        width: 474
+        height: 314
+      alignment: 9
+      pivot: {x: 0.25, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67119b3a8ffdadec0800000000000000
+      internalID: -3541271897981775498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 17
+        width: 474
+        height: 314
+      alignment: 9
+      pivot: {x: 0.25, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ac8e4bb1014335b0800000000000000
+      internalID: -5389892853339091802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 43
+        width: 173
+        height: 292
+      alignment: 9
+      pivot: {x: 0.65, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35dd766c7d5714b30800000000000000
+      internalID: 4269823491331054931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 3216
+        y: 44
+        width: 173
+        height: 294
+      alignment: 9
+      pivot: {x: 0.65, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8c3df03f1da2e760800000000000000
+      internalID: 7485735880120679567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 3744
+        y: 44
+        width: 174
+        height: 287
+      alignment: 9
+      pivot: {x: 0.65, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 430fc16c5889d4b80800000000000000
+      internalID: -8408897228908990412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 4272
+        y: 44
+        width: 174
+        height: 289
+      alignment: 9
+      pivot: {x: 0.65, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1357d446da8095d0800000000000000
+      internalID: -3057791494101970148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d45ffb433477c2c469fd0786be758eac
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      blood-Sheet_0: -7683276791121095420
+      blood-Sheet_1: 918778781751090758
+      blood-Sheet_10: -8408897228908990412
+      blood-Sheet_11: -3057791494101970148
+      blood-Sheet_12: 2440412584836223688
+      blood-Sheet_13: 568394264811848568
+      blood-Sheet_14: 1322333591988574961
+      blood-Sheet_15: 1164258306132906448
+      blood-Sheet_16: 6870441817029129574
+      blood-Sheet_17: 4705443515990580627
+      blood-Sheet_18: -2548109104917303284
+      blood-Sheet_2: 987744836550284667
+      blood-Sheet_3: -4176884428549521031
+      blood-Sheet_4: 5267009371519942883
+      blood-Sheet_5: 4461725881247016013
+      blood-Sheet_6: -3541271897981775498
+      blood-Sheet_7: -5389892853339091802
+      blood-Sheet_8: 4269823491331054931
+      blood-Sheet_9: 7485735880120679567
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

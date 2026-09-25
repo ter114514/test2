@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: c180920ee9dca464ba13c1dbe3ddb723
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4389632368801398100
+    second: "Word \u6703\u767C\u5149_0"
+  - first:
+      213: 8243185029447782082
+    second: "Word \u6703\u767C\u5149_1"
+  - first:
+      213: 1371792421545187264
+    second: "Word \u6703\u767C\u5149_2"
+  - first:
+      213: -5307466801918244396
+    second: "Word \u6703\u767C\u5149_3"
+  - first:
+      213: -1194611779987102704
+    second: "Word \u6703\u767C\u5149_4"
+  - first:
+      213: -2920979744682357526
+    second: "Word \u6703\u767C\u5149_5"
+  - first:
+      213: 846689808549228849
+    second: "Word \u6703\u767C\u5149_6"
+  - first:
+      213: 3002218113997859488
+    second: "Word \u6703\u767C\u5149_7"
+  - first:
+      213: -1681310290139798566
+    second: "Word \u6703\u767C\u5149_8"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Word \u6703\u767C\u5149_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 3000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca2490b2e94e413c0800000000000000
+      internalID: -4389632368801398100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ae72e46051f85794b84c8253e00334fa
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "Word \u6703\u767C\u5149_0": -4389632368801398100
+      "Word \u6703\u767C\u5149_1": 8243185029447782082
+      "Word \u6703\u767C\u5149_2": 1371792421545187264
+      "Word \u6703\u767C\u5149_3": -5307466801918244396
+      "Word \u6703\u767C\u5149_4": -1194611779987102704
+      "Word \u6703\u767C\u5149_5": -2920979744682357526
+      "Word \u6703\u767C\u5149_6": 846689808549228849
+      "Word \u6703\u767C\u5149_7": 3002218113997859488
+      "Word \u6703\u767C\u5149_8": -1681310290139798566
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
