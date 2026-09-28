@@ -126,7 +126,7 @@ TextureImporter:
         width: 600
         height: 490
       alignment: 9
-      pivot: {x: 0.1, y: 0.1}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -148,7 +148,7 @@ TextureImporter:
         width: 600
         height: 510
       alignment: 9
-      pivot: {x: 0.1, y: 0.1}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -165,12 +165,12 @@ TextureImporter:
       name: treasure-Sheet_2
       rect:
         serializedVersion: 2
-        x: 1310
-        y: 10
+        x: 1309
+        y: 11
         width: 600
         height: 540
       alignment: 9
-      pivot: {x: 0.1, y: 0.1}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -188,11 +188,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1950
-        y: 10
+        y: 11
         width: 600
         height: 580
       alignment: 9
-      pivot: {x: 0.1, y: 0.1}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -214,7 +214,7 @@ TextureImporter:
         width: 610
         height: 620
       alignment: 9
-      pivot: {x: 0.1, y: 0.1}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: treasure-Sheet_5
       rect:
         serializedVersion: 2
-        x: 3230
-        y: 10
+        x: 3232
+        y: 8
         width: 600
         height: 600
       alignment: 9
-      pivot: {x: 0.1, y: 0.1}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: treasure-Sheet_6
       rect:
         serializedVersion: 2
-        x: 3870
+        x: 3873
         y: 10
         width: 600
         height: 600
       alignment: 9
-      pivot: {x: 0.1, y: 0.1}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
