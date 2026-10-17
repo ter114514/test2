@@ -3761,8 +3761,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2091004525824596168, guid: abf7183517dad8b4293d488af050942a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 475381020}
   m_SourcePrefab: {fileID: 100100000, guid: abf7183517dad8b4293d488af050942a, type: 3}
+--- !u!1 &475381019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2091004525824596168, guid: abf7183517dad8b4293d488af050942a, type: 3}
+  m_PrefabInstance: {fileID: 475381018}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &475381020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475381019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbe554c6bea45b46991542657f1e95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbPrefab: {fileID: 2154849762525371369, guid: 9b36ce5f6e6b17943930007659248d9b, type: 3}
+  orbCount: 5
+  spreadRange: 2
+  spawnHeightOffset: 0.3
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckDistance: 5
 --- !u!1 &480175843
 GameObject:
   m_ObjectHideFlags: 0
@@ -515182,8 +515210,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2091004525824596168, guid: abf7183517dad8b4293d488af050942a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 910177547}
   m_SourcePrefab: {fileID: 100100000, guid: abf7183517dad8b4293d488af050942a, type: 3}
+--- !u!1 &910177546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2091004525824596168, guid: abf7183517dad8b4293d488af050942a, type: 3}
+  m_PrefabInstance: {fileID: 910177545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &910177547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910177546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbe554c6bea45b46991542657f1e95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbPrefab: {fileID: 2154849762525371369, guid: 9b36ce5f6e6b17943930007659248d9b, type: 3}
+  orbCount: 5
+  spreadRange: 2
+  spawnHeightOffset: 0.3
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckDistance: 5
 --- !u!1 &910991833
 GameObject:
   m_ObjectHideFlags: 0
@@ -515895,8 +515951,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2091004525824596168, guid: abf7183517dad8b4293d488af050942a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 989706000}
   m_SourcePrefab: {fileID: 100100000, guid: abf7183517dad8b4293d488af050942a, type: 3}
+--- !u!1 &989705999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2091004525824596168, guid: abf7183517dad8b4293d488af050942a, type: 3}
+  m_PrefabInstance: {fileID: 989705998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &989706000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989705999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbe554c6bea45b46991542657f1e95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbPrefab: {fileID: 2154849762525371369, guid: 9b36ce5f6e6b17943930007659248d9b, type: 3}
+  orbCount: 5
+  spreadRange: 2
+  spawnHeightOffset: 0.3
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckDistance: 5
 --- !u!1 &1002384184
 GameObject:
   m_ObjectHideFlags: 0
@@ -516141,8 +516225,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2091004525824596168, guid: abf7183517dad8b4293d488af050942a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1015292527}
   m_SourcePrefab: {fileID: 100100000, guid: abf7183517dad8b4293d488af050942a, type: 3}
+--- !u!1 &1015292526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2091004525824596168, guid: abf7183517dad8b4293d488af050942a, type: 3}
+  m_PrefabInstance: {fileID: 1015292525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1015292527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015292526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbe554c6bea45b46991542657f1e95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbPrefab: {fileID: 2154849762525371369, guid: 9b36ce5f6e6b17943930007659248d9b, type: 3}
+  orbCount: 5
+  spreadRange: 2
+  spawnHeightOffset: 0.3
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckDistance: 5
 --- !u!1 &1027068213
 GameObject:
   m_ObjectHideFlags: 0
@@ -539266,8 +539378,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2091004525824596168, guid: abf7183517dad8b4293d488af050942a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1846686227}
   m_SourcePrefab: {fileID: 100100000, guid: abf7183517dad8b4293d488af050942a, type: 3}
+--- !u!1 &1846686226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2091004525824596168, guid: abf7183517dad8b4293d488af050942a, type: 3}
+  m_PrefabInstance: {fileID: 1846686225}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1846686227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846686226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbe554c6bea45b46991542657f1e95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbPrefab: {fileID: 2154849762525371369, guid: 9b36ce5f6e6b17943930007659248d9b, type: 3}
+  orbCount: 5
+  spreadRange: 2
+  spawnHeightOffset: 0.3
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckDistance: 5
 --- !u!1 &1857838409
 GameObject:
   m_ObjectHideFlags: 0

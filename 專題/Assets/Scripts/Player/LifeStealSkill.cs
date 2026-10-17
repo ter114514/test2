@@ -145,9 +145,12 @@ public class LifeStealSkill : MonoBehaviour, ISkillUISource
         if (hitEffectPrefab != null)
             Instantiate(hitEffectPrefab, target.transform.position, Quaternion.identity);
 
-        // 增加吸血值
-        if (blood != null)
-            blood.Gain(bloodGain);
+        // 敵人噴出血珠（有 BloodDropper 的敵人）
+        var dropper = target.GetComponentInParent<BloodDropper>();
+        if (dropper != null)
+            dropper.Drop();
+        else if (blood != null)
+            blood.Gain(bloodGain);   // 沒掛 BloodDropper 的敵人（例如 Boss）維持原本直接加
 
         // 時停持續
         yield return new WaitForSeconds(pauseDuration);
