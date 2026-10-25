@@ -1,78 +1,116 @@
 using UnityEngine;
 
 /// <summary>
-/// 玩家攻擊判定框。
-/// 掛在武器/攻擊範圍的子物件（含 BoxCollider2D，設為 Trigger）上。
-/// 只做一件事：判定框啟用期間，偵測碰到的敵人並套用傷害。
-/// 啟用/關閉時機由 PlayerCombatController 透過動畫事件控制。
+/// 玩家攻擊判定框。命中敵人時造成傷害、命中停頓、鏡頭晃動、特效、音效、吸血值。
+/// 每個打擊音效可個別設定音量。
 /// </summary>
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Collider2D))]
 public class PlayerAttackHitbox : MonoBehaviour
 {
-    [Tooltip("可被打到的目標所在 Layer（例如 Enemy）")]
-    [SerializeField] LayerMask targetLayer;
+    [Header("傷害")]
+    [SerializeField] float baseDamage = 20f;
+    [SerializeField] float knockbackForce = 6f;
 
-    PlayerStats stats;
-    BoxCollider2D box;
+    [Header("命中停頓")]
+    [SerializeField] float hitStopDuration = 0.08f;
+    [SerializeField] float hitStopTimeScale = 0f;
 
-    // 這一次攻擊已經打過的目標，避免同一擊重複觸發
+    [Header("鏡頭晃動")]
+    [SerializeField] float shakeDuration = 0.12f;
+    [SerializeField] float shakeMagnitude = 0.12f;
+    [SerializeField] float heavyShakeMagnitude = 0.25f;
+
+    [Header("命中特效")]
+    [SerializeField] GameObject hitEffectPrefab;
+
+    [Header("打擊音效（每個可個別設音量）")]
+    [SerializeField] HitSound[] hitSounds;
+
+    [Header("吸血值")]
+    [SerializeField] float bloodPerHit = 10f;
+
+    [System.Serializable]
+    public struct HitSound
+    {
+        public AudioClip clip;
+        [Range(0f, 1f)] public float volume;   // 這個音效的音量
+    }
+
+    Collider2D hitbox;
+    BloodResource blood;
+    AudioSource audioSource;
+    float currentMultiplier = 1f;
     readonly System.Collections.Generic.HashSet<Collider2D> hitThisSwing = new();
-
-    // 當前這一擊的傷害倍率（不同連段段數可不同）
-    float currentDamageMultiplier = 1f;
 
     void Awake()
     {
-        stats = GetComponentInParent<PlayerStats>();
-        box = GetComponent<BoxCollider2D>();
-        box.isTrigger = true;
-        box.enabled = false;   // 預設關閉，攻擊時才開
-    }
+        hitbox = GetComponent<Collider2D>();
+        hitbox.isTrigger = true;
+        hitbox.enabled = false;
+        blood = GetComponentInParent<BloodResource>();
 
-    /// <summary>開啟判定（由動畫事件在命中幀呼叫）。</summary>
-    public void EnableHitbox(float damageMultiplier = 1f)
-    {
-        currentDamageMultiplier = damageMultiplier;
-        hitThisSwing.Clear();
-        box.enabled = true;
-    }
-
-    /// <summary>關閉判定（由動畫事件在命中幀結束呼叫）。</summary>
-    public void DisableHitbox()
-    {
-        box.enabled = false;
-        hitThisSwing.Clear();
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // 不在目標 Layer 就忽略
-        if ((targetLayer.value & (1 << other.gameObject.layer)) == 0) return;
-        // 這一擊已打過就跳過
         if (hitThisSwing.Contains(other)) return;
 
-        if (other.TryGetComponent<IDamageable>(out var target))
+        if (other.TryGetComponent<IDamageable>(out var damageable))
         {
             hitThisSwing.Add(other);
 
-            float damage = stats.AttackPower * currentDamageMultiplier;
+            // 傷害 + 擊退
+            float finalDamage = baseDamage * currentMultiplier;
+            float facing = Mathf.Sign(transform.lossyScale.x);
+            Vector2 knockback = new Vector2(facing, 0.2f).normalized * knockbackForce;
+            damageable.TakeDamage(finalDamage, knockback);
 
-            // 擊退方向依玩家面向
-            float facing = Mathf.Sign(transform.root.localScale.x);
-            Vector2 knockback = new Vector2(
-                facing * stats.KnockbackForce,
-                stats.KnockbackForce * 0.3f);
+            // 命中停頓
+            if (HitStopManager.Instance != null)
+                HitStopManager.Instance.DoHitStop(hitStopDuration, hitStopTimeScale);
 
-            target.TakeDamage(damage, knockback);
+            // 鏡頭晃動
+            if (CameraFollow.Instance != null)
+            {
+                float mag = currentMultiplier >= 1.5f ? heavyShakeMagnitude : shakeMagnitude;
+                CameraFollow.Instance.Shake(shakeDuration, mag);
+            }
+
+            // 命中特效
+            if (hitEffectPrefab != null)
+                Instantiate(hitEffectPrefab, other.ClosestPoint(transform.position), Quaternion.identity);
+
+            // 打擊音效
+            PlayHitSound();
+
+            // 吸血值
+            if (blood != null) blood.Gain(bloodPerHit);
         }
     }
 
-    void OnDrawGizmosSelected()
+    void PlayHitSound()
     {
-        var b = GetComponent<BoxCollider2D>();
-        if (b == null) return;
-        Gizmos.color = Color.red;
-        Gizmos.matrix = transform.localToWorldMatrix;
-        Gizmos.DrawWireCube(b.offset, b.size);
+        if (hitSounds == null || hitSounds.Length == 0 || audioSource == null) return;
+
+        // 隨機選一個，用它自己的音量
+        var chosen = hitSounds[Random.Range(0, hitSounds.Length)];
+        if (chosen.clip != null)
+            audioSource.PlayOneShot(chosen.clip, chosen.volume);
+    }
+
+    public void EnableHitbox(float multiplier = 1f)
+    {
+        currentMultiplier = multiplier;
+        hitThisSwing.Clear();
+        hitbox.enabled = true;
+    }
+
+    public void DisableHitbox()
+    {
+        hitbox.enabled = false;
     }
 }
