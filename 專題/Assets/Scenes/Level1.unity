@@ -3675,12 +3675,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbPrefab: {fileID: 2154849762525371369, guid: 9b36ce5f6e6b17943930007659248d9b, type: 3}
   orbCount: 5
-  spreadRange: 2
+  spreadRange: 3
   spawnHeightOffset: 0.3
   groundMask:
     serializedVersion: 2
     m_Bits: 0
   groundCheckDistance: 5
+  spraySprefab: {fileID: 8536590278351892532, guid: a368022b4a4c3ce4cb9570061fd46ba9, type: 3}
 --- !u!1 &480175843
 GameObject:
   m_ObjectHideFlags: 0
@@ -515100,12 +515101,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbPrefab: {fileID: 2154849762525371369, guid: 9b36ce5f6e6b17943930007659248d9b, type: 3}
   orbCount: 5
-  spreadRange: 2
+  spreadRange: 3
   spawnHeightOffset: 0.3
   groundMask:
     serializedVersion: 2
     m_Bits: 0
   groundCheckDistance: 5
+  spraySprefab: {fileID: 8536590278351892532, guid: a368022b4a4c3ce4cb9570061fd46ba9, type: 3}
 --- !u!1 &910991833
 GameObject:
   m_ObjectHideFlags: 0
@@ -515841,12 +515843,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbPrefab: {fileID: 2154849762525371369, guid: 9b36ce5f6e6b17943930007659248d9b, type: 3}
   orbCount: 5
-  spreadRange: 2
+  spreadRange: 1.2
   spawnHeightOffset: 0.3
   groundMask:
     serializedVersion: 2
     m_Bits: 0
   groundCheckDistance: 5
+  spraySprefab: {fileID: 8536590278351892532, guid: a368022b4a4c3ce4cb9570061fd46ba9, type: 3}
 --- !u!1 &1002384184
 GameObject:
   m_ObjectHideFlags: 0
@@ -516115,12 +516118,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbPrefab: {fileID: 2154849762525371369, guid: 9b36ce5f6e6b17943930007659248d9b, type: 3}
   orbCount: 5
-  spreadRange: 2
+  spreadRange: 3
   spawnHeightOffset: 0.3
   groundMask:
     serializedVersion: 2
     m_Bits: 0
   groundCheckDistance: 5
+  spraySprefab: {fileID: 8536590278351892532, guid: a368022b4a4c3ce4cb9570061fd46ba9, type: 3}
 --- !u!1 &1027068213
 GameObject:
   m_ObjectHideFlags: 0
@@ -517283,7 +517287,7 @@ MonoBehaviour:
   damage: 20
   knockbackForce: 3
   bloodGain: 10
-  pauseDuration: 3
+  pauseDuration: 2
   cooldown: 5
   bloodCost: 0
   animator: {fileID: 0}
@@ -535209,7 +535213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 205, y: -102}
+  m_AnchoredPosition: {x: 125, y: -140}
   m_SizeDelta: {x: 932, y: 1162}
   m_Pivot: {x: 0.24267715, y: 0.5}
 --- !u!114 &1299589755
@@ -539222,12 +539226,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbPrefab: {fileID: 2154849762525371369, guid: 9b36ce5f6e6b17943930007659248d9b, type: 3}
   orbCount: 5
-  spreadRange: 2
+  spreadRange: 3
   spawnHeightOffset: 0.3
   groundMask:
     serializedVersion: 2
     m_Bits: 0
   groundCheckDistance: 5
+  spraySprefab: {fileID: 8536590278351892532, guid: a368022b4a4c3ce4cb9570061fd46ba9, type: 3}
 --- !u!1 &1857838409
 GameObject:
   m_ObjectHideFlags: 0
