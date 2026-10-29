@@ -13,6 +13,8 @@ public class BloodDropper : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     [SerializeField] float groundCheckDistance = 5f;
 
+    [Header("特效（可選）")]
+    [SerializeField] GameObject spraySprefab;   // 拖入 BloodSpray
     /// <summary>吸血攻擊命中時呼叫這個。</summary>
     public void Drop()
     {
@@ -20,11 +22,12 @@ public class BloodDropper : MonoBehaviour
 
         Vector2 from = (Vector2)transform.position + Vector2.up * spawnHeightOffset;
 
+        if (spraySprefab != null)
+            Instantiate(spraySprefab, from, Quaternion.identity);
+
         for (int i = 0; i < orbCount; i++)
         {
-            float ratio = orbCount == 1 ? 0.5f : i / (float)(orbCount - 1);
-            float x = Mathf.Lerp(-spreadRange, spreadRange, ratio) + Random.Range(-0.2f, 0.2f);
-
+            float x = Random.Range(-spreadRange, spreadRange);   // 完全隨機，更散亂
             Vector2 to = FindGround(from.x + x, from.y);
 
             var orb = Instantiate(orbPrefab);
