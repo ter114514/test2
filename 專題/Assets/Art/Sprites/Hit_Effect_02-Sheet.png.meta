@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 6c2da4a6eef7384479b482895c1d08fa
+guid: 2e0b4f879751d2748a5c513102b7f5e9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7824657739629578644
-    second: "\u8840\u5674\u6CC9-Sheet_0"
+      213: 2212904153206833786
+    second: Hit_Effect_02-Sheet_0
   - first:
-      213: 3147013891257737809
-    second: "\u8840\u5674\u6CC9-Sheet_1"
+      213: 8285503654667603789
+    second: Hit_Effect_02-Sheet_1
   - first:
-      213: -3052726053804476918
-    second: "\u8840\u5674\u6CC9-Sheet_2"
+      213: 2857723156944502810
+    second: Hit_Effect_02-Sheet_2
   - first:
-      213: -4340763297883233753
-    second: "\u8840\u5674\u6CC9-Sheet_3"
+      213: -2553984664536716646
+    second: Hit_Effect_02-Sheet_3
   - first:
-      213: 6774074626164117777
-    second: "\u8840\u5674\u6CC9-Sheet_4"
+      213: 4276069417260917406
+    second: Hit_Effect_02-Sheet_4
   - first:
-      213: -9179382562866342588
-    second: "\u8840\u5674\u6CC9-Sheet_5"
+      213: 1317529851008858800
+    second: Hit_Effect_02-Sheet_5
   - first:
-      213: 5573890999360828829
-    second: "\u8840\u5674\u6CC9-Sheet_6"
+      213: -3782397460158264362
+    second: Hit_Effect_02-Sheet_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -114,56 +114,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u8840\u5674\u6CC9-Sheet_0"
+      name: Hit_Effect_02-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 960
-        height: 960
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 499c1a3e1c4c69c60800000000000000
-      internalID: 7824657739629578644
+      spriteID: a7241e55a90d5be10800000000000000
+      internalID: 2212904153206833786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u8840\u5674\u6CC9-Sheet_1"
+      name: Hit_Effect_02-Sheet_1
       rect:
         serializedVersion: 2
-        x: 960
+        x: 64
         y: 0
-        width: 960
-        height: 960
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15223a3e5707cab20800000000000000
-      internalID: 3147013891257737809
+      spriteID: d4fc9a9eca50cf270800000000000000
+      internalID: 8285503654667603789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u8840\u5674\u6CC9-Sheet_2"
+      name: Hit_Effect_02-Sheet_2
       rect:
         serializedVersion: 2
-        x: 1920
+        x: 128
         y: 0
-        width: 960
-        height: 960
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a06776ef3d982a5d0800000000000000
-      internalID: -3052726053804476918
+      spriteID: a10c514021ca8a720800000000000000
+      internalID: 2857723156944502810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u8840\u5674\u6CC9-Sheet_3"
+      name: Hit_Effect_02-Sheet_3
       rect:
         serializedVersion: 2
-        x: 2880
+        x: 192
         y: 0
-        width: 960
-        height: 960
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 722ed9767c282c3c0800000000000000
-      internalID: -4340763297883233753
+      spriteID: a9a6e7caa7c6e8cd0800000000000000
+      internalID: -2553984664536716646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u8840\u5674\u6CC9-Sheet_4"
+      name: Hit_Effect_02-Sheet_4
       rect:
         serializedVersion: 2
-        x: 3840
+        x: 256
         y: 0
-        width: 960
-        height: 960
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,52 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 111df7e5bf8520e50800000000000000
-      internalID: 6774074626164117777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u8840\u5674\u6CC9-Sheet_5"
-      rect:
-        serializedVersion: 2
-        x: 4800
-        y: 0
-        width: 960
-        height: 960
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 445dfea81384c9080800000000000000
-      internalID: -9179382562866342588
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u8840\u5674\u6CC9-Sheet_6"
-      rect:
-        serializedVersion: 2
-        x: 5760
-        y: 0
-        width: 960
-        height: 960
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d9536a905507a5d40800000000000000
-      internalID: 5573890999360828829
+      spriteID: e92afbaba76a75b30800000000000000
+      internalID: 4276069417260917406
       vertices: []
       indices: 
       edges: []
@@ -314,7 +231,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f760589a8b3071d478d8fbce635b8dca
+    spriteID: c60974f70815dad4b8898a332f1602ba
     internalID: 0
     vertices: []
     indices: 
@@ -324,13 +241,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u8840\u5674\u6CC9-Sheet_0": 7824657739629578644
-      "\u8840\u5674\u6CC9-Sheet_1": 3147013891257737809
-      "\u8840\u5674\u6CC9-Sheet_2": -3052726053804476918
-      "\u8840\u5674\u6CC9-Sheet_3": -4340763297883233753
-      "\u8840\u5674\u6CC9-Sheet_4": 6774074626164117777
-      "\u8840\u5674\u6CC9-Sheet_5": -9179382562866342588
-      "\u8840\u5674\u6CC9-Sheet_6": 5573890999360828829
+      Hit_Effect_02-Sheet_0: 2212904153206833786
+      Hit_Effect_02-Sheet_1: 8285503654667603789
+      Hit_Effect_02-Sheet_2: 2857723156944502810
+      Hit_Effect_02-Sheet_3: -2553984664536716646
+      Hit_Effect_02-Sheet_4: 4276069417260917406
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
