@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1246612902060977375}
   - component: {fileID: 5597052361426775778}
   - component: {fileID: 1729201176041126138}
+  - component: {fileID: -3642382444536251130}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -258,3 +259,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyId: 1
+--- !u!114 &-3642382444536251130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091004525824596168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359a4541a07fc634ab98b4e2e448dfd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splatSprites:
+  - {fileID: -2563557088053367139, guid: 1fb9302cb45961448b4467e0e823a3ea, type: 3}
+  - {fileID: 5672319504959130010, guid: e40f102596fe0de4a8260d36d01604ae, type: 3}
+  - {fileID: 383896420062286689, guid: e53ae8eddc62ab14ea412d01ddc8c270, type: 3}
+  - {fileID: 4163866426803606123, guid: fd9113cf10f6ae6478a2a2d0ac1f0a4b, type: 3}
+  - {fileID: 1014257717974861866, guid: 3a6a9d65330cbd7478ca32c015f637dd, type: 3}
+  splatCount: 3
+  spreadRadius: 1.2
+  sizeRange: {x: 0.3, y: 0.6}
+  sortingLayerName: Default
+  sortingOrder: -3
+  tint: {r: 0.7058824, g: 0.15686275, b: 0.09900318, a: 0.6666667}
+  popTime: 0.18
+  maxDecals: 15
+  fadeAfter: 6
+  fadeDuration: 3
+  sprayPrefab: {fileID: 0}
+  sprayScale: 1.8
+  heightOffset: 1.2
+  horizontalSpread: 1
+  verticalSpread: 0.8
+  minHeightAboveFeet: 0.4
+  rotationRange: 25
