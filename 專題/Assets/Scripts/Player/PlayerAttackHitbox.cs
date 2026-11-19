@@ -1,8 +1,8 @@
 using UnityEngine;
 
 /// <summary>
-/// 玩家攻擊判定框。命中敵人時造成傷害、命中停頓、鏡頭晃動、特效、音效、吸血值。
-/// 每個打擊音效可個別設定音量。
+/// 玩家攻擊判定框。命中敵人時造成傷害、命中停頓、鏡頭晃動、特效、音效。
+/// 普攻不加吸血值（吸血值只靠技能/血珠）。
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class PlayerAttackHitbox : MonoBehaviour
@@ -26,18 +26,14 @@ public class PlayerAttackHitbox : MonoBehaviour
     [Header("打擊音效（每個可個別設音量）")]
     [SerializeField] HitSound[] hitSounds;
 
-    [Header("吸血值")]
-    [SerializeField] float bloodPerHit = 10f;
-
     [System.Serializable]
     public struct HitSound
     {
         public AudioClip clip;
-        [Range(0f, 1f)] public float volume;   // 這個音效的音量
+        [Range(0f, 1f)] public float volume;
     }
 
     Collider2D hitbox;
-    BloodResource blood;
     AudioSource audioSource;
     float currentMultiplier = 1f;
     readonly System.Collections.Generic.HashSet<Collider2D> hitThisSwing = new();
@@ -47,7 +43,6 @@ public class PlayerAttackHitbox : MonoBehaviour
         hitbox = GetComponent<Collider2D>();
         hitbox.isTrigger = true;
         hitbox.enabled = false;
-        blood = GetComponentInParent<BloodResource>();
 
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
@@ -87,16 +82,13 @@ public class PlayerAttackHitbox : MonoBehaviour
             // 打擊音效
             PlayHitSound();
 
-            // 吸血值
-            if (blood != null) blood.Gain(bloodPerHit);
+            // 普攻不加吸血值（已移除 blood.Gain）
         }
     }
 
     void PlayHitSound()
     {
         if (hitSounds == null || hitSounds.Length == 0 || audioSource == null) return;
-
-        // 隨機選一個，用它自己的音量
         var chosen = hitSounds[Random.Range(0, hitSounds.Length)];
         if (chosen.clip != null)
             audioSource.PlayOneShot(chosen.clip, chosen.volume);
