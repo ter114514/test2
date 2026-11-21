@@ -44,6 +44,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public string EnemyId => enemyId;
     public float CurrentHealth => currentHealth;
     public float MaxHealth => maxHealth;
+    public Vector2 LastKnockback { get; private set; }
 
     void Awake()
     {
@@ -78,6 +79,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void TakeDamage(float damage, Vector2 knockback)
     {
         if (isDead) return;
+
+        LastKnockback = knockback;
 
         currentHealth -= damage;
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
