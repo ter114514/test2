@@ -2,8 +2,8 @@ using UnityEngine;
 
 /// <summary>
 /// 玩家戰鬥控制器。
-/// 職責：連段(1→2→3循環)、防禦架勢、攻擊/防禦硬直、指揮 Animator。
-/// 含計時保險，防止動畫事件沒觸發導致攻擊卡死。
+/// 職責：連段(1→2循環)、防禦架勢、攻擊/防禦硬直、指揮 Animator。
+/// 含計時保險,防止動畫事件沒觸發導致攻擊卡死。
 /// </summary>
 [RequireComponent(typeof(Animator))]
 public class PlayerCombatController : MonoBehaviour
@@ -14,12 +14,12 @@ public class PlayerCombatController : MonoBehaviour
 
     [Header("連段設定")]
     [Tooltip("最大連段數")]
-    [SerializeField] int maxCombo = 3;
-    [Tooltip("連段窗口：此時間內持續攻擊則循環往下接段，超過則重置回第一段")]
+    [SerializeField] int maxCombo = 2;
+    [Tooltip("連段窗口：此時間內持續攻擊則循環往下接段,超過則重置回第一段")]
     [SerializeField] float comboWindow = 2.5f;
 
     [Header("攻擊硬直保險")]
-    [Tooltip("攻擊最長持續時間，超過強制解除（防止動畫事件沒觸發卡死）")]
+    [Tooltip("攻擊最長持續時間,超過強制解除（防止動畫事件沒觸發卡死）")]
     [SerializeField] float attackMaxDuration = 1f;
 
     [Header("攻擊前衝")]
@@ -65,7 +65,7 @@ public class PlayerCombatController : MonoBehaviour
 
     void Update()
     {
-        // 超過連段窗口且非攻擊中，重置回第一段
+        // 超過連段窗口且非攻擊中,重置回第一段
         if (comboStep > 0 && !IsAttacking
             && Time.time - lastAttackTime > comboWindow)
         {
@@ -88,7 +88,7 @@ public class PlayerCombatController : MonoBehaviour
 
     void StartAttack()
     {
-        // 循環連段：1 → 2 → 3 → 1 → 2 → 3 ...
+        // 循環連段：1 → 2 → 1 → 2 ...
         comboStep = comboStep % maxCombo + 1;
         lastAttackTime = Time.time;
         IsAttacking = true;
@@ -104,7 +104,7 @@ public class PlayerCombatController : MonoBehaviour
         animator.SetInteger(ComboStepHash, comboStep);
         animator.SetTrigger(AttackTrigger);
 
-        // 保險：超過最長時間強制結束，防止 AttackEnd 沒觸發卡死
+        // 保險：超過最長時間強制結束,防止 AttackEnd 沒觸發卡死
         CancelInvoke(nameof(ForceAttackEnd));
         Invoke(nameof(ForceAttackEnd), attackMaxDuration);
     }
@@ -113,18 +113,17 @@ public class PlayerCombatController : MonoBehaviour
     {
         if (IsAttacking)
         {
-            Debug.LogWarning("攻擊硬直逾時，強制解除（AttackEnd 可能沒觸發）");
+            Debug.LogWarning("攻擊硬直逾時,強制解除（AttackEnd 可能沒觸發）");
             AnimEvent_AttackEnd();
         }
     }
 
     // ---- 以下由 Animation Event 呼叫 ----
 
-    /// <summary>命中幀：開啟判定框</summary>
+    /// <summary>命中幀：開啟判定框（兩段都普通傷害,不加重）</summary>
     public void AnimEvent_EnableHitbox()
     {
-        float mult = comboStep >= maxCombo ? 1.5f : 1f;   // 第三段加重
-        if (hitbox != null) hitbox.EnableHitbox(mult);
+        if (hitbox != null) hitbox.EnableHitbox(1f);
     }
 
     /// <summary>命中幀結束：關閉判定框</summary>
@@ -144,7 +143,7 @@ public class PlayerCombatController : MonoBehaviour
     {
         IsAttacking = false;
         canQueueNext = false;
-        CancelInvoke(nameof(ForceAttackEnd));   // 正常結束就取消保險
+        CancelInvoke(nameof(ForceAttackEnd));
     }
 
     // ---- 防禦架勢 ----
