@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// 下蹲系統（完整）。蹲下、持續4秒正座（鏡頭下帶）、放開回放+鏡頭回彈。
+/// 下蹲系統（完整 + 診斷 log）。蹲下、持續4秒正座（鏡頭下帶）、放開回放+鏡頭回彈。
 /// </summary>
 public class CrouchSystem : MonoBehaviour
 {
@@ -16,7 +16,6 @@ public class CrouchSystem : MonoBehaviour
     [SerializeField] float seizaHoldTime = 4f;
 
     [Header("鏡頭下帶")]
-    [Tooltip("正座時鏡頭往下的量")]
     [SerializeField] float cameraDownAmount = 3f;
 
     [Header("引用")]
@@ -38,6 +37,9 @@ public class CrouchSystem : MonoBehaviour
         if (crouchAnimator == null) crouchAnimator = GetComponentInChildren<Animator>();
         if (playerAnimator == null) playerAnimator = GetComponent<PlayerAnimator>();
         if (cameraFollow == null) cameraFollow = CameraFollow.Instance;
+
+        // 診斷：確認抓到的 cameraFollow
+        Debug.Log($"【Crouch】cameraFollow = {(cameraFollow != null ? cameraFollow.name : "null")}");
     }
 
     void OnEnable()
@@ -59,7 +61,6 @@ public class CrouchSystem : MonoBehaviour
 
         if (holdingDown)
         {
-            // 蹲下先到幀2
             if (currentProgress < crouchProgress - 0.001f)
             {
                 currentProgress = Mathf.MoveTowards(currentProgress, crouchProgress, crouchSpeed * Time.deltaTime);
@@ -67,7 +68,6 @@ public class CrouchSystem : MonoBehaviour
             }
             else
             {
-                // 蹲到幀2，計時進正座
                 crouchHoldTimer += Time.deltaTime;
                 if (crouchHoldTimer >= seizaHoldTime)
                     currentProgress = Mathf.MoveTowards(currentProgress, seizaProgress, seizaSpeed * Time.deltaTime);
@@ -80,7 +80,6 @@ public class CrouchSystem : MonoBehaviour
         }
         else
         {
-            // 放開：回放
             crouchHoldTimer = 0f;
             currentProgress = Mathf.MoveTowards(currentProgress, 0f, crouchSpeed * Time.deltaTime);
 
@@ -91,7 +90,6 @@ public class CrouchSystem : MonoBehaviour
             }
             else if (wasCrouching)
             {
-                // 回站立
                 if (crouchAnimator != null)
                 {
                     crouchAnimator.speed = 1f;
@@ -102,7 +100,6 @@ public class CrouchSystem : MonoBehaviour
             }
         }
 
-        // 鏡頭下帶：只有「按住下」且「正座進度」才下帶，放開立刻回彈
         UpdateCamera(holdingDown);
     }
 
@@ -110,9 +107,14 @@ public class CrouchSystem : MonoBehaviour
     {
         if (cameraFollow == null) return;
 
-        // 關鍵：加 holdingDown 條件，放開（false）立刻回 0
         bool inSeiza = holdingDown && currentProgress >= seizaProgress - 0.05f;
-        cameraFollow.SetExtraYOffset(inSeiza ? -cameraDownAmount : 0f);
+        float off = inSeiza ? -cameraDownAmount : 0f;
+
+        // 診斷：只在偏移該是 0（放開/非正座）時印，看有沒有設回 0
+        if (!inSeiza)
+            Debug.Log($"【Crouch】設鏡頭偏移 0（holdingDown={holdingDown}, progress={currentProgress:F2}）");
+
+        cameraFollow.SetExtraYOffset(off);
     }
 
     void ApplyCrouch()
