@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5597052361426775778}
   - component: {fileID: 1729201176041126138}
   - component: {fileID: -3642382444536251130}
+  - component: {fileID: -6969796129862224320}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -294,3 +295,24 @@ MonoBehaviour:
   verticalSpread: 0.8
   minHeightAboveFeet: 0.4
   rotationRange: 25
+--- !u!114 &-6969796129862224320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091004525824596168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b25c568797c9974e8be12dcbd025727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffectPrefabs:
+  - {fileID: 3747166640056754769, guid: 5ca89ed0696930d418faad762de1c0b9, type: 3}
+  effectScale: 1
+  spawnOffset: {x: 0, y: 0}
+  alignToKnockback: 1
+  randomRotation: 10
+  hitSounds: []
+  soundVolume: 0.8
+  playOnKillingBlow: 1
