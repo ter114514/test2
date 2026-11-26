@@ -2973,8 +2973,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457338980}
   m_CullTransparentMesh: 1
-<<<<<<< Updated upstream
-=======
 --- !u!1001 &475381018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3153,7 +3151,6 @@ MonoBehaviour:
     m_Bits: 0
   groundCheckDistance: 5
   spraySprefab: {fileID: 8536590278351892532, guid: a368022b4a4c3ce4cb9570061fd46ba9, type: 3}
->>>>>>> Stashed changes
 --- !u!1 &480175843
 GameObject:
   m_ObjectHideFlags: 0
@@ -39001,8 +38998,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1001 &910177545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39177,7 +39172,6 @@ MonoBehaviour:
     m_Bits: 0
   groundCheckDistance: 5
   spraySprefab: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!1 &951727544
 GameObject:
   m_ObjectHideFlags: 0
@@ -39340,8 +39334,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< Updated upstream
-=======
     - target: {fileID: -6969796129862224320, guid: abf7183517dad8b4293d488af050942a, type: 3}
       propertyPath: 'hitEffectPrefabs.Array.data[0]'
       value: 
@@ -39414,7 +39406,6 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.13659483
       objectReference: {fileID: 0}
->>>>>>> Stashed changes
     - target: {fileID: 1359963410897259178, guid: abf7183517dad8b4293d488af050942a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 98.1
@@ -39707,8 +39698,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1001 &1015292525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39977,7 +39966,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &1029248523
 GameObject:
   m_ObjectHideFlags: 0
@@ -93712,8 +93700,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828546351}
   m_CullTransparentMesh: 1
-<<<<<<< Updated upstream
-=======
 --- !u!1001 &1846686225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93892,7 +93878,6 @@ MonoBehaviour:
     m_Bits: 0
   groundCheckDistance: 5
   spraySprefab: {fileID: 8536590278351892532, guid: a368022b4a4c3ce4cb9570061fd46ba9, type: 3}
->>>>>>> Stashed changes
 --- !u!1 &1857838409
 GameObject:
   m_ObjectHideFlags: 0
